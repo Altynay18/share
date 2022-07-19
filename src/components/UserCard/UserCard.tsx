@@ -1,8 +1,8 @@
-import { Avatar } from "@chakra-ui/react";
-import "./UserCard.css";
-import { Table, Tbody, Tr, Td, TableContainer } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react";
-import { useState, useCallback,useEffect } from "react";
+import {Avatar} from "@chakra-ui/react";
+import "./UserCard.scss";
+import {Table, Tbody, Tr, Td, TableContainer} from "@chakra-ui/react";
+import {Button} from "@chakra-ui/react";
+import {useState, useCallback, useEffect} from "react";
 
 const UserCard = () => {
   const [user, setUser] = useState<any>([]);

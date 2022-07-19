@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import {Text} from "@chakra-ui/react";
 import Header from "../Header";
 import SideBar from "../SideBar";
 
@@ -13,7 +13,7 @@ const Training = () => {
           <div className="header">
             <Header></Header>
           </div>
-          <div style={{ paddingLeft: "8rem" }}>
+          <div style={{paddingLeft: "8rem"}}>
             <div className="feedContent">
               <Text size={"5xl"}>Coming soon</Text>
             </div>

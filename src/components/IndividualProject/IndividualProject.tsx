@@ -11,16 +11,16 @@ import {
   Button,
   Badge
 } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import { useState, useCallback, useEffect } from "react";
-import { Service } from "../../service/Service";
-import { useFormik } from "formik";
-import { useParams } from "react-router-dom";
+import {ChevronDownIcon} from "@chakra-ui/icons";
+import {useState, useCallback, useEffect} from "react";
+import {Service} from "../../service/Service";
+import {useFormik} from "formik";
+import {useParams} from "react-router-dom";
 import DiscussProject from "../DiscussProject/DiscussProject";
 
 const IndividualProject = () => {
   const [projects, setProjects] = useState([]);
-  const { projectId = "" } = useParams();
+  const {projectId = ""} = useParams();
   console.log("id:", projectId)
 
   const [data, setData] = useState([]);
@@ -73,7 +73,7 @@ const IndividualProject = () => {
 
   const service = new Service();
   const validate = (values) => {
-    const errors = {};
+    const errors: any = {};
     const passRegex = /^(.)/g;
 
     if (!passRegex.test(values.password)) {
@@ -101,42 +101,42 @@ const IndividualProject = () => {
         <SideBar></SideBar>
       </div>
       <div className="profileBody">
-       
+
         <div className="header">
           <Header></Header>
         </div >
-        <div style={{ paddingLeft: "8rem" }}>
+        <div style={{paddingLeft: "8rem"}}>
           <div className="feedContent">
-          {
-        projects?.map((r)=>(
-          (r.id == projectId) ? 
-          <div key={r.id}>
-          <Text
-          fontSize="3xl"
-          fontWeight={"600"}
-          align={"left"}
-          marginBottom={"3rem"}
-        >
-          {r.title}
-        </Text>
-        <Box marginBottom={"3rem"} border={'1px solid #808080'} borderRadius={'12px'} padding={'2rem'} textAlign='left'>
-          <Text marginBottom={"1rem"} fontSize="2xl" fontWeight={"600"} color={'#F7A325'}>Последние обновления от других участников проекта:</Text>
-          {data?.map((t)=>(
-          <>
-          <Badge borderRadius="full" px="2" backgroundColor={"#FFCA7A"}>
-          Учитель {t.ownerId} 
+            {
+              projects?.map((r) => (
+                (r.id == projectId) ?
+                  <div key={r.id}>
+                    <Text
+                      fontSize="3xl"
+                      fontWeight={"600"}
+                      align={"left"}
+                      marginBottom={"3rem"}
+                    >
+                      {r.title}
+                    </Text>
+                    <Box marginBottom={"3rem"} border={'1px solid #808080'} borderRadius={'12px'} padding={'2rem'} textAlign='left'>
+                      <Text marginBottom={"1rem"} fontSize="2xl" fontWeight={"600"} color={'#F7A325'}>Последние обновления от других участников проекта:</Text>
+                      {data?.map((t) => (
+                        <>
+                          <Badge borderRadius="full" px="2" backgroundColor={"#FFCA7A"}>
+                            Учитель {t.ownerId}
 
-              </Badge>
-            <Box key={t.id} border={'1px solid #E5E7EB'} borderRadius={'12px'} padding={'0.5rem'} marginBottom={'1rem'}>
-                {t.content} 
-            </Box>
-            </>
-          ) )
-        }  
-        </Box>
-        </div> 
-        : "")) }
-         <DiscussProject></DiscussProject>
+                          </Badge>
+                          <Box key={t.id} border={'1px solid #E5E7EB'} borderRadius={'12px'} padding={'0.5rem'} marginBottom={'1rem'}>
+                            {t.content}
+                          </Box>
+                        </>
+                      ))
+                      }
+                    </Box>
+                  </div>
+                  : ""))}
+            <DiscussProject></DiscussProject>
           </div>
         </div>
       </div>

@@ -81,16 +81,16 @@ const AdminPage = () => {
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {users?.map((p) => (
-                    <Tr key={p.id}>
+                  {users?.map((p: any) => (
+                    <Tr key={p.id} >
                       <Td>{p.id}</Td>
                       <Td>{p.username}</Td>
                       <Td><Button onClick={() => {
-                        service.acceptUser(p.id);
+                        // service.acceptUser(p.id);
                       }
                       }>Verify</Button></Td>
                       <Td><Button onClick={() => {
-                        service.acceptUser(p.id);
+                        // service.acceptUser(p.id);
                       }
                       }>Decline</Button></Td>
                     </Tr>
@@ -101,7 +101,7 @@ const AdminPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 export default AdminPage;

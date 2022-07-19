@@ -1,4 +1,4 @@
-import { ChatIcon } from "@chakra-ui/icons";
+import {ChatIcon} from "@chakra-ui/icons";
 import {
   Box,
   Badge,
@@ -10,17 +10,17 @@ import {
   ModalFooter,
   Button,
 } from "@chakra-ui/react";
-import { useDisclosure } from "@chakra-ui/react";
-import { useState, useCallback } from "react";
-import { Service } from "../../service/Service";
-import { useFormik } from "formik";
-import { Divider } from "@chakra-ui/react";
-const Posts = ({ postsArr }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [postData, setPostData] = useState({});
+import {useDisclosure} from "@chakra-ui/react";
+import {useState, useCallback} from "react";
+import {Service} from "../../service/Service";
+import {useFormik} from "formik";
+import {Divider} from "@chakra-ui/react";
+const Posts = ({postsArr}) => {
+  const {isOpen, onOpen, onClose} = useDisclosure();
+  const [postData, setPostData] = useState<any>({});
   // const [liked, setLiked] = useState("");
   const [count, setCount] = useState(0);
-const[pid, setId] = useState(1);
+  const [pid, setId] = useState(1);
 
   const getPostData = useCallback(async (postID) => {
     const token = sessionStorage.getItem("access_token");
@@ -45,7 +45,7 @@ const[pid, setId] = useState(1);
   }, []);
 
   console.log("postsARR", postsArr)
-  const sendComment=useCallback(async(comment, pid)=>{
+  const sendComment = useCallback(async (comment, pid) => {
     const token = sessionStorage.getItem("access_token");
     console.log(token);
     console.log(JSON.stringify(comment));
@@ -61,7 +61,7 @@ const[pid, setId] = useState(1);
     );
     const resJson = await res.text();
     console.log(resJson);
-  },[])
+  }, [])
 
   // const service = new Service();
   const validate = (values) => {
@@ -76,10 +76,10 @@ const[pid, setId] = useState(1);
     validate,
     onSubmit: (values) => {
       sendComment(values["content"], pid);
-      values.content=""
+      values.content = ""
     },
   });
-console.log(postData)
+  console.log(postData)
   return (
     <>
       {postsArr?.map((p) => (
@@ -229,7 +229,7 @@ console.log(postData)
                           {postData && postData.comment
                             ? postData.comment.map((q) => (
                               <>
-                              {/* {q.firstname}  {q.lastname} */}
+                                {/* {q.firstname}  {q.lastname} */}
                                 <Box
                                   key={q.id}
                                   border={"1px solid"}
@@ -238,7 +238,7 @@ console.log(postData)
                                   marginBottom={"1rem"}
                                   marginLeft={"3rem"}
                                 >
-                                                                <Text
+                                  <Text
                                     textAlign={"left"}
                                     fontSize="md"
                                     margin={"1rem"}
@@ -255,8 +255,8 @@ console.log(postData)
                                     {q.content}
                                   </Text>
                                 </Box>
-                                </>
-                              ))
+                              </>
+                            ))
                             : ""}
                           <Box>
                             <Badge

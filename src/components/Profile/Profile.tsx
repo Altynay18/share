@@ -1,9 +1,9 @@
-import "./Profile.css";
+import "./Profile.scss";
 import Header from "../Header";
 import SideBar from "../SideBar";
 import UserCard from "../UserCard";
 import AddPost from "../AddPost";
-import { useState, useEffect, useCallback } from "react";
+import {useState, useEffect, useCallback} from "react";
 // @ts-ignore  
 import {
   Tabs,
@@ -16,9 +16,9 @@ import {
 
 import Posts from "../Posts";
 // @ts-ignore  
-import { useFormik } from "formik";
+import {useFormik} from "formik";
 import Projects from "../Projects/Projects";
-import { stringify } from "querystring";
+import {stringify} from "querystring";
 
 // interface Errors {
 //   password: string;
@@ -26,7 +26,7 @@ import { stringify } from "querystring";
 
 const Profile = () => {
   const validate = (values: any) => {
-    const errors ={};
+    const errors = {};
     return errors;
   };
   const formik = useFormik({
@@ -82,10 +82,10 @@ const Profile = () => {
             <Tabs>
               <TabList>
                 <Tab fontWeight={"600"}>Мои посты</Tab>
-                <Tab  fontWeight={"600"} marginLeft={"3rem"}>
+                <Tab fontWeight={"600"} marginLeft={"3rem"}>
                   Написать пост
                 </Tab>
-                <Tab   fontWeight={"600"} marginLeft={"3rem"}>
+                <Tab fontWeight={"600"} marginLeft={"3rem"}>
                   Мои проекты
                 </Tab>
               </TabList>

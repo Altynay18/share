@@ -1,26 +1,26 @@
 // @ts-ignore  
 
-import { useFormik } from "formik";
-import "./Register.css";
-import { Flex, Box, Text, Image } from "@chakra-ui/react";
-import { Service } from "../../service/Service";
+import {useFormik} from "formik";
+import "./Register.scss";
+import {Flex, Box, Text, Image} from "@chakra-ui/react";
+import {Service} from "../../service/Service";
 // import net from "../../assets/net.jpg";
 
 const Register = () => {
   const service = new Service();
-//   service.isAdmin();
+  //   service.isAdmin();
   const validate = (values: any) => {
     const errors = {};
     // const passRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/g;
 
-   
+
     return errors;
   };
   const formik = useFormik({
     initialValues: {
       username: "",
       password: "",
-        },
+    },
     validate,
     onSubmit: (values: any) => {
       service.handleLogin(values);
@@ -114,9 +114,9 @@ const Register = () => {
                     <span>{formik.errors.password}</span>
                   )} */}
                 </div>
-                
+
               </div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div style={{display: "flex", justifyContent: "center"}}>
                 <button
                   type="submit"
                   className=" loginBtn group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

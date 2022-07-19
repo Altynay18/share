@@ -1,17 +1,17 @@
-import { useFormik } from "formik";
-import "./Login.scss";
-import { Flex, Box, Text, Image, Button } from "@chakra-ui/react";
-import { Service } from "../../service/Service";
-import net from "../../assets/net.jpg";
-import { useNavigate } from "react-router-dom";
-import { style } from "@mui/system";
-import { useToast } from '@chakra-ui/react'
+import {useFormik} from "formik";
+import "./Login.module.scss";
+import {Flex, Box, Text, Image, Button} from "@chakra-ui/react";
+import {Service} from "../../service/Service";
+import {useNavigate} from "react-router-dom";
+import {style} from "@mui/system";
+import {useToast} from '@chakra-ui/react'
+import net from "../../assets/images/net.jpg"
 
 const Login = () => {
   const toast = useToast()
 
   const service = new Service();
-  const validate = (values) => {
+  const validate = (values: any) => {
     const errors = {};
 
 
@@ -64,7 +64,7 @@ const Login = () => {
           </Text>
           <Box margin={"0 8rem"}>
             {" "}
-            <Image src={net} alt="net"></Image>
+            <Image src={net} alt="net" />
           </Box>
         </Box>
         <Box
@@ -187,9 +187,9 @@ const Login = () => {
                   />
                 </div>
               </div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div style={{display: "flex", justifyContent: "center"}}>
                 <div>
-                {/* <button
+                  {/* <button
                   type="submit"
                   className=" loginBtn group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   style={{
@@ -204,26 +204,26 @@ const Login = () => {
                   Регистрация
                   
                 </button> */}
-                 <Button
-                 type="submit"
-      onClick={() =>
-        toast({
-          title: 'Account created.',
-          description: "We've created your account for you.",
-          status: 'success',
-          duration: 9000,
-          isClosable: true,
-        })
-      }
-    >
-      Show Toast
-    </Button>
+                  <Button
+                    type="submit"
+                    onClick={() =>
+                      toast({
+                        title: 'Account created.',
+                        description: "We've created your account for you.",
+                        status: 'success',
+                        duration: 9000,
+                        isClosable: true,
+                      })
+                    }
+                  >
+                    Show Toast
+                  </Button>
                 </div>
                 <div >
-                Есть аккаунт? <br></br>
-                <span onClick={()=>{navigate("/login")}} style={{color: '#F7A325'}}>Войдите</span>
+                  Есть аккаунт? <br></br>
+                  <span onClick={() => {navigate("/login")}} style={{color: '#F7A325'}}>Войдите</span>
                 </div>
-              
+
               </div>
             </form>
           </Box>

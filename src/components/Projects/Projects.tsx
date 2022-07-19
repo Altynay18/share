@@ -1,6 +1,6 @@
-import "./Projects.css";
-import { useEffect, useCallback, useState } from "react";
-import { Service } from "../../service/Service";
+import "./Projects.scss";
+import {useEffect, useCallback, useState} from "react";
+import {Service} from "../../service/Service";
 import {
   Modal,
   ModalOverlay,
@@ -13,13 +13,13 @@ import {
   Box,
   Text,
 } from "@chakra-ui/react";
-import { useDisclosure } from "@chakra-ui/react";
+import {useDisclosure} from "@chakra-ui/react";
 // @ts-ignore  
 
-import { useFormik } from "formik";
+import {useFormik} from "formik";
 // @ts-ignore  
 
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -48,7 +48,7 @@ const Projects = () => {
 
 
   console.log(projects)
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const {isOpen, onOpen, onClose} = useDisclosure();
 
   const service = new Service();
   const validate = (values: any) => {
@@ -74,33 +74,33 @@ const Projects = () => {
   return (
     <>
       <div className="project">
-      
+
         {projects
           ? projects.map((p: any) => (
+            <Box
+              key={p.id}
+              width="30%"
+              borderWidth="1px"
+              borderRadius="lg"
+              overflow="hidden"
+              onClick={() => navigate(`${p.id}`)}
+            >
               <Box
-                key={p.id}
-                width="30%"
-                borderWidth="1px"
-                borderRadius="lg"
-                overflow="hidden"
-                onClick={() => navigate(`${p.id}`)}
-              >
-                <Box
-                  width={"100%"}
-                  height={"120px"}
-                  backgroundColor={"#FFCA7A"}
-                ></Box>
-                <Link to={`/${p.id}`}>
-                  {" "}
-                  <Text margin={"2rem"}> {p.title}</Text>
-                </Link>
-              </Box>
-            ))
+                width={"100%"}
+                height={"120px"}
+                backgroundColor={"#FFCA7A"}
+              ></Box>
+              <Link to={`/${p.id}`}>
+                {" "}
+                <Text margin={"2rem"}> {p.title}</Text>
+              </Link>
+            </Box>
+          ))
           : "[Пока тут пусто, можете добавить новый проект]"}
       </div>
 
       <div className="addproject">
-   
+
         <Button margin={"2rem"} onClick={onOpen}>
           + Cоздать проект
         </Button>
