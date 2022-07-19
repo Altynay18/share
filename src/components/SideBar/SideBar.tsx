@@ -1,9 +1,15 @@
-import "./SideBar.css";
+import "./SideBar.scss";
+// @ts-ignore  
 import { useNavigate } from "react-router-dom";
+// @ts-ignore  
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+// @ts-ignore  
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
+// @ts-ignore  
 import ArticleIcon from "@mui/icons-material/Article";
+// @ts-ignore  
 import CastForEducationIcon from "@mui/icons-material/CastForEducation";
+// @ts-ignore  
 import FeedIcon from "@mui/icons-material/Feed";
 const SideBar = () => {
   const navigate = useNavigate();

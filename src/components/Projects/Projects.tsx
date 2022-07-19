@@ -14,8 +14,13 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
+// @ts-ignore  
+
 import { useFormik } from "formik";
+// @ts-ignore  
+
 import { Link, useNavigate } from "react-router-dom";
+
 const Projects = () => {
   const [projects, setProjects] = useState([]);
 
@@ -46,7 +51,7 @@ const Projects = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const service = new Service();
-  const validate = (values) => {
+  const validate = (values: any) => {
     const errors = {};
     return errors;
   };
@@ -58,7 +63,7 @@ const Projects = () => {
       user3: "altynay@gmail.com",
     },
     validate,
-    onSubmit: (values) => {
+    onSubmit: (values: any) => {
       alert(JSON.stringify(values, null, 2));
       service.createProject(values);
 
@@ -71,7 +76,7 @@ const Projects = () => {
       <div className="project">
       
         {projects
-          ? projects.map((p) => (
+          ? projects.map((p: any) => (
               <Box
                 key={p.id}
                 width="30%"
@@ -109,7 +114,7 @@ const Projects = () => {
               <form className="mt-8 space-y-6" onSubmit={formik.handleSubmit}>
                 <div className="rounded-md shadow-sm -space-y-px">
                   <div color="#000000">
-                    <p htmlFor="email-address" className="sr-only">
+                    <p className="sr-only">
                       Название проекта
                     </p>
                     <input
@@ -124,7 +129,7 @@ const Projects = () => {
                     />
                   </div>
                   <div>
-                    <p htmlFor="password" className="sr-only">
+                    <p className="sr-only">
                       Добавить участников проекта:
                     </p>
                     <input

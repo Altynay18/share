@@ -4,6 +4,7 @@ import SideBar from "../SideBar";
 import UserCard from "../UserCard";
 import AddPost from "../AddPost";
 import { useState, useEffect, useCallback } from "react";
+// @ts-ignore  
 import {
   Tabs,
   TabList,
@@ -14,18 +15,18 @@ import {
 } from "@chakra-ui/react";
 
 import Posts from "../Posts";
+// @ts-ignore  
 import { useFormik } from "formik";
 import Projects from "../Projects/Projects";
+import { stringify } from "querystring";
+
+// interface Errors {
+//   password: string;
+// }
 
 const Profile = () => {
-  const validate = (values) => {
-    const errors = {};
-    const passRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/g;
-
-    if (!passRegex.test(values.password)) {
-      errors.password = "";
-    }
-
+  const validate = (values: any) => {
+    const errors ={};
     return errors;
   };
   const formik = useFormik({
@@ -34,9 +35,8 @@ const Profile = () => {
       password: "",
     },
     validate,
-    onSubmit: (values) => {
-      // alert(JSON.stringify(values, null, 2));
-      //service.handleLogin(values);
+    onSubmit: (values: any) => {
+
     },
   });
 

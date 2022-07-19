@@ -1,13 +1,15 @@
+// @ts-ignore  
+
 import { useFormik } from "formik";
 import "./Register.css";
 import { Flex, Box, Text, Image } from "@chakra-ui/react";
 import { Service } from "../../service/Service";
-import net from "../../assets/net.jpg";
+// import net from "../../assets/net.jpg";
 
 const Register = () => {
   const service = new Service();
 //   service.isAdmin();
-  const validate = (values) => {
+  const validate = (values: any) => {
     const errors = {};
     // const passRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/g;
 
@@ -20,7 +22,7 @@ const Register = () => {
       password: "",
         },
     validate,
-    onSubmit: (values) => {
+    onSubmit: (values: any) => {
       service.handleLogin(values);
     },
   });
@@ -55,7 +57,7 @@ const Register = () => {
           </Text>
           <Box margin={"0 8rem"}>
             {" "}
-            <Image src={net} alt="net"></Image>
+            {/* <Image src={net} alt="net"></Image> */}
           </Box>
         </Box>
         <Box
