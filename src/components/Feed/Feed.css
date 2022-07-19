@@ -1,0 +1,7 @@
+.feedContent {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  gap: 3rem;
+}

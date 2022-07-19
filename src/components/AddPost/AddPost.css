@@ -1,0 +1,15 @@
+.postTitle {
+  border: 1px solid #000;
+  border-radius: 12px;
+  height: 3rem;
+  width: 578px;
+  margin-bottom: 2rem;
+}
+
+.postContent {
+  border: 1px solid #000;
+  border-radius: 11px;
+  height: 8rem;
+  width: 578px;
+  margin-bottom: 3rem;
+}
