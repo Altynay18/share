@@ -1,6 +1,6 @@
 import { Flex, Box, Spacer, Wrap, WrapItem } from "@chakra-ui/react";
 import { Avatar, Text } from "@chakra-ui/react";
-import "./Header.css";
+import "./Header.scss";
 import { Service } from "../../service/Service";
 const Header = () => {
   const service = new Service();

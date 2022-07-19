@@ -10,7 +10,7 @@ import {
   import { ChevronDownIcon } from "@chakra-ui/icons";
   import { Service } from "../../service/Service";
   import { useFormik } from "formik";
-  import "./DiscussProject.css";
+  import "./DiscussProject.scss";
   
   const DiscussProject = () => {
     const service = new Service();

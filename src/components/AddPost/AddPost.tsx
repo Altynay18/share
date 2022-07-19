@@ -8,18 +8,18 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Service } from "../../service/Service";
+// import { Service } from "../../service/Service";
 import { useFormik } from "formik";
-import "./AddPost.css";
+import "./AddPost.scss";
 
 const Profile = () => {
-  const service = new Service();
-  const validate = (values) => {
+  // const service = new Service();
+  const validate = (values: any) => {
     const errors = {};
     const passRegex = /^(.)/g;
 
     if (!passRegex.test(values.password)) {
-      errors.password = "";
+      // errors.password = "";
     }
 
     return errors;
@@ -36,7 +36,7 @@ const Profile = () => {
 
       console.log(values);
       alert(JSON.stringify(values, null, 2));
-      service.addPost(values);
+      // service.addPost(values);
       values.content=""
       values.title=""
     },
@@ -50,7 +50,6 @@ const Profile = () => {
         flexDirection={"column"}
         justifyContent={"center"}
         alignItems={"center"}
-        aligntext={"left"}
       >
         <Text margin={"2rem 0"} fontWeight={"600"}>
           О чем Вы хотите поделиться?
@@ -70,7 +69,6 @@ const Profile = () => {
             name="content"
             value={formik.values.content}
             onChange={formik.handleChange}
-            type="textarea"
           ></textarea>
           <Box
             padding={"1rem"}

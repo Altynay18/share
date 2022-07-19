@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import "./Login.css";
+import "./Login.scss";
 import { Flex, Box, Text, Image, Button } from "@chakra-ui/react";
 import { Service } from "../../service/Service";
 import net from "../../assets/net.jpg";
