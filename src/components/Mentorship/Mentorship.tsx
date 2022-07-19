@@ -1,4 +1,4 @@
-import "./Mentorship.css";
+import "./Mentorship.scss";
 import Header from "../Header";
 import SideBar from "../SideBar";
 import { useEffect, useCallback } from "react";
