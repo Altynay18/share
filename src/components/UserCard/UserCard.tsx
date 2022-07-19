@@ -5,7 +5,7 @@ import { Button } from "@chakra-ui/react";
 import { useState, useCallback,useEffect } from "react";
 
 const UserCard = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState<any>([]);
 
   const getCurrentUser = useCallback(async () => {
     const token = sessionStorage.getItem("access_token");
@@ -67,14 +67,6 @@ const UserCard = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      {/* <Button
-        fontWeight={"500"}
-        backgroundColor={"#FFCA7A"}
-        width={"138px"}
-        marginTop={"2rem"}
-      >
-        Редактировать
-      </Button> */}
     </div>
   );
 };
