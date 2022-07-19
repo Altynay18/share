@@ -3,7 +3,6 @@ import {
     Text,
     Menu,
     MenuButton,
-    MenuItem,
     MenuList,
     Button,
   } from "@chakra-ui/react";
