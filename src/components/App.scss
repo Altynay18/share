@@ -1,5 +1,12 @@
 .App {
   font-family: 'Poppins', sans-serif;
   text-align: center;
-  padding: 0 0rem;
+  padding: 0 0;
+}
+
+$path: '../assets/fonts/Poppins/';
+
+@font-face {
+  font-family: 'Poppins';
+  src: url($path + 'Poppins-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
 }
