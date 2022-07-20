@@ -51,4 +51,4 @@ const location = useLocation()
     </div>
   );
 };
-export default Auth;
+export default Auth; 

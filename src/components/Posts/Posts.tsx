@@ -12,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 import {useDisclosure} from "@chakra-ui/react";
 import {useState, useCallback} from "react";
-import {Service} from "../../service/Service";
 import {useFormik} from "formik";
 import {Divider} from "@chakra-ui/react";
 const Posts = ({postsArr}) => {
