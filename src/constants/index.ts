@@ -6,5 +6,6 @@ export enum ROUTES {
   PROFILE = '/profile',
   FEED = '/feed',
   MENTORSHIP = '/mentorship',
-  TRAINING = 'training',
+  TRAINING = '/training',
+  ARTICLES = '/articles'
 }

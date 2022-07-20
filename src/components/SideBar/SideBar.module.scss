@@ -1,0 +1,26 @@
+.sidebar {
+  background: var(--black);
+  height: 100vh;
+  padding: 3rem;
+  font-weight: bold;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 3rem;
+  color: var(--white);
+  margin-bottom: 20px;
+  font-family: Poppins-Bold, sans-serif;
+}
+
+.menuItem {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: var(--gray);
+
+  &:hover {
+    color: var(--white);
+  }
+}
