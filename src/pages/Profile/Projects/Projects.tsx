@@ -24,30 +24,29 @@ import {Link, useNavigate} from "react-router-dom";
 const Projects = () => {
   const [projects, setProjects] = useState([]);
 
-  const getProjects = useCallback(async () => {
-    const token = sessionStorage.getItem("access_token");
-    console.log(token);
-    const arr = await fetch(`http://164.92.192.48:8085/projects`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: ` ${token}`,
-      },
-    })
-      .then((arr) => arr.json())
-      .catch((err) => {
-        console.error(err);
-      });
+  // const getProjects = useCallback(async () => {
+  //   const token = sessionStorage.getItem("access_token");
+  //   console.log(token);
+  //   const arr = await fetch(`http://164.92.192.48:8085/projects`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //       Authorization: ` ${token}`,
+  //     },
+  //   })
+  //     .then((arr) => arr.json())
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
 
-    setProjects(arr);
-  }, []);
+  //   setProjects(arr);
+  // }, []);
 
-  useEffect(() => {
-    getProjects();
-  }, []);
+  // useEffect(() => {
+  //   getProjects();
+  // }, []);
 
 
-  console.log(projects)
   const {isOpen, onOpen, onClose} = useDisclosure();
 
   const service = new Service();

@@ -8,5 +8,6 @@ export enum ROUTES {
   MENTORSHIP = '/mentorship',
   TRAINING = '/training',
   ARTICLES = '/articles',
-  PROJECTS = '/projects'
+  PROJECTS = '/projects',
+  REFLECTIONS = '/reflections'
 }

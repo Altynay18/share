@@ -16,9 +16,13 @@ const SideBar = () => {
         <PermIdentityIcon />
         Мой профиль
       </Link>
-      <Link to={ROUTES.FEED} className={styles.menuItem}>
+      <Link to={ROUTES.MAIN} className={styles.menuItem}>
         <DynamicFeedIcon />
         Лента
+      </Link>
+      <Link to={ROUTES.REFLECTIONS} className={styles.menuItem}>
+        <DynamicFeedIcon />
+        Рефлексии
       </Link>
       <Link to={ROUTES.ARTICLES} className={styles.menuItem}>
         <ArticleIcon />
