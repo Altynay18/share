@@ -17,15 +17,19 @@ export function Login(props: Props) {
   const handleClick = () => {
 
   };
+  const handleSubmit = () => {
+  };
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <h2 className={styles.title}>Авторизация</h2>
       <Input placeholder={'Почта'} name={'login'} error={'fsdfsd'} value={''}
              onChange={handleChange} />
-      <Input placeholder={'Пароль'} name={'password'} error={'fsdfsd'} value={''}
+      <Input placeholder={'Пароль'} name={'password'} error={'fsdfsd'}
+             value={''}
              onChange={handleChange} />
-      <DefaultButton onclick={handleClick}>Войти</DefaultButton>
-      <div>Нет аккаунта? <Link to={ROUTES.REGISTER}><span className={styles.link}>Зарегистрируйтесь</span></Link></div>
+      <DefaultButton>Войти</DefaultButton>
+      <div>Нет аккаунта? <Link to={ROUTES.REGISTER}><span
+        className={styles.link}>Зарегистрируйтесь</span></Link></div>
     </form>
   );
 }

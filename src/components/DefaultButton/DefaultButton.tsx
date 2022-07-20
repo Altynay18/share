@@ -4,7 +4,7 @@ import {ReactChild} from 'react';
 import styles from './DefaultButton.module.scss'
 
 type Props = {
-  onclick: () => void,
+  onclick?: () => void,
   children: ReactChild
 };
 

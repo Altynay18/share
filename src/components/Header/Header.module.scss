@@ -1,0 +1,24 @@
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #bcd7da;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  position: sticky;
+  top: 20px;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logout {
+  font-weight: bold;
+  cursor: pointer;
+  &:hover{
+    color: var(--gray)
+  }
+}

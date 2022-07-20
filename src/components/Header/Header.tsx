@@ -1,27 +1,12 @@
-import { Flex, Box, Spacer, Wrap, WrapItem } from "@chakra-ui/react";
-import { Avatar, Text } from "@chakra-ui/react";
-import "./Header.scss";
-import { Service } from "../../service/Service";
+import styles from './Header.module.scss';
+import avatar from '../../assets/images/avatar.png';
+
 const Header = () => {
-  const service = new Service();
   return (
-    <div className="mainHeader">
-      <Flex minWidth="max-content" alignItems="center" gap="2" margin={"2rem"}>
-        <Box p="2" display={"flex"} gap={4}></Box>
-        <Spacer />
-        <Text
-          fontWeight={"bold"}
-          marginRight={"1rem"}
-          onClick={() => service.logout()}
-        >
-          Выйти
-        </Text>
-        <Wrap>
-          <WrapItem>
-            <Avatar name="Anna Kroya" src="https://bit.ly/tioluwani-kolawole" />
-          </WrapItem>
-        </Wrap>
-      </Flex>
+    <div className={styles.header}>
+      <div className={styles.logout}>Выйти</div>
+      <img src={avatar} className={styles.avatar} alt="avatar" height={50}
+           width={50} />
     </div>
   );
 };
