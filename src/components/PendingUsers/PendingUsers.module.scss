@@ -1,0 +1,17 @@
+.pendingUsers {
+  padding: 2rem;
+
+}
+
+.title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 5fr 3fr 3fr;
+  border-bottom: 1px solid var(--light-gray);
+  padding: 10px 0;
+}

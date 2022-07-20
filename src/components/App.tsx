@@ -6,9 +6,10 @@ import {Routes, BrowserRouter, Route} from 'react-router-dom';
 import Feed from './Feed';
 import Mentorship from './Mentorship/Mentorship';
 import Training from './Training/Training';
-import AdminPage from './AdminPage';
 import Layout from './Layout';
 import IndividualProject from '../pages/IndividualProject';
+import PendingUsers from './PendingUsers';
+import Welcome from './Welcome';
 
 function App() {
   return (
@@ -18,8 +19,10 @@ function App() {
           <Route path="/register" element={<Auth />} />
           <Route path="/login" element={<Auth />} />
           <Route path="/" element={<Layout />}>
-            <Route index element={<Profile />} />
-            <Route path="/admin" element={<AdminPage />} />
+            <Route index element={<Welcome/>}/>
+            <Route path='profile' element={<Profile />} >
+              <Route path='pending-users' element={<PendingUsers/>}/>
+            </Route>
             <Route path="feed" element={<Feed />} />
             <Route path="mentorship" element={<Mentorship />} />
             <Route path="training" element={<Training />} />
