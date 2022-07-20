@@ -5,12 +5,13 @@ import styles from './DefaultButton.module.scss'
 
 type Props = {
   onclick?: () => void,
-  children: ReactChild
+  children: ReactChild,
+  bgColor?: string
 };
 
-export function DefaultButton({onclick, children}: Props) {
+export function DefaultButton({onclick, children, bgColor = '#F7A325'}: Props) {
   return (
-    <button onClick={onclick} className={styles.defaultButton}>
+    <button style={{background: bgColor}} onClick={onclick} className={styles.defaultButton}>
       {children}
     </button>
   );
