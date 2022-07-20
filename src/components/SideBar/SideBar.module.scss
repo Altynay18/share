@@ -17,9 +17,12 @@
   gap: 1rem;
   align-items: center;
   margin-bottom: 2rem;
-  color: var(--gray);
-
+  color: var(--dark-gray);
+  &:visited {
+    color: var(--dark-gray);
+  }
   &:hover {
     color: var(--white);
   }
+
 }
