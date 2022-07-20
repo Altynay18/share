@@ -1,6 +1,6 @@
 import "./Projects.scss";
 import {useEffect, useCallback, useState} from "react";
-import {Service} from "../../service/Service";
+import {Service} from "../../../service/Service";
 import {
   Modal,
   ModalOverlay,

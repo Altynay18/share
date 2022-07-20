@@ -1,6 +1,6 @@
 import {Text} from "@chakra-ui/react";
-import Header from "../Header";
-import SideBar from "../SideBar";
+import Header from "../../components/Header";
+import SideBar from "../../components/SideBar";
 
 const Training = () => {
   return (

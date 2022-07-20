@@ -1,6 +1,6 @@
 import "./Mentorship.scss";
-import Header from "../Header";
-import SideBar from "../SideBar";
+import Header from "../../components/Header";
+import SideBar from "../../components/SideBar";
 import {useEffect, useCallback} from "react";
 import {useFormik} from "formik";
 import {useDisclosure} from "@chakra-ui/react";

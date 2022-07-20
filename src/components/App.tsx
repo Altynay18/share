@@ -3,14 +3,13 @@ import Auth from '../pages/Auth';
 import Profile from '../pages/Profile';
 
 import {Routes, BrowserRouter, Route} from 'react-router-dom';
-import Feed from './Feed';
-import Mentorship from './Mentorship/Mentorship';
-import Training from './Training/Training';
+import Mentorship from '../pages/Mentorship/Mentorship';
+import Training from '../pages/Training/Training';
 import Layout from './Layout';
 import IndividualProject from '../pages/IndividualProject';
-import PendingUsers from './PendingUsers';
-import Welcome from './Welcome';
-import Posts from './Posts';
+import PendingUsers from '../pages/Profile/PendingUsers';
+import Welcome from '../pages/Welcome';
+import Posts from '../pages/Profile/Posts';
 
 function App() {
   return (
