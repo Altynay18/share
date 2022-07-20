@@ -6,9 +6,9 @@ import {Routes, BrowserRouter, Route} from 'react-router-dom';
 import Feed from './Feed';
 import Mentorship from './Mentorship/Mentorship';
 import Training from './Training/Training';
-import IndividualProject from './IndividualProject';
 import AdminPage from './AdminPage';
 import Layout from './Layout';
+import IndividualProject from '../pages/IndividualProject';
 
 function App() {
   return (
