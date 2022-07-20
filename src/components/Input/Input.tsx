@@ -10,7 +10,8 @@ type Props = {
   disabled?: boolean,
   label?: string,
   name: string,
-  error?: string
+  error?: string,
+  placeholder: string,
 };
 
 export function Input({
@@ -21,11 +22,12 @@ export function Input({
                         disabled = false,
                         label = null,
                         error,
+                        placeholder
                       }: Props) {
   return (
     <div className={styles.inputContainer}>
       <label className={styles.label} htmlFor={name}>{label}</label>
-      <input className={styles.input} id={name} name={name} type={type} onChange={onChange}
+      <input placeholder={placeholder} className={styles.input} id={name} name={name} type={type} onChange={onChange}
              value={value} disabled={disabled}/>
       {error && <span className={styles.error}>{error}</span>}
     </div>

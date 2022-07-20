@@ -1,17 +1,18 @@
 import {useFormik} from 'formik';
-import './Login.module.scss';
+import './Auth.module.scss';
 import {Service} from '../../service/Service';
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import {useToast} from '@chakra-ui/react';
-import net from '../../assets/images/net.jpg';
-import styles from './Login.module.scss';
-import {Input} from '../Input/Input';
-import LoginForm from '../Forms/Login';
+import styles from './Auth.module.scss';
 import netImg from '../../assets/images/net.jpg';
+import {ROUTES} from '../../constants';
+import Login from '../../components/Forms/Login';
+import Register from '../../components/Forms/RegisterForm';
 
-const Login = () => {
+const Auth = () => {
   const toast = useToast();
-
+const location = useLocation()
+  const navigate = useNavigate();
   const service = new Service();
   const validate = (values: any) => {
     const errors = {};
@@ -34,10 +35,9 @@ const Login = () => {
       service.registerUser(values);
     },
   });
-  const navigate = useNavigate();
 
   return (
-    <div className={styles.loginContainer}>
+    <div className={styles.authContainer}>
       <div className={styles.infoSection}>
         <div className={styles.mainTitle}>SHARE</div>
         <div className={styles.description}>School Hub for Action Research
@@ -46,9 +46,9 @@ const Login = () => {
         <img src={netImg} alt="net" className={styles.img} />
       </div>
       <div className={styles.formSection}>
-        <LoginForm />
+        {location.pathname.includes(ROUTES.LOGIN) ? <Login /> : <Register/>}
       </div>
     </div>
   );
 };
-export default Login;
+export default Auth;
