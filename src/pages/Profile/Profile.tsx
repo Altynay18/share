@@ -10,7 +10,7 @@ const Profile = () => {
       <UserCard />
       <div className={styles.infoSection}>
         <div className={styles.navs}>
-
+            
         </div>
         <Outlet />
       </div>

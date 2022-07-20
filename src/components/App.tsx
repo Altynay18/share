@@ -10,6 +10,7 @@ import Layout from './Layout';
 import IndividualProject from '../pages/IndividualProject';
 import PendingUsers from './PendingUsers';
 import Welcome from './Welcome';
+import Posts from './Posts';
 
 function App() {
   return (
@@ -19,9 +20,10 @@ function App() {
           <Route path="/register" element={<Auth />} />
           <Route path="/login" element={<Auth />} />
           <Route path="/" element={<Layout />}>
-            <Route index element={<Welcome/>}/>
+            <Route index element={<Welcome />} />
             <Route path='profile' element={<Profile />} >
-              <Route path='pending-users' element={<PendingUsers/>}/>
+              <Route index element={<Posts />} />
+              <Route path='pending-users' element={<PendingUsers />} />
             </Route>
             <Route path="feed" element={<Feed />} />
             <Route path="mentorship" element={<Mentorship />} />
