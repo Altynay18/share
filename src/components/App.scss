@@ -1,12 +1,21 @@
-.App {
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-  padding: 0 0;
-}
-
 $path: '../assets/fonts/Poppins/';
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: 'Poppins-Regular';
   src: url($path + 'Poppins-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url($path + 'Poppins-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+.App {
+  font-family: 'Poppins-Regular', sans-serif;
+}
+
+:root {
+  --yellow: #F7A325;
+  --red: #ef233c;
+  --white: #fff;
 }

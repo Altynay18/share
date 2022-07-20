@@ -1,18 +1,26 @@
-.loginInput {
-  height: 3rem;
-  margin-bottom: 2rem;
+.loginContainer {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  font-family: Poppins-Bold, sans-serif;
 }
 
-.loginBtn {
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.login {
-}
-.mainTitle{
-  font-size: 7rem;
+.mainTitle {
+  font-size: 8rem;
   color: #001951;
   font-weight: bold;
-  padding: 2rem 0 0 5rem;
+}
+
+.infoSection {
+  padding: 5rem;
+}
+
+.description {
+  color: var(--yellow);
+  font-size: 1.5rem;
+  font-weight: bold;
+  max-width: 500px;
+}
+
+.formSection {
+  display: flex;
 }

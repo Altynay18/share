@@ -37,7 +37,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.login}>
+    <div className={styles.loginContainer}>
       <div className={styles.infoSection}>
         <div className={styles.mainTitle}>SHARE</div>
         <div className={styles.description}>School Hub for Action Research
@@ -45,10 +45,9 @@ const Login = () => {
         </div>
         <img src={netImg} alt="net" className={styles.img} />
       </div>
-      <div className={styles.form}>
+      <div className={styles.formSection}>
         <LoginForm />
       </div>
-
     </div>
   );
 };

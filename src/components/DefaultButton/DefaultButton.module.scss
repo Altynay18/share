@@ -1,8 +1,12 @@
 .defaultButton{
   background-color: rgb(247, 163, 37);
-  width: 154px;
-  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 6px;
+  padding: 15px 30px;
+  width: 100%;
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: bold;
 }

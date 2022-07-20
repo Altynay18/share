@@ -23,11 +23,11 @@ export function Input({
                         error,
                       }: Props) {
   return (
-    <>
+    <div className={styles.inputContainer}>
       <label className={styles.label} htmlFor={name}>{label}</label>
       <input className={styles.input} id={name} name={name} type={type} onChange={onChange}
              value={value} disabled={disabled}/>
       {error && <span className={styles.error}>{error}</span>}
-    </>
+    </div>
   );
 }
