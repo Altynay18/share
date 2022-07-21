@@ -34,11 +34,17 @@ export function AddProject({onSubmit}: Props) {
   return (
     <form className={styles.addProject} onSubmit={handleSubmit}>
       <Input placeholder={'Название проекта'}
-             onChange={(e) => handleChange(e, 'projectName')}
-             value={projectName} name={'projectName'} />
-      <Input placeholder={'Участник'}
-             onChange={(e) => handleChange(e, 'member')}
-             value={member} name={'projectName'} />
+        onChange={(e) => handleChange(e, 'projectName')}
+        value={projectName} name={'projectName'} />
+      <Input placeholder={'Участник 1'}
+        onChange={(e) => handleChange(e, 'member')}
+        value={member} name={'projectName'} />
+      <Input placeholder={'Участник 2'}
+        onChange={(e) => handleChange(e, 'member')}
+        value={member} name={'projectName'} />
+      <Input placeholder={'Участник 3'}
+        onChange={(e) => handleChange(e, 'member')}
+        value={member} name={'projectName'} />
       <DefaultButton bgColor={COLORS.OCEAN_BLUE}>Создать</DefaultButton>
     </form>
   );
