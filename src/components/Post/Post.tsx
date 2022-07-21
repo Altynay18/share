@@ -4,13 +4,18 @@ import styles from './Post.module.scss';
 import {Badge} from "@chakra-ui/react";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import ModalWrapper from '../Modal/'
+import {useState} from 'react';
+import PostContent from '../PostContent';
 type Props = {
 
 };
 
 export function Post(props: Props) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className={styles.postContainer}>
+    <div className={styles.postContainer} onClick={() => {setOpen(true)}}>
       <div className={styles.postInfo}>
         <div>
           Username
@@ -33,6 +38,9 @@ export function Post(props: Props) {
           <ChatBubbleOutlineIcon fontSize='small' />  Комментарии
         </div>
       </div>
+      <ModalWrapper open={open} handleClose={() => setOpen(false)}>
+        <PostContent />
+      </ModalWrapper>
     </div>
   );
 };
