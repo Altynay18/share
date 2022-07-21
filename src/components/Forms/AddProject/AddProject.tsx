@@ -6,9 +6,11 @@ import {ChangeEvent, useState} from 'react';
 import DefaultButton from '../../DefaultButton';
 import {COLORS} from '../../../constants';
 
-type Props = {};
+type Props = {
+  onSubmit: () => void
+};
 
-export function AddProject(props: Props) {
+export function AddProject({onSubmit}: Props) {
   const [projectName, setProjectName] = useState('');
   const [member, setMember] = useState('');
   const handleChange = (e: ChangeEvent, name) => {
@@ -25,8 +27,9 @@ export function AddProject(props: Props) {
     }
   };
 
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit();
   };
   return (
     <form className={styles.addProject} onSubmit={handleSubmit}>

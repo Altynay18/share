@@ -33,7 +33,7 @@ const Projects = () => {
       <DefaultButton onclick={() => setOpen(true)}> + Создать
         проект</DefaultButton>
       <ModalWrapper open={open} handleClose={() => setOpen(false)}>
-        <AddProject />
+        <AddProject onSubmit={() => setOpen(false)} />
       </ModalWrapper>
     </div>
   );

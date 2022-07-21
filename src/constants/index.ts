@@ -13,6 +13,11 @@ export enum ROUTES {
 }
 
 export enum COLORS {
-  YELLOW = '',
-  OCEAN_BLUE = '#BCD7DA'
+  YELLOW = '#F7A325',
+  OCEAN_BLUE = '#BCD7DA',
+  RED = '#ef233c',
+  BLACK = '#151E27',
+  GRAY = '#f0f0f5',
+  DARK_GRAY = '#9DA2A5',
+  LIGHT_GRAY = '#E2E8F0'
 }
