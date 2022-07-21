@@ -1,5 +1,5 @@
 import styles from './IndividualProject.module.scss';
-
+//TODO 
 const IndividualProject = () => {
 
   return (

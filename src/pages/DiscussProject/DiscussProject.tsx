@@ -1,3 +1,6 @@
+
+//TODO: rewrite this component
+
 import {
   Box,
   Text,
