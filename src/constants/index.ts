@@ -21,3 +21,13 @@ export enum COLORS {
   DARK_GRAY = '#9DA2A5',
   LIGHT_GRAY = '#E2E8F0'
 }
+
+export enum ROLES {
+
+}
+
+export enum PERMISSIONS {
+  SUPER_ADMIN,
+  ADMIN,
+  USER
+}

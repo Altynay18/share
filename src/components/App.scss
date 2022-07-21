@@ -14,6 +14,7 @@ $path: '../assets/fonts/Poppins/';
   font-family: 'Poppins-Regular', sans-serif;
 }
 
+// NOTE: on new color, update enum COLORS also
 :root {
   --yellow: #F7A325;
   --red: #ef233c;
@@ -22,4 +23,5 @@ $path: '../assets/fonts/Poppins/';
   --gray:  #f0f0f5;
   --dark-gray: #9DA2A5;
   --light-gray: #E2E8F0;
+  --ocean_blue: #BCD7DA;
 }
