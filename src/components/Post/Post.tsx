@@ -19,7 +19,7 @@ export function Post(props: Props) {
           11 Июля &bull; 12:05
         </div>
         <Badge borderRadius="16px" px="2" backgroundColor={"#FFCA7A"}>
-          {'p.postType'}
+          {'#post type'}
         </Badge>
       </div>
       <div className={styles.postContent}>
