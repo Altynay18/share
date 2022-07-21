@@ -2,6 +2,7 @@
 import * as React from 'react';
 import {Backdrop, Fade, Modal} from '@mui/material';
 import {ReactChild, useState} from 'react';
+import styles from './Modal.module.scss';
 
 type Props = {
   children: ReactChild,
@@ -23,9 +24,9 @@ export function ModalWrapper({children, open, handleClose}: Props) {
       }}
     >
       <Fade in={open}>
-        <>
+        <div className={styles.modal}>
           {children}
-        </>
+        </div>
       </Fade>
     </Modal>
   );

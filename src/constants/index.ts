@@ -11,3 +11,8 @@ export enum ROUTES {
   PROJECTS = '/projects',
   REFLECTIONS = '/reflections'
 }
+
+export enum COLORS {
+  YELLOW = '',
+  OCEAN_BLUE = '#BCD7DA'
+}
