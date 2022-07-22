@@ -1,6 +1,6 @@
 import {useFormik} from 'formik';
 import './Auth.module.scss';
-import {Service} from '../../service/Service';
+import {Service} from '../../services/Service';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {useToast} from '@chakra-ui/react';
 import styles from './Auth.module.scss';

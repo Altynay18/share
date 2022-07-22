@@ -8,12 +8,12 @@ import {
   Button,
 } from '@chakra-ui/react';
 import {ChevronDownIcon} from '@chakra-ui/icons';
-// import { Service } from "../../service/Service";
+// import { Service } from "../../services/Service";
 import {useFormik} from 'formik';
 import './AddPost.module.scss';
 
 const Profile = () => {
-  // const service = new Service();
+  // const services = new Service();
   const validate = (values: any) => {
     const errors = {};
     const passRegex = /^(.)/g;
@@ -36,7 +36,7 @@ const Profile = () => {
 
       console.log(values);
       alert(JSON.stringify(values, null, 2));
-      // service.addPost(values);
+      // services.addPost(values);
       values.content = '';
       values.title = '';
     },

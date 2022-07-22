@@ -5,7 +5,7 @@ import {useEffect, useCallback} from "react";
 import {useFormik} from "formik";
 import {useDisclosure} from "@chakra-ui/react";
 import {Text} from "@chakra-ui/react";
-import {Service} from "../../service/Service";
+import {Service} from "../../services/Service";
 import {
   Modal,
   ModalOverlay,

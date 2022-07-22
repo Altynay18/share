@@ -8,7 +8,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import {ChevronDownIcon} from "@chakra-ui/icons";
-import {Service} from "../../service/Service";
+import {Service} from "../../services/Service";
 import {useFormik} from "formik";
 import "./DiscussProject.scss";
 
