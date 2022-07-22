@@ -1,7 +1,7 @@
 import {Text} from "@chakra-ui/react";
 import Header from "../../components/Header";
 import SideBar from "../../components/SideBar";
-
+//TODO
 const Training = () => {
   return (
     <>

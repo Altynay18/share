@@ -1,0 +1,67 @@
+.postModal{
+  border: 2px solid var(--gray);
+  border-radius: 16px;
+  padding: 1rem;
+  font-style: var(--gray);
+  background-color: #ffffff;
+}
+
+.postInfo{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--gray);
+}
+
+.postContent{
+  padding: 1rem 0;
+  border: 2px solid var(--gray);
+  border-radius: 12px;
+  margin: 1rem 0;
+
+}
+
+.postModalComments{
+  min-height: max-content;
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  .title{
+    border-radius: 16px;
+      color: #BCD7DA;
+      font-weight: 600;
+      width: max-content;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      padding: 0.5rem;
+  }
+
+  .postModalComment{
+    border: 2px solid var(--gray);
+    height: 2rem;
+    width: 90%;
+    border-radius: 12px;
+    margin: 1rem 0 1rem 2rem;
+    padding: 0.5rem;
+  }
+}
+
+
+.postModalActions{
+  margin-bottom: 1rem;
+  
+  .title{
+    border-radius: 16px;
+      color: #BCD7DA;
+      font-weight: 600;
+
+      width: max-content;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+  }
+}

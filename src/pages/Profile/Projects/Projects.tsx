@@ -2,7 +2,6 @@ import './Projects.module.scss';
 import {useState} from 'react';
 import {useDisclosure} from '@chakra-ui/react';
 import {useFormik} from 'formik';
-import {useNavigate} from 'react-router-dom';
 import styles from './Projects.module.scss';
 import DefaultButton from '../../../components/DefaultButton';
 import ModalWrapper from '../../../components/Modal';

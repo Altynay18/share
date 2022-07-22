@@ -3,6 +3,7 @@ import * as React from 'react';
 import {Backdrop, Fade, Modal} from '@mui/material';
 import {ReactChild, useState} from 'react';
 import styles from './Modal.module.scss';
+import DefaultButton from '../DefaultButton';
 
 type Props = {
   children: ReactChild,
@@ -11,6 +12,8 @@ type Props = {
 };
 
 export function ModalWrapper({children, open, handleClose}: Props) {
+  // const [close, setClose] = useState(false);
+
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -26,8 +29,11 @@ export function ModalWrapper({children, open, handleClose}: Props) {
       <Fade in={open}>
         <div className={styles.modal}>
           {children}
+          <DefaultButton bgColor='#BCD7DA' children={'Закрыть'}></DefaultButton>
         </div>
+
       </Fade>
+
     </Modal>
   );
 };
