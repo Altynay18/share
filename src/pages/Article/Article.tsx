@@ -12,9 +12,9 @@ export function Article(props: Props) {
     <Helmet>
       <script type="text/javascript" src="/lib/rangy/rangy-core.js"></script>
       <script type="text/javascript"
-              src="/lib/rangy/rangy-classapplier.js"></script>
+        src="/lib/rangy/rangy-classapplier.js"></script>
       <script type="text/javascript"
-              src="/lib/rangy/rangy-highlighter.js"></script>
+        src="/lib/rangy/rangy-highlighter.js"></script>
       <script type="text/javascript" src="/lib/rangy/Requests.js"></script>
       <script type="text/javascript" src="/lib/rangy/ArticleService.js"></script>
       <script type="text/javascript" src="/lib/rangy/index.js"></script>
