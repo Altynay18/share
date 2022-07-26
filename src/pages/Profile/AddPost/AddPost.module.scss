@@ -1,15 +1,40 @@
-.postTitle {
-  border: 1px solid #000;
-  border-radius: 12px;
-  height: 3rem;
-  width: 578px;
+.addPost{
+  border: 2px solid var(--gray);
+  border-radius: 1rem;
+  padding: 2rem;
+  
+
+  .title{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+  .header{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-weight: 600;
+    margin: 1rem;
+  }
+
+  .avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+  
+}
+
+.content{
+  margin: 2rem 0;
+}
+
+.extraMedia{
+  padding: 1rem;
+  border: 2px solid var(--gray);
+  display: flex;
+  gap: 1rem;
+  border-radius: 1rem;
   margin-bottom: 2rem;
 }
 
-.postContent {
-  border: 1px solid #000;
-  border-radius: 11px;
-  height: 8rem;
-  width: 578px;
-  margin-bottom: 3rem;
-}

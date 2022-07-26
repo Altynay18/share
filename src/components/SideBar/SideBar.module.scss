@@ -26,3 +26,39 @@
   }
 
 }
+
+/* FOR MOBILE DEVICES: */
+@media screen and (min-device-width: 360px) and (max-device-width: 414px) {   
+
+}
+
+/* FOR TABLET DEVICES: */
+@media screen and (min-device-width: 450px) and (max-device-width: 1280px) {   
+  .sidebar {
+    background: var(--black);
+    height: 100vh;
+    padding: 2rem;
+    font-weight: bold;
+  }
+  
+  .title {
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 2.5rem;
+    font-family: Poppins-Bold, sans-serif;
+  }
+  
+  .menuItem {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    color: var(--dark-gray);
+    &:visited {
+      color: var(--dark-gray);
+    }
+    &:hover {
+      color: var(--white);
+    }
+}
+}

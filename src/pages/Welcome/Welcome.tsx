@@ -12,6 +12,7 @@ export function Welcome(props: Props) {
       <div className={styles.welcomePageTitle} >
         Лента новостей:
       </div>
+      
       <Post />
     </div>
   );

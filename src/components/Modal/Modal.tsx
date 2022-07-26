@@ -29,7 +29,7 @@ export function ModalWrapper({children, open, handleClose}: Props) {
       <Fade in={open}>
         <div className={styles.modal}>
           {children}
-          <DefaultButton bgColor='#BCD7DA' children={'Закрыть'}></DefaultButton>
+          <DefaultButton bgColor='#BCD7DA' >Закрыть</DefaultButton>
         </div>
 
       </Fade>
