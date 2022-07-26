@@ -15,11 +15,11 @@ const Profile = () => {
         <div className={styles.navs}>
           <Tabs>
             <TabList>
-              <Tab fontWeight={"600"} backgroundColor={"#fff"} fontSize={'1rem'} color={'#564D80'} onClick={() => navigate('')}>Мои посты</Tab>
-              <Tab fontWeight={"600"} marginLeft={"3rem"} backgroundColor={"#fff"} fontSize={'1rem'} color={'#564D80'} onClick={() => navigate('addPosts')}>
+              <Tab fontWeight={"600"} fontSize={'1rem'} color={'#564D80'} onClick={() => navigate('')}>Мои посты</Tab>
+              <Tab fontWeight={"600"} marginLeft={"3rem"} fontSize={'1rem'} color={'#564D80'} onClick={() => navigate('addPosts')}>
                 Написать пост
               </Tab>
-              <Tab fontWeight={"600"} marginLeft={"3rem"} backgroundColor={"#fff"} fontSize={'1rem'} color={'#564D80'} onClick={() => navigate('projects')}>
+              <Tab fontWeight={"600"} marginLeft={"3rem"} fontSize={'1rem'} color={'#564D80'} onClick={() => navigate('projects')}>
                 Мои проекты
               </Tab>
             </TabList>

@@ -1,9 +1,16 @@
 .welcomePageContainer{
   padding: 3rem;
+
+  .welcomePageTitle{
+    padding: 2rem 0;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  .tags{
+    margin-bottom: 3rem;
+    
+  }
 }
 
-.welcomePageTitle{
-  padding: 2rem 0;
-  font-size: 2rem;
-  font-weight: 500;
-}
+
