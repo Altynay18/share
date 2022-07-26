@@ -1,0 +1,11 @@
+.highlight {
+    background-color: yellow;
+}
+
+.note {
+    background-color: yellow;
+}
+
+#summary {
+    border: dotted orange 1px;
+}
