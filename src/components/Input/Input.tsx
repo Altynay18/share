@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import {ChangeEvent, ReactChild} from 'react';
+import {ChangeEvent} from 'react';
 import styles from './Input.module.scss';
 
 type Props = {
@@ -12,6 +12,7 @@ type Props = {
   name: string,
   error?: string,
   placeholder: string,
+  extraProps?: any
 };
 
 export function Input({
@@ -22,12 +23,14 @@ export function Input({
                         disabled = false,
                         label = null,
                         error,
-                        placeholder
+                        placeholder,
+                        extraProps,
                       }: Props) {
   return (
     <div className={styles.inputContainer}>
       <label className={styles.label} htmlFor={name}>{label}</label>
-      <input placeholder={placeholder} className={styles.input} id={name} name={name} type={type} onChange={onChange}
+      <input {...extraProps} placeholder={placeholder} className={styles.input}
+             id={name} name={name} type={type} onChange={onChange}
              value={value} disabled={disabled}/>
       {error && <span className={styles.error}>{error}</span>}
     </div>
