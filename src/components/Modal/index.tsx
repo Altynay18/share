@@ -1,1 +1,1 @@
-export {ModalWrapper as default} from "./Modal"
+export {Modal as default} from "./Modal"

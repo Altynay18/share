@@ -1,96 +1,127 @@
-// @flow
 import * as React from 'react';
+import {useEffect, useState} from 'react';
 import {useParams} from 'react-router';
-import './rangy.css';
 import DefaultButton from '../../components/DefaultButton';
+import {ArticleService} from '../../services/ArticleService';
+import styles from './Article.module.scss';
+import Comment from '../../components/Comment';
+import './rangy.css';
+import AddAnnotation from '../../components/Forms/AddAnnotation';
+import Modal from '../../components/Modal';
+import {DeleteIcon} from '@chakra-ui/icons';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 type Props = {};
 
 export function Article(props: Props) {
   const {articleId} = useParams();
+  const [currentSelection, setCurrentSelection] = useState(null);
+  const [annotationList, setAnnotationList] = useState([]);
+  const [currentArticle, setCurrentArticle] = useState(null);
+  const articleService = new ArticleService();
+  const arr = new Array(10).fill(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   function surroundSelection() {
     const range = window.getSelection().getRangeAt(0);
-    let span = document.createElement('span');
+    let element = document.createElement('span');
+    const newID = articleService.createNewHighlight();
 
-    span.classList.add('note');
-    span.classList.add('noteasdsa');
-    span.appendChild(range.extractContents());
-    range.insertNode(span);
+    element.classList.add('note');
+    element.id = newID;
+    element.appendChild(range.extractContents());
+    element.addEventListener('click', handleSelectionClick);
+    range.insertNode(element);
+  }
+
+  function parserAllSelection() {
+    const allSelection = getAllSelection();
+    for (const selection of allSelection) {
+      selection.addEventListener('click', handleSelectionClick);
+    }
+  }
+
+  function getAllSelection() {
+    return document.querySelectorAll('.note');
+  }
+
+  async function handleSelectionClick(e) {
+    const target = e.target;
+    const annotationList = await articleService.getAnnotationList();
+    setCurrentSelection(e.target);
+    // todo setAnnotationList(annotationList)
   }
 
   function removeSelection() {
-    const range: any = window.getSelection().getRangeAt(0);
-    const commonAncestorContainer = range.commonAncestorContainer as any;
-
-    // if(commonAncestorContainer.childNodes.length){
-    const isHighlighted = range.commonAncestorContainer.parentNode.classList.value.includes('note');
-
-    console.log(isHighlighted);
-    // }
-    // commonAncestorContainer.replaceWith(...commonAncestorContainer.childNodes)
-
+    const target = currentSelection;
+    const isHighlighted = target.classList.value.includes('note');
+    if (isHighlighted) {
+      target.replaceWith(...target.childNodes);
+      resetSelection();
+    }
   }
 
-  return <div>
-    {/*<Helmet>*/}
-    {/*  <script type="text/javascript" src="/lib/rangy/rangy-core.js"></script>*/}
-    {/*  <script type="text/javascript"*/}
-    {/*    src="/lib/rangy/rangy-classapplier.js"></script>*/}
-    {/*  <script type="text/javascript"*/}
-    {/*    src="/lib/rangy/rangy-highlighter.js"></script>*/}
-    {/*  <script type="text/javascript" src="/lib/rangy/Requests.js"></script>*/}
-    {/*  <script type="text/javascript" src="/lib/rangy/ArticleService.js"></script>*/}
-    {/*  <script type="text/javascript" src="/lib/rangy/index.js" async></script>*/}
-    {/*</Helmet>*/}
+  function resetSelection() {
+    setCurrentSelection('');
+    setAnnotationList([]);
+  }
 
-    <DefaultButton onClick={() => surroundSelection()}>surround</DefaultButton>
-    <DefaultButton onClick={() => removeSelection()}>REMOVE</DefaultButton>
-    <div id={'article-controllers'}></div>
-    <div id={'article-content'}>
+  async function fetchArticle() {
+    const {
+      highlightList,
+      articleContent,
+    } = await articleService.getArticleInfo();
+    setCurrentArticle(articleContent);
+  }
 
-      <div id="content">
-        <p id="summary">
-          some countries, such as the United States, it is called
-          InNew Zealand, South Africa, Australia, Canada
-          and
-          Republic of Ireland, both words are commonly used.
-          some countries, such as the United States, it is called
-          InNew Zealand, South Africa, Australia, Canada
-          and
-          Republic of Ireland, both words are commonly used.
-          some countries, such as the United States, it is called
-          InNew Zealand, South Africa, Australia, Canada
-          and
-          Republic of Ireland, both words are commonly used.
-          some countries, such as the United States, it is called
-          InNew Zealand, South Africa, Australia, Canada
-          and
-          Republic of Ireland, both words are commonly used.
+  function handleSubmit(e) {
+    e.preventDefault();
+    const annotation = e.target.annotation.value;
+    articleService.addAnnotation(currentSelection.id, annotation);
+  }
 
-        </p>
-        <p id="summary">
-          some countries, such as the United States, it is called
-          InNew Zealand, South Africa, Australia, Canada
-          and
-          Republic of Ireland, both words are commonly used.
-          some countries, such as the United States, it is called
-          InNew Zealand, South Africa, Australia, Canada
-          and
-          Republic of Ireland, both words are commonly used.
-          some countries, such as the United States, it is called
-          InNew Zealand, South Africa, Australia, Canada
-          and
-          Republic of Ireland, both words are commonly used.
-          some countries, such as the United States, it is called
-          InNew Zealand, South Africa, Australia, Canada
-          and
-          Republic of Ireland, both words are commonly used.
-
-        </p>
+  useEffect(() => {
+    parserAllSelection();
+  }, [currentArticle]);
+  useEffect(() => {
+    fetchArticle();
+  }, []);
+  return (
+    <div className={styles.article}>
+      <div className={styles.articleHeader}>
+        <BorderColorIcon onClick={() => surroundSelection()}/>
+        <DeleteIcon onClick={() => removeSelection()}/>
       </div>
+      <div className={styles.articleBody}>
+        <div
+          className={styles.articleContent}
+          id={'article-content'}
+          dangerouslySetInnerHTML={{__html: currentArticle}}
+        />
+        {currentSelection && <div className={styles.annotations}>
+          <div className={styles.miniTitle}>Highlighted Text</div>
+          <div className={styles.annotationHeader}>
+            {currentSelection &&
+              <div id={currentSelection.id}
+                   dangerouslySetInnerHTML={{__html: currentSelection.innerHTML}}/>}
+          </div>
 
+          <div className={styles.annotationBody}>
+            <div className={styles.miniTitle}>Annotations</div>
+            <div className={styles.annotationList}>
+              {arr.map((el, i) => (
+                <Comment key={i}/>
+              ))}
+            </div>
+          </div>
+          <DefaultButton onClick={() => setIsOpen(true)}>
+            Add Annotation
+          </DefaultButton>
+        </div>}
+      </div>
+      <Modal open={isOpen} handleClose={() => setIsOpen(false)}>
+        <AddAnnotation onSubmit={handleSubmit}/>
+      </Modal>
     </div>
-    <div id={'article-annotations'}></div>
-  </div>;
+  );
 }

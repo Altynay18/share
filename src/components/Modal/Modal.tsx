@@ -1,9 +1,5 @@
-// @flow
-import * as React from 'react';
-import {Backdrop, Fade, Modal} from '@mui/material';
-import {ReactChild, useState} from 'react';
-import styles from './Modal.module.scss';
-import DefaultButton from '../DefaultButton';
+import {ReactChild} from 'react';
+import {Modal as ModalChakra,ModalBody, ModalContent, ModalOverlay} from '@chakra-ui/react';
 
 type Props = {
   children: ReactChild,
@@ -11,29 +7,16 @@ type Props = {
   handleClose: () => void
 };
 
-export function ModalWrapper({children, open, handleClose}: Props) {
-  // const [close, setClose] = useState(false);
-
+export function Modal({children, open, handleClose}: Props) {
   return (
-    <Modal
-      aria-labelledby="transition-modal-title"
-      aria-describedby="transition-modal-description"
-      open={open}
-      onClose={handleClose}
-      closeAfterTransition
-      BackdropComponent={Backdrop}
-      BackdropProps={{
-        timeout: 500,
-      }}
-    >
-      <Fade in={open}>
-        <div className={styles.modal}>
+
+    <ModalChakra isOpen={open} onClose={handleClose}>
+      <ModalOverlay/>
+      <ModalContent>
+        <ModalBody>
           {children}
-          <DefaultButton bgColor='#BCD7DA'  >Закрыть</DefaultButton>
-        </div>
-
-      </Fade>
-
-    </Modal>
+        </ModalBody>
+      </ModalContent>
+    </ModalChakra>
   );
 };
