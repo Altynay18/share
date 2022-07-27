@@ -39,9 +39,9 @@ const DiscussProject = () => {
 
       console.log(values);
       alert(JSON.stringify(values, null, 2));
-      service.addProjectDiscussion(values);
+      // service.addProjectDiscussion(values);
       if (values.file) {
-        service.sendPhotoRequest(values.file);
+        // service.sendPhotoRequest(values.file);
       }
     },
   });

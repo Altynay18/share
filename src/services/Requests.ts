@@ -1,5 +1,5 @@
 import {RequestConfig} from '../types/services';
-export const BASE_URL = ''
+export const BASE_URL = 'http://164.92.192.48:8085'
 export class Requests {
   baseUrl: string;
 
