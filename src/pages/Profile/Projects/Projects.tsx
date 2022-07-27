@@ -29,7 +29,7 @@ const Projects = () => {
 
   return (
     <div className={styles.projects}>
-      <DefaultButton onclick={() => setOpen(true)}> + Создать
+      <DefaultButton onClick={() => setOpen(true)}> + Создать
         проект</DefaultButton>
       <ModalWrapper open={open} handleClose={() => setOpen(false)}>
         <AddProject onSubmit={() => setOpen(false)} />

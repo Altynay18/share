@@ -1,10 +1,10 @@
 import {RequestConfig} from '../types/services';
-
+export const BASE_URL = ''
 export class Requests {
   baseUrl: string;
 
-  constructor(baseUrl: string) {
-    this.baseUrl = baseUrl;
+  constructor() {
+    this.baseUrl = BASE_URL;
   }
 
   async get(path: string, config = {}) {

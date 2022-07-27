@@ -5,22 +5,22 @@ import styles from './DefaultButton.module.scss';
 import {COLORS} from '../../constants';
 
 type Props = {
-  onclick?: () => void,
+  onClick?: () => void,
   children: ReactChild,
   bgColor?: string,
   maxWidth?: string
 };
 
 export function DefaultButton({
-  onclick,
-  children,
-  bgColor = COLORS.YELLOW,
-  maxWidth = '100%',
+                                onClick,
+                                children,
+                                bgColor = COLORS.YELLOW,
+                                maxWidth = '100%',
 
-}: Props) {
+                              }: Props) {
   return (
-    <button style={{background: bgColor, maxWidth}} onClick={onclick}
-      className={styles.defaultButton}>
+    <button style={{background: bgColor, maxWidth}} onClick={onClick}
+            className={styles.defaultButton}>
       {children}
     </button>
   );

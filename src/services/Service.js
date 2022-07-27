@@ -1,5 +1,7 @@
-import { useNavigate } from "react-router-dom";
-export class Service {
+import {useNavigate} from 'react-router-dom';
+import {Requests} from './Requests';
+
+export class Service extends Requests {
   navigate = useNavigate();
 
   // async isAdmin() {
@@ -14,76 +16,79 @@ export class Service {
   //   return getPostRes;
   // }
 
+  async addProject() {
+    const path = '/fsdfsdf';
+    const response = await this.post(path, data);
+  }
 
   async handleLogin(userData) {
 
     console.log(userData.username);
     console.log(JSON.stringify(userData));
-    const res = await fetch("http://164.92.192.48:8085/authenticate", {
-      method: "POST",
+    const res = await fetch('http://164.92.192.48:8085/authenticate', {
+      method: 'POST',
       body: JSON.stringify(userData), //TODO: check this point, maybe they need body
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
     });
     const resJson = await res.json();
 
     console.log(resJson);
-    console.log(typeof userData.username, typeof "[ROLE_ADMIN]")
+    console.log(typeof userData.username, typeof '[ROLE_ADMIN]');
 
     if (res.status === 200) {
-      sessionStorage.setItem("access_token", resJson.token);
+      sessionStorage.setItem('access_token', resJson.token);
       // const check =  await this.isAdmin();
       // console.log("role is:", check);
-      if(userData.username === "admin"){
-        console.log("true")
-        this.navigate("/admin");
-      }
-      else{
-        this.navigate("/profile");
+      if (userData.username === 'admin') {
+        console.log('true');
+        this.navigate('/admin');
+      } else {
+        this.navigate('/profile');
 
       }
 
-      console.log(sessionStorage.getItem("access_token"));
+      console.log(sessionStorage.getItem('access_token'));
     }
   }
 
   async registerUser(userData) {
-    console.log("hey");
+    console.log('hey');
     console.log(JSON.stringify(userData));
-    const res = await fetch("http://164.92.192.48:8085/full-register", {
-      method: "POST",
+    const res = await fetch('http://164.92.192.48:8085/full-register', {
+      method: 'POST',
       body: JSON.stringify(userData), //TODO: check this point, maybe they need body
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
     });
     const resJson = await res.json();
     console.log(resJson);
-    
+
   }
 
   async logout() {
-    sessionStorage.removeItem("access_token");
-    this.navigate("/");
+    sessionStorage.removeItem('access_token');
+    this.navigate('/');
   }
 
   async addPost(postContent) {
-    const token = sessionStorage.getItem("access_token");
+    const token = sessionStorage.getItem('access_token');
     console.log(token);
     console.log(JSON.stringify(postContent));
     const res = await fetch(
-      "http://164.92.192.48:8085/reflection/create-post",
+      'http://164.92.192.48:8085/reflection/create-post',
       {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify(postContent), //TODO: check this point, maybe they need body
         headers: {
-          "Content-type": "application/json",
+          'Content-type': 'application/json',
           Authorization: ` ${token}`,
         },
-      }
+      },
     );
     const postRes = await res;
     console.log(postRes);
@@ -91,10 +96,10 @@ export class Service {
 
   async getUserPosts() {
     const res = await fetch(
-      "http://164.92.192.48:5/reflection/posts?page=0",
+      'http://164.92.192.48:5/reflection/posts?page=0',
       {
-        method: "GET",
-      }
+        method: 'GET',
+      },
     );
     const getPostRes = await res.json();
     console.log(getPostRes);
@@ -102,62 +107,63 @@ export class Service {
 
 
   async createProject(projectData) {
-    console.log("hey");
-    const token = sessionStorage.getItem("access_token");
+    console.log('hey');
+    const token = sessionStorage.getItem('access_token');
 
-    console.log("names: ", JSON.stringify(projectData));
+    console.log('names: ', JSON.stringify(projectData));
     const project_name = projectData.project_name;
-    console.log("arr", projectData);
+    console.log('arr', projectData);
 
     const res = await fetch(
-      `http://164.92.192.48:8085/createProject?name=${"gggggg"}&project_name=${project_name}&users=${
+      `http://164.92.192.48:8085/createProject?name=${'gggggg'}&project_name=${project_name}&users=${
         projectData.user1},${projectData.user2},${projectData.user3}`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-type": "application/json",
+          'Content-type': 'application/json',
           Authorization: ` ${token}`,
         },
-      }
+      },
     );
     // const resJson = await res.json();
     console.log(res);
 
     // this.navigate("/profile");
   }
+
   async addProjectDiscussion(discussion) {
-    const token = sessionStorage.getItem("access_token");
+    const token = sessionStorage.getItem('access_token');
     console.log(token);
     console.log(JSON.stringify(discussion));
     const res = await fetch(
-      "http://164.92.192.48:8085/science/create-post",
+      'http://164.92.192.48:8085/science/create-post',
       {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify(discussion), //TODO: check this point, maybe they need body
         headers: {
-          "Content-type": "application/json",
+          'Content-type': 'application/json',
           Authorization: ` ${token}`,
         },
-      }
+      },
     );
     const postRes = await res;
     console.log(postRes);
   }
 
   async acceptUser(userID) {
-    const token = sessionStorage.getItem("access_token");
+    const token = sessionStorage.getItem('access_token');
     console.log(token);
     const res = await fetch(
       `http://164.92.192.48:8085/activate-user/${userID}`,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-type": "application/json",
+          'Content-type': 'application/json',
           Authorization: ` ${token}`,
         },
-      }
+      },
     );
-   
+
     const postRes = await res.text();
     console.log(postRes);
     return postRes;
@@ -172,54 +178,54 @@ export class Service {
   }
 
   async startMeeting(participants) {
-    console.log("fff", participants)
-    const arr=[
+    console.log('fff', participants);
+    const arr = [
       JSON.stringify({email: `${participants.email1}`}),
       JSON.stringify({email: `${participants.email2}`}),
-      JSON.stringify({email: `${participants.email3}`})
-    ]
-    const token = sessionStorage.getItem("access_token");
+      JSON.stringify({email: `${participants.email3}`}),
+    ];
+    const token = sessionStorage.getItem('access_token');
     console.log(token);
     const res = await fetch(
-      "http://164.92.192.48:8085/generateMeetingAndSend",
+      'http://164.92.192.48:8085/generateMeetingAndSend',
       {
-        method: "POST",
+        method: 'POST',
         body: arr, //TODO: check this point, maybe they need body
         headers: {
-          "Content-type": "application/json",
+          'Content-type': 'application/json',
           Authorization: ` ${token}`,
         },
-      }
+      },
     );
-  
-    if(res.ok){
-      alert("Приглашения были отправлены участникам")
+
+    if (res.ok) {
+      alert('Приглашения были отправлены участникам');
     }
     const postRes = await res.text();
-    console.log(postRes)
+    console.log(postRes);
     return postRes;
 
   }
 
-  async  sendPhotoRequest(file) {
+  async sendPhotoRequest(file) {
     try {
-      const token = sessionStorage.getItem("access_token");
+      const token = sessionStorage.getItem('access_token');
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append('file', file);
       const sendPhotoResponse = await fetch(
-        "http://164.92.192.48:8085/generateMeetingAndSend",
+        'http://164.92.192.48:8085/generateMeetingAndSend',
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            accept: "*/*",
+            accept: '*/*',
             Authorization: ` ${token}`,
           },
           body: formData,
-        }
+        },
       );
       if (sendPhotoResponse.status !== 200)
         throw new Error(sendPhotoResponse.status);
-      alert("Success!");
+      alert('Success!');
     } catch (err) {
       alert(err.message);
       return;
