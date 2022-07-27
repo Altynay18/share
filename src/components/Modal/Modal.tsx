@@ -1,10 +1,5 @@
-import Backdrop from '@mui/material/Backdrop';
-import ModalMui from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
 import {ReactChild} from 'react';
-import styles from './Modal.module.scss';
-import DefaultButton from '../DefaultButton';
-import {COLORS} from '../../constants';
+import {Modal as ModalChakra,ModalBody, ModalContent, ModalOverlay} from '@chakra-ui/react';
 
 type Props = {
   children: ReactChild,
@@ -14,23 +9,14 @@ type Props = {
 
 export function Modal({children, open, handleClose}: Props) {
   return (
-    <ModalMui
-      aria-labelledby="transition-modal-title"
-      aria-describedby="transition-modal-description"
-      open={open}
-      onClose={handleClose}
-      closeAfterTransition
-      BackdropComponent={Backdrop}
-      BackdropProps={{
-        timeout: 500,
-      }}
-    >
-      <Fade in={open}>
-        <div className={styles.modal}>
+
+    <ModalChakra isOpen={open} onClose={handleClose}>
+      <ModalOverlay/>
+      <ModalContent>
+        <ModalBody>
           {children}
-          <DefaultButton bgColor={COLORS.YELLOW}  >Закрыть</DefaultButton>
-        </div>
-      </Fade>
-    </ModalMui>
+        </ModalBody>
+      </ModalContent>
+    </ModalChakra>
   );
 };

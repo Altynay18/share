@@ -2,11 +2,10 @@
 import * as React from 'react';
 import styles from './Post.module.scss';
 import {Badge} from "@chakra-ui/react";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import Modal from '../Modal'
 import {useState} from 'react';
 import PostContent from '../PostContent';
+import {ChatIcon, StarIcon} from '@chakra-ui/icons'
 type Props = {
 
 };
@@ -32,10 +31,10 @@ export function Post(props: Props) {
       </div>
       <div className={styles.postActions}>
         <div >
-          <FavoriteBorderIcon fontSize='small' />Нравится
+          <StarIcon w={4} h={4} />Нравится
         </div>
         <div >
-          <ChatBubbleOutlineIcon fontSize='small' />  Комментарии
+          <ChatIcon w={4} h={4}/>  Комментарии
         </div>
       </div>
       <Modal open={open} handleClose={() => setOpen(false)}>
