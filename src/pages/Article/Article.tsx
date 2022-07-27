@@ -8,6 +8,8 @@ import Comment from '../../components/Comment';
 import './rangy.css';
 import AddAnnotation from '../../components/Forms/AddAnnotation';
 import Modal from '../../components/Modal';
+import {DeleteIcon} from '@chakra-ui/icons';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 type Props = {};
 
@@ -18,7 +20,7 @@ export function Article(props: Props) {
   const [currentArticle, setCurrentArticle] = useState(null);
   const articleService = new ArticleService();
   const arr = new Array(10).fill(0);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   function surroundSelection() {
     const range = window.getSelection().getRangeAt(0);
@@ -72,6 +74,12 @@ export function Article(props: Props) {
     setCurrentArticle(articleContent);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    const annotation = e.target.annotation.value;
+    articleService.addAnnotation(currentSelection.id, annotation);
+  }
+
   useEffect(() => {
     parserAllSelection();
   }, [currentArticle]);
@@ -81,9 +89,8 @@ export function Article(props: Props) {
   return (
     <div className={styles.article}>
       <div className={styles.articleHeader}>
-        <DefaultButton
-          onClick={() => surroundSelection()}>surround</DefaultButton>
-        <DefaultButton onClick={() => removeSelection()}>Delete</DefaultButton>
+        <BorderColorIcon onClick={() => surroundSelection()}/>
+        <DeleteIcon onClick={() => removeSelection()}/>
       </div>
       <div className={styles.articleBody}>
         <div
@@ -91,7 +98,7 @@ export function Article(props: Props) {
           id={'article-content'}
           dangerouslySetInnerHTML={{__html: currentArticle}}
         />
-        <div className={styles.annotations}>
+        {currentSelection && <div className={styles.annotations}>
           <div className={styles.miniTitle}>Highlighted Text</div>
           <div className={styles.annotationHeader}>
             {currentSelection &&
@@ -107,13 +114,13 @@ export function Article(props: Props) {
               ))}
             </div>
           </div>
-          <DefaultButton onClick={()=>setIsOpen(true)}>
+          <DefaultButton onClick={() => setIsOpen(true)}>
             Add Annotation
           </DefaultButton>
-        </div>
+        </div>}
       </div>
       <Modal open={isOpen} handleClose={() => setIsOpen(false)}>
-        <AddAnnotation/>
+        <AddAnnotation onSubmit={handleSubmit}/>
       </Modal>
     </div>
   );

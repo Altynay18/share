@@ -1,14 +1,23 @@
 .article {
+
+  padding: 20px;
+}
+
+.articleHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--light-gray)
 }
 
 .articleContent {
-  padding: 20px;
+  margin-right: 20px;
 }
 
 .articleBody {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  margin: 20px;
 }
 
 .annotations {

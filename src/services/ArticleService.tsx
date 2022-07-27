@@ -45,8 +45,9 @@ export class ArticleService extends Requests {
     return [];
   }
 
-  uploadModifiedArticle(html) {
-    console.log('loading article', html);
+  uploadModifiedArticle() {
+    const currentArticle = document.getElementById('article-content');
+    console.log('loading article', currentArticle);
   }
 
   createNewHighlight() {
@@ -59,7 +60,11 @@ export class ArticleService extends Requests {
   }
 
   addAnnotation(highlightId, content) {
-
+    const highlight = {
+      id: highlightId, annotations: [content],
+    };
+    this.highlightList.push(highlight);
+    this.uploadModifiedArticle();
   }
 
   #getArticleParams() {
