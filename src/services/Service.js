@@ -17,8 +17,8 @@ export class Service extends Requests {
   // }
 
   async addProject() {
-    const path = '/fsdfsdf';
-    const response = await this.post(path, data);
+    // const path = '/fsdfsdf';
+    // const response = await this.post(path, data);
   }
 
   async handleLogin(userData) {

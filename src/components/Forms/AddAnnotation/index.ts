@@ -1,0 +1,1 @@
+export {AddAnnotation as default} from './AddAnnotation';

@@ -1,9 +1,10 @@
-// @flow
-import * as React from 'react';
-import {Backdrop, Fade, Modal} from '@mui/material';
-import {ReactChild, useState} from 'react';
+import Backdrop from '@mui/material/Backdrop';
+import ModalMui from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import {ReactChild} from 'react';
 import styles from './Modal.module.scss';
 import DefaultButton from '../DefaultButton';
+import {COLORS} from '../../constants';
 
 type Props = {
   children: ReactChild,
@@ -11,11 +12,9 @@ type Props = {
   handleClose: () => void
 };
 
-export function ModalWrapper({children, open, handleClose}: Props) {
-  // const [close, setClose] = useState(false);
-
+export function Modal({children, open, handleClose}: Props) {
   return (
-    <Modal
+    <ModalMui
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
       open={open}
@@ -29,11 +28,9 @@ export function ModalWrapper({children, open, handleClose}: Props) {
       <Fade in={open}>
         <div className={styles.modal}>
           {children}
-          <DefaultButton bgColor='#BCD7DA'  >Закрыть</DefaultButton>
+          <DefaultButton bgColor={COLORS.YELLOW}  >Закрыть</DefaultButton>
         </div>
-
       </Fade>
-
-    </Modal>
+    </ModalMui>
   );
 };

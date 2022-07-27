@@ -4,7 +4,7 @@ import {useState} from 'react';
 // import {useFormik} from 'formik';
 import styles from './Projects.module.scss';
 import DefaultButton from '../../../components/DefaultButton';
-import ModalWrapper from '../../../components/Modal';
+import Modal from '../../../components/Modal';
 import AddProject from '../../../components/Forms/AddProject';
 
 const Projects = () => {
@@ -31,9 +31,9 @@ const Projects = () => {
     <div className={styles.projects}>
       <DefaultButton onClick={() => setOpen(true)}> + Создать
         проект</DefaultButton>
-      <ModalWrapper open={open} handleClose={() => setOpen(false)}>
+      <Modal open={open} handleClose={() => setOpen(false)}>
         <AddProject onSubmit={() => setOpen(false)} />
-      </ModalWrapper>
+      </Modal>
     </div>
   );
 };

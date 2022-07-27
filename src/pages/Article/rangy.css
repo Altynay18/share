@@ -3,9 +3,9 @@
 }
 
 .note {
-    background-color: yellow;
+    background-color: yellow !important;
 }
 
-#summary {
-    border: dotted orange 1px;
+.note *{
+    background-color: yellow !important;
 }

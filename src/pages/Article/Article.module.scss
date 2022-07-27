@@ -1,1 +1,36 @@
-.article{}
+.article {
+}
+
+.articleContent {
+  padding: 20px;
+}
+
+.articleBody {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin: 20px;
+}
+
+.annotations {
+  position: sticky;
+  max-height: calc(100vh - 200px);
+  top: 100px;
+}
+
+.annotationHeader {
+  border: 1px solid var(--light-gray);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.annotationBody {
+  max-height: 50vh;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
+
+.miniTitle {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
