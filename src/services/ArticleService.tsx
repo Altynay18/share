@@ -31,6 +31,16 @@ export class ArticleService extends Requests {
           some countries, such as the United States, it is called <b>soccer</b>. In
           Japan, New Zealand, South Africa, Australia, Canada and
           Republic of Ireland, both words are commonly used.
+          
+          <b>Association football</b> is a sport played between two teams. It is usually called <b>football</b>, but in
+          some countries, such as the United States, it is called <b>soccer</b>. In
+          Japan, New Zealand, South Africa, Australia, Canada and
+          Republic of Ireland, both words are commonly used.
+          
+          <b>Association football</b> is a sport played between two teams. It is usually called <b>football</b>, but in
+          some countries, such as the United States, it is called <b>soccer</b>. In
+          Japan, New Zealand, South Africa, Australia, Canada and
+          Republic of Ireland, both words are commonly used.
         </div>
       `;
     return {
