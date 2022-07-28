@@ -16,3 +16,13 @@ export interface RegisterData {
   passwordConfirm: string,
   role: ROLES
 }
+
+export interface ProjectData {
+  project_name: string,
+  users: string,
+  description: string
+}
+
+export interface MeetingData {
+  email: string,
+}

@@ -3,7 +3,6 @@ import {ROUTES} from '../constants';
 import {RegisterData} from '../types/services';
 
 export class Auth extends Requests {
-
   async login(obj: Object) {
     const path = '/authenticate';
     const response = await this.post(path, obj);
@@ -15,6 +14,12 @@ export class Auth extends Requests {
 
   async register(data: RegisterData) {
     const path = '/register';
-    const response = await this.post(path, data);
+    return await this.post(path, data);
+  }
+
+  // todo check swagger for method type
+  async logout(){
+    const path = '/logout'
+    return this.get(path)
   }
 }
