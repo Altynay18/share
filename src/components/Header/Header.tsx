@@ -1,9 +1,15 @@
 import styles from './Header.module.scss';
 import avatar from '../../assets/images/avatar.png';
+import {useNavigate} from 'react-router-dom';
 // import {Input, InputGroup, InputRightElement} from '@chakra-ui/react';
 // import {SearchIcon} from '@chakra-ui/icons';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const logout = () => {
+    sessionStorage.removeItem('access_token');
+    navigate('/login');
+  };
   return (
     <div className={styles.header}>
       {/* <InputGroup size="md" width={'20%'}>
@@ -16,9 +22,9 @@ const Header = () => {
           <SearchIcon aria-label="Search database" />
         </InputRightElement>
       </InputGroup> */}
-      <div className={styles.logout}>Выйти</div>
+      <div onClick={logout} className={styles.logout}>Выйти</div>
       <img src={avatar} className={styles.avatar} alt="avatar" height={50}
-        width={50} />
+           width={50}/>
     </div>
   );
 };
