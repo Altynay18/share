@@ -35,7 +35,7 @@ const Mentorship = () => {
     ,
     validate,
     onSubmit: (values) => {
-      service.startMeeting(values);
+      // service.startMeeting(values);
       setLink("https://meet.google.com/avu-ctaa-mrfz");
       console.log(values);
     },

@@ -31,6 +31,25 @@
 
 .content{
   margin: 2rem 0;
+  form{
+    input {
+      border: 2px solid var(--gray);
+      width: 80%;
+      height: 8rem;
+      margin-bottom: 2rem;
+      border-radius: 1rem;
+
+    }
+    select{
+      height: 2rem;
+      width: 15rem;
+      border: 2px solid var(--gray);
+      margin-bottom: 2rem;
+      border-radius: 1rem;
+
+    }
+  }
+  
 }
 
 .extraMedia{

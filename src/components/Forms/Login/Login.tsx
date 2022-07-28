@@ -6,30 +6,36 @@ import {ChangeEvent} from 'react';
 import DefaultButton from '../../DefaultButton';
 import {Link} from 'react-router-dom';
 import {ROUTES} from '../../../constants';
+import {useForm} from "react-hook-form";
+import {Service} from '../../../services/Service';
 
 type Props = {};
 
 export function Login(props: Props) {
-  const handleChange = (e: ChangeEvent) => {
+  const service = new Service;
+  const {register, handleSubmit} = useForm({
+    defaultValues: {
+      username: '',
+      password: ''
+    }
+  });
 
-  };
-
-  const handleClick = () => {
-
-  };
-  const handleSubmit = () => {
-  };
+  const onSubmit = (data) => {
+    console.log(data)
+    service.login(data);
+  }
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <h2 className={styles.title}>Авторизация</h2>
-      <Input placeholder={'Почта'} name={'login'} error={'fsdfsd'} value={''}
-             onChange={handleChange} />
-      <Input placeholder={'Пароль'} name={'password'} error={'fsdfsd'}
-             value={''}
-             onChange={handleChange} />
-      <DefaultButton>Войти</DefaultButton>
-      <div>Нет аккаунта? <Link to={ROUTES.REGISTER}><span
-        className={styles.link}>Зарегистрируйтесь</span></Link></div>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Логин</label>
+      <br></br>
+      <input {...register("username")}></input>
+      <br></br>
+      <label>Почта:</label>
+      <br></br>
+      <input {...register("password")}></input>
+
+      <br></br>
+      <input type="submit" />
     </form>
   );
 }

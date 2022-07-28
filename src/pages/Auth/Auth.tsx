@@ -11,7 +11,7 @@ import Register from '../../components/Forms/RegisterForm';
 
 const Auth = () => {
   const toast = useToast();
-const location = useLocation()
+  const location = useLocation()
   const navigate = useNavigate();
   const service = new Service();
   const validate = (values: any) => {
@@ -32,7 +32,7 @@ const location = useLocation()
     },
     validate,
     onSubmit: (values) => {
-      service.registerUser(values);
+      // service.registerUser(values);
     },
   });
 
@@ -46,7 +46,7 @@ const location = useLocation()
         <img src={netImg} alt="net" className={styles.img} />
       </div>
       <div className={styles.formSection}>
-        {location.pathname.includes(ROUTES.LOGIN) ? <Login /> : <Register/>}
+        {location.pathname.includes(ROUTES.LOGIN) ? <Login /> : <Register />}
       </div>
     </div>
   );
