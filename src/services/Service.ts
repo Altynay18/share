@@ -22,7 +22,7 @@ export class Service extends Requests {
     return response;
   }
 
-  async addNewsPost(obj: Object) {
+  async addNewsPost(obj: Object) {  
     const path = '/reflection/create-post';
     const response = await this.post(path, obj);
     return response;
@@ -30,6 +30,7 @@ export class Service extends Requests {
 
   async filterByTag(obj: {name: string}){
     const path = '/post_by_tag?offset=0&limit=10';
+    console.log(obj)
     const response = await this.post(path, obj);
     return response;
   }

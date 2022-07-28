@@ -16,11 +16,17 @@ function Reflections() {
     setReflectionPosts(arr);
   }, []);
 
+
   async function getPostsByTag(value: string) {
     const arr = await service.filterByTag({name: value});
     console.log('hello')
     setReflectionPosts(arr);
   }
+
+  function handleSelectChange(event) {
+    getPostsByTag(event.target.value);
+  }
+
 
   useEffect(() => {
     getAllPosts();
@@ -43,19 +49,17 @@ function Reflections() {
         </InputGroup>
       </div>
       <div className={styles.tags}>
-        {/* <Stack direction='row' spacing={'3rem'}>
-         
-        </Stack> */}
-        <Select placeholder='Выберите тег'>
-          <option value={TAG_NAMES.TRAINING_AND_TEACHING} onClick={() => getPostsByTag(TAG_NAMES.TRAINING_AND_TEACHING)}> Обучение и преподавание</option>
-          <option value={TAG_NAMES.TEACHERS_COLLABORATION} onClick={() => getPostsByTag(TAG_NAMES.TEACHERS_COLLABORATION)}>Сотрудничество учителей</option>
-          <option value={TAG_NAMES.CREATE_CONDITIONS} onClick={() => getPostsByTag(TAG_NAMES.CREATE_CONDITIONS)}>Создание условий</option>
-          <option value={TAG_NAMES.METHODOLOGY_AR} onClick={() => getPostsByTag(TAG_NAMES.METHODOLOGY_AR)}>Методология AR</option>
-          <option value={TAG_NAMES.TRAINEE_SUPPORT} onClick={() => getPostsByTag(TAG_NAMES.TRAINEE_SUPPORT)}>Сопровождение учащегося</option>
-        </Select>
+        <select placeholder='Выберите тег' onChange={handleSelectChange}>
+          <option>Выбрать тег</option>
+          <option value={TAG_NAMES.TRAINING_AND_TEACHING}> Обучение и преподавание</option>
+          <option value={TAG_NAMES.TEACHERS_COLLABORATION}>Сотрудничество учителей</option>
+          <option value={TAG_NAMES.CREATE_CONDITIONS}>Создание условий</option>
+          <option value={TAG_NAMES.METHODOLOGY_AR} >Методология AR</option>
+          <option value={TAG_NAMES.TRAINEE_SUPPORT} >Сопровождение учащегося</option>
+        </select>
       </div>
       {
-        reflectionPosts.map((el, index) =>
+        reflectionPosts?.map((el, index) =>
           <Post data={el} key={el.id} />
         )
       }
