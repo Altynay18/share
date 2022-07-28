@@ -17,11 +17,13 @@ import {
 } from '@chakra-ui/react'
 import {ChevronDownIcon} from '@chakra-ui/icons';
 import {Service} from '../../../services/Service';
-
+import {TAG_NAMES} from '../../../constants'
 
 
 //TODO: adapt Input component for textarea
 function AddPost() {
+
+
   const service = new Service();
   const {register, handleSubmit} = useForm({
     defaultValues: {
@@ -61,11 +63,11 @@ function AddPost() {
           <input {...register("content")}></input>
           <br></br>
           <select {...register("tag")}>
-            <option value="trainingAndTeaching">Обучение и преподавание</option>
-            <option value="teachersCollaboration">Сотрудничество учителей</option>
-            <option value="createConditions">Создание условий</option>
-            <option value="methodologyAR">Методология AR</option>
-            <option value="traineeSupport">Сопровождение учащегося</option>
+            <option value={TAG_NAMES.TRAINING_AND_TEACHING}>Обучение и преподавание</option>
+            <option value={TAG_NAMES.TEACHERS_COLLABORATION}>Сотрудничество учителей</option>
+            <option value={TAG_NAMES.CREATE_CONDITIONS}>Создание условий</option>
+            <option value={TAG_NAMES.METHODOLOGY_AR}>Методология AR</option>
+            <option value={TAG_NAMES.TRAINEE_SUPPORT}>Сопровождение учащегося</option>
           </select>
           <br></br>
 

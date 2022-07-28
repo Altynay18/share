@@ -16,7 +16,7 @@ export class Service extends Requests {
 
 
   async addReflectionPost(obj: Object) {
-    const path = '/reflection/create-post?name=0';
+    const path = '/reflection/create-post';
     console.log('obj',obj)
     const response = await this.post(path, obj);
     return response;
@@ -28,9 +28,9 @@ export class Service extends Requests {
     return response;
   }
 
-  async getProjectsByTag(){
-    const path = '/post_by_tag';
-    const response = await this.get(path);
+  async filterByTag(obj: {name: string}){
+    const path = '/post_by_tag?offset=0&limit=10';
+    const response = await this.post(path, obj);
     return response;
   }
 
@@ -39,6 +39,7 @@ export class Service extends Requests {
     const response = await this.get(path);
     return response;
   }
+
 
 
 

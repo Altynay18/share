@@ -26,7 +26,7 @@ export function Welcome(props: Props) {
         </InputGroup>
       </div>
 
-      <Post />
+      {/* <Post data={{}} /> */}
     </div>
   );
 };

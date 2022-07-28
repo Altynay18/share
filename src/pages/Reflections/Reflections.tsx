@@ -1,11 +1,32 @@
-import React from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import styles from './Reflections.module.scss'
 import Post from '../../components/Post'
-import {Badge, Stack} from '@chakra-ui/react'
+import {Badge, Select} from '@chakra-ui/react'
 import {Input, InputGroup, InputRightElement} from '@chakra-ui/react';
 import {SearchIcon} from '@chakra-ui/icons';
+import {Service} from '../../services/Service';
+import {TAG_NAMES} from '../../constants'
+
 function Reflections() {
-  // const[reflectionPosts, setReflectionPosts] = useState()
+  const [reflectionPosts, setReflectionPosts] = useState([]);
+  const service = new Service();
+
+  const getAllPosts = useCallback(async () => {
+    const arr = await service.getAllPosts();
+    setReflectionPosts(arr);
+  }, []);
+
+  async function getPostsByTag(value: string) {
+    const arr = await service.filterByTag({name: value});
+    console.log('hello')
+    setReflectionPosts(arr);
+  }
+
+  useEffect(() => {
+    getAllPosts();
+  }, []);
+
+  console.log(reflectionPosts);
   return (
     <div className={styles.welcomePageContainer}>
       <div className={styles.welcomePageTitle} >
@@ -22,17 +43,23 @@ function Reflections() {
         </InputGroup>
       </div>
       <div className={styles.tags}>
-        <Stack direction='row' spacing={'3rem'}>
-          <Badge padding={'1rem 2rem'} colorScheme='green' borderRadius={'1rem'}>Все посты</Badge>
-          <Badge padding={'1rem 2rem'} colorScheme='green' borderRadius={'1rem'}>Обучение и преподавание</Badge>
-          <Badge padding={'1rem 2rem'} colorScheme='red' borderRadius={'1rem'}>Сотрудничество учителей</Badge>
-          <Badge padding={'1rem 2rem'} colorScheme='purple' borderRadius={'1rem'}>Создание условий</Badge>
-          <Badge padding={'1rem 2rem'} colorScheme='yellow' borderRadius={'1rem'}>Методология AR</Badge>
-          <Badge padding={'1rem 2rem'} colorScheme='twitter' borderRadius={'1rem'}>Сопровождение учащегося</Badge>
-        </Stack>
+        {/* <Stack direction='row' spacing={'3rem'}>
+         
+        </Stack> */}
+        <Select placeholder='Выберите тег'>
+          <option value={TAG_NAMES.TRAINING_AND_TEACHING} onClick={() => getPostsByTag(TAG_NAMES.TRAINING_AND_TEACHING)}> Обучение и преподавание</option>
+          <option value={TAG_NAMES.TEACHERS_COLLABORATION} onClick={() => getPostsByTag(TAG_NAMES.TEACHERS_COLLABORATION)}>Сотрудничество учителей</option>
+          <option value={TAG_NAMES.CREATE_CONDITIONS} onClick={() => getPostsByTag(TAG_NAMES.CREATE_CONDITIONS)}>Создание условий</option>
+          <option value={TAG_NAMES.METHODOLOGY_AR} onClick={() => getPostsByTag(TAG_NAMES.METHODOLOGY_AR)}>Методология AR</option>
+          <option value={TAG_NAMES.TRAINEE_SUPPORT} onClick={() => getPostsByTag(TAG_NAMES.TRAINEE_SUPPORT)}>Сопровождение учащегося</option>
+        </Select>
       </div>
-      <Post />
-    </div>
+      {
+        reflectionPosts.map((el, index) =>
+          <Post data={el} key={el.id} />
+        )
+      }
+    </div >
   )
 }
 
