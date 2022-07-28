@@ -31,3 +31,12 @@ export enum PERMISSIONS {
   ADMIN,
   USER
 }
+
+
+export enum TAG_NAMES {
+  TRAINING_AND_TEACHING = "trainingAndTeaching",
+  TEACHERS_COLLABORATION = "teachersCollaboration",
+  CREATE_CONDITIONS = "createConditions",
+  METHODOLOGY_AR = "methodologyAR",
+  TRAINEE_SUPPORT = "traineeSupport"
+}

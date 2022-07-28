@@ -83,9 +83,9 @@ export class Requests {
     const token = sessionStorage.getItem('access_token');
     if (!token) return;
     if (config.headers) {
-      config.headers.append('Authorization', `Bearer ${token}`);
+      config.headers.append('Authorization', `${token}`);
     } else {
-      config.headers = new Headers({Authorization: `Bearer ${token}`});
+      config.headers = new Headers({Authorization: `${token}`});
     }
   }
 }
