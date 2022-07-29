@@ -11,3 +11,19 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+.addFile {
+  display: flex;
+  align-items: center;
+  background: var(--yellow);
+  border-radius: 12px;
+  padding: 10px 20px;
+  color: var(--white);
+  margin-bottom: 20px;
+  justify-content: center;
+  max-width: 200px;
+
+  input {
+    display: none;
+  }
+}

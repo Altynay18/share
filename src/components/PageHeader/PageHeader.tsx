@@ -11,7 +11,7 @@ type Props = {
 export function PageHeader({title}: Props) {
   return (
     <div className={styles.welcomePageTitle} >
-      {title}:
+      {title}
       <InputGroup size="md" width={'20%'}>
         <Input
           pr="4.5rem"

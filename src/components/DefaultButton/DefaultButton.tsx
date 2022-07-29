@@ -3,6 +3,7 @@ import * as React from 'react';
 import {ReactChild} from 'react';
 import styles from './DefaultButton.module.scss';
 import {COLORS} from '../../constants';
+import {Button} from '@chakra-ui/react';
 
 type Props = {
   onClick?: () => void,
@@ -19,9 +20,9 @@ export function DefaultButton({
 
                               }: Props) {
   return (
-    <button style={{background: bgColor, maxWidth}} onClick={onClick}
+    <Button style={{backgroundColor: bgColor, maxWidth}} onClick={onClick}
             className={styles.defaultButton}>
       {children}
-    </button>
+    </Button>
   );
 };

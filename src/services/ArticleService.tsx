@@ -15,6 +15,11 @@ export class ArticleService extends Requests {
     this.highlightList = [];
   }
 
+  getArticleList() {
+    const path = '';
+    return this.get(path);
+  }
+
   async getArticleInfo() {
     // todo fetch high
     this.highlightList = [{
@@ -47,6 +52,11 @@ export class ArticleService extends Requests {
       highlightList: this.highlightList,
       articleContent: this.articleContent,
     };
+  }
+
+  uploadPdf(data: FormData) {
+    const path = '/pdf';
+    return this.postFile(path, data);
   }
 
   async getAnnotationList() {
