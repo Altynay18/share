@@ -1,7 +1,7 @@
 export enum ROUTES {
+  MAIN = '/',
   LOGIN = '/login',
   REGISTER = '/register',
-  MAIN = '/',
   ADMIN = '/admin',
   PROFILE = '/profile',
   FEED = '/feed',
@@ -9,7 +9,10 @@ export enum ROUTES {
   TRAINING = '/training',
   ARTICLES = '/articles',
   PROJECTS = '/projects',
-  REFLECTIONS = '/reflections'
+  REFLECTIONS = '/reflections',
+  MY_PROJECTS = '/my-projects',
+  ADD_POSTS = '/add-posts',
+  PENDING_USERS = '/pending-users',
 }
 
 export enum COLORS {
@@ -34,9 +37,9 @@ export enum PERMISSIONS {
 
 
 export enum TAG_NAMES {
-  TRAINING_AND_TEACHING = "trainingAndTeaching",
-  TEACHERS_COLLABORATION = "teachersCollaboration",
-  CREATE_CONDITIONS = "createConditions",
-  METHODOLOGY_AR = "methodologyAR",
-  TRAINEE_SUPPORT = "traineeSupport"
+  TRAINING_AND_TEACHING = 'trainingAndTeaching',
+  TEACHERS_COLLABORATION = 'teachersCollaboration',
+  CREATE_CONDITIONS = 'createConditions',
+  METHODOLOGY_AR = 'methodologyAR',
+  TRAINEE_SUPPORT = 'traineeSupport'
 }

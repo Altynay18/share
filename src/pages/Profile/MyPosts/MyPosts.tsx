@@ -1,7 +1,7 @@
 import React from 'react'
 import Post from '../../../components/Post';
 
-function Posts() {
+function MyPosts() {
   return (
     <div>
       {/* <Post data={{}}/> */}
@@ -9,4 +9,4 @@ function Posts() {
   )
 }
 
-export default Posts;
+export default MyPosts;

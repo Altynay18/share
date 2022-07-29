@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import {useParams} from 'react-router';
 import DefaultButton from '../../components/DefaultButton';
 import {ArticleService} from '../../services/ArticleService';
-import styles from './Article.module.scss';
+import styles from './IndividualArticle.module.scss';
 import Comment from '../../components/Comment';
 import './rangy.css';
 import AddAnnotation from '../../components/Forms/AddAnnotation';
@@ -13,7 +13,7 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 type Props = {};
 
-export function Article(props: Props) {
+export function IndividualArticle(props: Props) {
   const {articleId} = useParams();
   const [currentSelection, setCurrentSelection] = useState(null);
   const [annotationList, setAnnotationList] = useState([]);

@@ -1,13 +1,13 @@
-import './Projects.module.scss';
+import './MyProjects.module.scss';
 import {useState} from 'react';
 // import {useDisclosure} from '@chakra-ui/react';
 // import {useFormik} from 'formik';
-import styles from './Projects.module.scss';
+import styles from './MyProjects.module.scss';
 import DefaultButton from '../../../components/DefaultButton';
 import Modal from '../../../components/Modal';
 import AddProject from '../../../components/Forms/AddProject';
 
-const Projects = () => {
+const MyProjects = () => {
   // const [projects, setProjects] = useState([]);
   const [open, setOpen] = useState(false);
   // const {isOpen, onOpen, onClose} = useDisclosure();
@@ -37,4 +37,4 @@ const Projects = () => {
     </div>
   );
 };
-export default Projects;
+export default MyProjects;

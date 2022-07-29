@@ -5,6 +5,7 @@ import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import ArticleIcon from '@mui/icons-material/Article';
 import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 import FeedIcon from '@mui/icons-material/Feed';
+import TaskIcon from '@mui/icons-material/Task';
 import styles from './SideBar.module.scss';
 import {ROUTES} from '../../constants';
 import {useState} from 'react';
@@ -39,6 +40,10 @@ const SideBar = () => {
         <Link to={ROUTES.TRAINING} className={styles.menuItem}>
           <FeedIcon />
           Обучение
+        </Link>
+        <Link to={ROUTES.PROJECTS} className={styles.menuItem}>
+          <TaskIcon />
+          Проекты
         </Link>
       </div>
     </>
