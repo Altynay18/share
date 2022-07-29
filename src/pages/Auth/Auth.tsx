@@ -1,6 +1,5 @@
 import {useFormik} from 'formik';
 import './Auth.module.scss';
-import {Service} from '../../services/Service';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {useToast} from '@chakra-ui/react';
 import styles from './Auth.module.scss';
@@ -8,12 +7,13 @@ import netImg from '../../assets/images/net.jpg';
 import {ROUTES} from '../../constants';
 import Login from '../../components/Forms/Login';
 import Register from '../../components/Forms/RegisterForm';
+import {AuthService} from '../../services/AuthService'
 
 const Auth = () => {
   const toast = useToast();
   const location = useLocation()
   const navigate = useNavigate();
-  const service = new Service();
+  const authService = new AuthService();
   const validate = (values: any) => {
     const errors = {};
 

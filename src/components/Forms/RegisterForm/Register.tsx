@@ -5,16 +5,16 @@ import DefaultButton from '../../DefaultButton';
 import {Link} from 'react-router-dom';
 import {ROUTES} from '../../../constants';
 import {SubmitHandler, useForm} from 'react-hook-form';
-import {Auth} from '../../../services/Auth';
+import {AuthService} from '../../../services/AuthService';
 import {RegisterData} from '../../../types/services';
 
 type Props = {};
 
 export function Register(props: Props) {
   const {register, handleSubmit, formState: {errors}} = useForm();
-  const auth = new Auth();
+  const authService = new AuthService();
   const onSubmit: SubmitHandler<RegisterData> = async data => {
-    const res = await auth.register(data);
+    const res = await authService.register(data);
   };
 
   return (

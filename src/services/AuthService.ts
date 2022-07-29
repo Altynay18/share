@@ -2,9 +2,9 @@ import {Requests} from './Requests';
 import {ROUTES} from '../constants';
 import {RegisterData} from '../types/services';
 
-export class Auth extends Requests {
+export class AuthService extends Requests {
   async login(obj: Object) {
-    const path = '/authenticate';
+    const path = '/auth';
     const response = await this.post(path, obj);
     if (response) {
       window.sessionStorage.setItem('access_token', response.token);

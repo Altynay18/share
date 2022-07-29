@@ -16,7 +16,7 @@ import {
   MenuItem,
 } from '@chakra-ui/react'
 import {ChevronDownIcon} from '@chakra-ui/icons';
-import {Service} from '../../../services/Service';
+import {PostService} from '../../../services/PostService';
 import {TAG_NAMES} from '../../../constants'
 
 
@@ -24,7 +24,7 @@ import {TAG_NAMES} from '../../../constants'
 function AddPost() {
 
 
-  const service = new Service();
+  const postService = new PostService();
   const {register, handleSubmit} = useForm({
     defaultValues: {
       content: "",
@@ -41,7 +41,7 @@ function AddPost() {
       },
       'title': data.title
     }
-    service.addReflectionPost(postData);
+    postService.addReflectionPost(postData);
     // console.log(postData);
   }
   return (

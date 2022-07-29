@@ -11,12 +11,12 @@ import {
   Button,
 } from "@chakra-ui/react";
 import {ChevronDownIcon} from "@chakra-ui/icons";
-import {Service} from "../../services/Service";
+import {PostService} from "../../services/PostService";
 import {useFormik} from "formik";
 import "./DiscussProject.scss";
 
 const DiscussProject = () => {
-  const service = new Service();
+  const postService = new PostService();
   const validate = (values) => {
     const errors: any = {};
     const passRegex = /^(.)/g;

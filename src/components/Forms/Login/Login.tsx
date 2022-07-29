@@ -1,18 +1,10 @@
-// @flow
-import * as React from 'react';
-import styles from './Login.module.scss';
-import {Input} from '../../Input/Input';
-import {ChangeEvent} from 'react';
-import DefaultButton from '../../DefaultButton';
-import {Link} from 'react-router-dom';
-import {ROUTES} from '../../../constants';
 import {useForm} from "react-hook-form";
-import {Service} from '../../../services/Service';
+import {AuthService} from '../../../services/AuthService';
 
 type Props = {};
 
 export function Login(props: Props) {
-  const service = new Service;
+  const authService = new AuthService();
   const {register, handleSubmit} = useForm({
     defaultValues: {
       username: '',
@@ -22,7 +14,7 @@ export function Login(props: Props) {
 
   const onSubmit = (data) => {
     console.log(data)
-    service.login(data);
+    authService.login(data);
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

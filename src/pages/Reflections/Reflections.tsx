@@ -4,21 +4,21 @@ import Post from '../../components/Post'
 import {Badge, Select} from '@chakra-ui/react'
 import {Input, InputGroup, InputRightElement} from '@chakra-ui/react';
 import {SearchIcon} from '@chakra-ui/icons';
-import {Service} from '../../services/Service';
+import {PostService} from '../../services/PostService';
 import {TAG_NAMES} from '../../constants'
 
 function Reflections() {
   const [reflectionPosts, setReflectionPosts] = useState([]);
-  const service = new Service();
+  const postService = new PostService();
 
   const getAllPosts = useCallback(async () => {
-    const arr = await service.getAllPosts();
+    const arr = await postService.getAllPosts();
     setReflectionPosts(arr);
   }, []);
 
 
   async function getPostsByTag(value: string) {
-    const arr = await service.filterByTag({name: value});
+    const arr = await postService .filterByTag({name: value});
     console.log('hello')
     setReflectionPosts(arr);
   }
