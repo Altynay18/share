@@ -18,16 +18,16 @@ function Reflections() {
 
 
   async function getPostsByTag(value: string) {
-    const arr = await postService .filterByTag({name: value});
+    const arr = await postService.filterByTag({name: value});
     console.log('hello')
     setReflectionPosts(arr);
   }
 
   function handleClick(event) {
-    if(event.target.value==='all'){
+    if (event.target.value === 'all') {
       getAllPosts();
     }
-    else{
+    else {
       getPostsByTag(event.target.value);
     }
   }
@@ -55,7 +55,7 @@ function Reflections() {
       </div>
       <div className={styles.tags}>
         <button className={styles.categoryTag1} value='all' onClick={handleClick} >All posts</button>
-        <button className={styles.categoryTag2}  value={TAG_NAMES.TRAINING_AND_TEACHING} onClick={handleClick}>Обучение и преподавание</button>
+        <button className={styles.categoryTag2} value={TAG_NAMES.TRAINING_AND_TEACHING} onClick={handleClick}>Обучение и преподавание</button>
         <button className={styles.categoryTag3} value={TAG_NAMES.TEACHERS_COLLABORATION} onClick={handleClick} >Сотрудничество учителей</button>
         <button className={styles.categoryTag4} value={TAG_NAMES.CREATE_CONDITIONS} onClick={handleClick}>Создание условий</button>
         <button className={styles.categoryTag5} value={TAG_NAMES.METHODOLOGY_AR} onClick={handleClick}>Методология AR</button>
