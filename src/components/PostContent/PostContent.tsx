@@ -30,9 +30,7 @@ function PostContent() {
       </div>
       <div className={styles.postModalActions}>
         <div className={styles.title}>Написать комментарии:</div>
-        <Input value={''} onChange={function (e: ChangeEvent<Element>): void {
-          throw new Error('Function not implemented.')
-        }} name={''} placeholder={''}></Input>
+        {/*TODO add input for postContent*/}
         <DefaultButton bgColor='#BCD7DA' children={'Отправить'}></DefaultButton>
       </div>
     </div>
