@@ -1,18 +1,9 @@
-import {Text} from "@chakra-ui/react";
-import Header from "../../components/Header";
-import SideBar from "../../components/SideBar";
-//TODO
+import styles from './Training.module.scss';
 const Training = () => {
   return (
-    <>
-      <div className="profileLayout">
-        <div style={{paddingLeft: "8rem"}}>
-          <div className="feedContent">
-            <Text size={"5xl"}>Coming soon</Text>
-          </div>
-        </div>
-      </div>
-    </>
+    <div className={styles.training}>
+      training
+    </div>
   );
 };
 export default Training;

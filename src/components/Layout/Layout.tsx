@@ -15,7 +15,6 @@ export function Layout(props: Props) {
         <Header/>
         <Outlet />
       </div>
-
     </div>
   );
 };
