@@ -2,7 +2,7 @@ import './App.scss';
 import Auth from '../pages/Auth';
 import Profile from '../pages/Profile';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import Mentorship from '../pages/Mentorship/Mentorship';
+import Meeting from '../pages/Meeting/Meeting';
 import Training from '../pages/Training';
 import Articles from '../pages/Articles';
 import Layout from './Layout';
@@ -17,6 +17,8 @@ import Reflections from '../pages/Reflections';
 import IndividualArticle from '../pages/IndividualArticle';
 import {ChakraProvider} from '@chakra-ui/react';
 import Projects from '../pages/Projects';
+import Settings from '../pages/Settings';
+import Notification from '../pages/Notification';
 
 function App() {
   return (
@@ -36,12 +38,14 @@ function App() {
               </Route>
               <Route path="feed" element={<Feed/>}/>
               <Route path="reflections" element={<Reflections/>}/>
-              <Route path="mentorship" element={<Mentorship/>}/>
+              <Route path="mentorship" element={<Meeting/>}/>
               <Route path="training" element={<Training/>}/>
               <Route path="articles" element={<Articles/>}/>
               <Route path="articles/:articleId" element={<IndividualArticle/>}/>
               <Route path="projects" element={<Projects/>}/>
               <Route path="projects/:projectId" element={<IndividualProject/>}/>
+              <Route path="settings" element={<Settings/>}/>
+              <Route path="notification" element={<Notification/>}/>
             </Route>
           </Routes>
         </BrowserRouter>

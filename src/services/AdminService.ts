@@ -1,6 +1,6 @@
 import {Requests} from './Requests';
 
-export class Admin extends Requests {
+export class AdminService extends Requests {
   deleteReflectionCommentById(commentId: unknown) {
     const path = `/deleteReflectionCommentById?commentId=${commentId}`;
     return this.delete(path);

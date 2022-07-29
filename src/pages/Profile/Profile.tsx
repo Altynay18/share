@@ -27,6 +27,11 @@ const Profile = () => {
                    onClick={() => navigate(ROUTES.MY_PROJECTS)}>
                 Мои проекты
               </Tab>
+              <Tab fontWeight={'600'} marginLeft={'3rem'} fontSize={'1rem'}
+                   color={'#564D80'}
+                   onClick={() => navigate(ROUTES.SETTINGS)}>
+                Настройки
+              </Tab>
             </TabList>
             <TabPanels>
               <TabPanel

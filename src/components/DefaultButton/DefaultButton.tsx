@@ -9,7 +9,8 @@ type Props = {
   onClick?: () => void,
   children: ReactChild,
   bgColor?: string,
-  maxWidth?: string
+  maxWidth?: string,
+  type?: 'button' | 'submit' | 'reset'
 };
 
 export function DefaultButton({
@@ -17,10 +18,11 @@ export function DefaultButton({
                                 children,
                                 bgColor = COLORS.YELLOW,
                                 maxWidth = '100%',
-
+                                type,
                               }: Props) {
   return (
-    <Button style={{backgroundColor: bgColor, maxWidth}} onClick={onClick}
+    <Button type={type} style={{backgroundColor: bgColor, maxWidth}}
+            onClick={onClick}
             className={styles.defaultButton}>
       {children}
     </Button>

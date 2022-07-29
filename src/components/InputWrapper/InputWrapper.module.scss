@@ -1,0 +1,23 @@
+.inputContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1rem;
+  position: relative;
+
+  input {
+    color: RGB(17 24 39 / 80%);
+    border-radius: 4px;
+    line-height: 1.25rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid RGB(209 213 219 /80%);
+    height: 30px;
+  }
+}
+.error{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: var(--red);
+  font-size: 0.8rem;
+}

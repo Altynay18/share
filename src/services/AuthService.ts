@@ -18,8 +18,18 @@ export class AuthService extends Requests {
   }
 
   // todo check swagger for method type
-  async logout(){
-    const path = '/logout'
-    return this.get(path)
+  async logout() {
+    const path = '/logout';
+    return this.get(path);
+  }
+
+  getUser() {
+    const path = '/current-user';
+    return this.get(path);
+  }
+
+  editUser(data: unknown) {
+    const path = '';
+    return this.post(path, data);
   }
 }

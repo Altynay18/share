@@ -9,7 +9,6 @@ type Props = {
 
 export function Modal({children, open, handleClose}: Props) {
   return (
-
     <ModalChakra isOpen={open} onClose={handleClose}>
       <ModalOverlay/>
       <ModalContent>
@@ -19,4 +18,4 @@ export function Modal({children, open, handleClose}: Props) {
       </ModalContent>
     </ModalChakra>
   );
-};
+}

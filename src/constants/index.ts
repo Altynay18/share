@@ -13,6 +13,8 @@ export enum ROUTES {
   MY_PROJECTS = '/profile/my-projects',
   ADD_POSTS = '/profile/add-posts',
   PENDING_USERS = '/profile/pending-users',
+  SETTINGS = '/settings',
+  NOTIFICATION = '/notification'
 }
 
 export enum COLORS {

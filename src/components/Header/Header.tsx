@@ -1,8 +1,8 @@
 import styles from './Header.module.scss';
 import avatar from '../../assets/images/avatar.png';
 import {useNavigate} from 'react-router-dom';
-// import {Input, InputGroup, InputRightElement} from '@chakra-ui/react';
-// import {SearchIcon} from '@chakra-ui/icons';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import {ROUTES} from '../../constants';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -12,17 +12,8 @@ const Header = () => {
   };
   return (
     <div className={styles.header}>
-      {/* <InputGroup size="md" width={'20%'}>
-        <Input
-          pr="4.5rem"
-          border="2px"
-          placeholder="Поиск"
-        />
-        <InputRightElement>
-          <SearchIcon aria-label="Search database" />
-        </InputRightElement>
-      </InputGroup> */}
       <div onClick={logout} className={styles.logout}>Выйти</div>
+      <NotificationsNoneIcon onClick={() => navigate(ROUTES.NOTIFICATION)}/>
       <img src={avatar} className={styles.avatar} alt="avatar" height={50}
            width={50}/>
     </div>

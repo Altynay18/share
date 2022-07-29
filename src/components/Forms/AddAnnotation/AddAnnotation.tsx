@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {ChangeEvent, useState} from 'react';
 import styles from '../Login/Login.module.scss';
-import {Input} from '../../Input/Input';
+import {InputWrapper} from '../../InputWrapper/InputWrapper';
 import DefaultButton from '../../DefaultButton';
 
 type Props = {
@@ -18,11 +18,7 @@ export function AddAnnotation({onSubmit}: Props) {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
       <h2 className={styles.title}>Add Annotation</h2>
-      <Input placeholder={'Annotation'}
-             name={'annotation'}
-             error={'fsdfsd'}
-             value={annotation}
-             onChange={handleChange} label={'Annotation'}/>
+
       <DefaultButton>Save</DefaultButton>
     </form>
   );

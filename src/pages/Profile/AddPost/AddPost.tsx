@@ -7,7 +7,7 @@ import {useForm} from "react-hook-form";
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import ImageIcon from '@mui/icons-material/Image';
 import VideoFileIcon from '@mui/icons-material/VideoFile';
-// import {Input} from '../../../components/Input/Input';
+// import {InputWrapper} from '../../../components/InputWrapper/InputWrapper';
 import {Button, Text, Textarea, Badge, useFormControl} from '@chakra-ui/react'
 import {
   Menu,
@@ -20,7 +20,7 @@ import {PostService} from '../../../services/PostService';
 import {TAG_NAMES} from '../../../constants'
 
 
-//TODO: adapt Input component for textarea
+//TODO: adapt InputWrapper component for textarea
 function AddPost() {
 
 

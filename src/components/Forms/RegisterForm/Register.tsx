@@ -7,6 +7,8 @@ import {ROUTES} from '../../../constants';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {AuthService} from '../../../services/AuthService';
 import {RegisterData} from '../../../types/services';
+import InputWrapper from '../../InputWrapper';
+import {Select} from '@chakra-ui/react';
 
 type Props = {};
 
@@ -20,63 +22,38 @@ export function Register(props: Props) {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <h2 className={styles.title}>Авторизация</h2>
-      <div>
-        <label>Email</label>
-        <input {...register('email', {required: true})} />
-        {errors.email && <span>This email is required</span>}
-      </div>
-
-      <div>
-        <label>name</label>
+      <InputWrapper label={'Name'} error={errors.name}
+                    errText={'This name is required'}>
         <input {...register('name', {required: true})} />
-        {errors.name && <span>This name is required</span>}
-      </div>
-
-      <div>
-        <label>surname</label>
+      </InputWrapper>
+      <InputWrapper label={'Surname'} error={errors.name} errText={'Err'}>
         <input {...register('surname', {required: true})} />
-        {errors.surname && <span>This surname is required</span>}
-      </div>
-
-
-      <div>
-        <label>city</label>
+      </InputWrapper>
+      <InputWrapper label={'City'} error={errors.city} errText={'Err'}>
         <input {...register('city', {required: true})} />
-        {errors.city && <span>This city is required</span>}
-      </div>
-
-      <div>
-        <label>school</label>
+      </InputWrapper>
+      <InputWrapper label={'School'} error={errors.school} errText={'Err'}>
         <input {...register('school', {required: true})} />
-        {errors.school && <span>This city is required</span>}
-      </div>
-
-      <div>
-        <label>password</label>
+      </InputWrapper>
+      <InputWrapper label={'Password'} error={errors.password} errText={'err'}>
         <input {...register('password', {required: true})} />
-        {errors.password && <span>This password is required</span>}
-      </div>
-
-      <div>
-        <label>passwordConfirm</label>
+      </InputWrapper>
+      <InputWrapper label={'Password Confirm'} error={errors.passwordConfirm}
+                    errText={'err'}>
         <input {...register('passwordConfirm', {
           required: true,
         })} />
-        {errors.passwordConfirm &&
-          <span>This passwordConfirm is required</span>}
-      </div>
-
+      </InputWrapper>
       <div>
         <label>Role</label>
-        <select {...register('role')}>
+        <Select {...register('role')}>
           <option value="female">female</option>
           <option value="male">male</option>
           <option value="other">other</option>
-        </select>
+        </Select>
         {errors.passwordConfirm &&
           <span>This passwordConfirm is required</span>}
       </div>
-
 
       <DefaultButton>Зарегистрироваться</DefaultButton>
       <div>Есть аккаунт? <Link to={ROUTES.LOGIN}><span
