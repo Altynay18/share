@@ -41,10 +41,6 @@ const SideBar = () => {
           <FeedIcon />
           Обучение
         </Link>
-        <Link to={ROUTES.PROJECTS} className={styles.menuItem}>
-          <TaskIcon />
-          Проекты
-        </Link>
       </div>
     </>
 
