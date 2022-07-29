@@ -2,13 +2,13 @@ import {Requests} from './Requests';
 
 export class PostService extends Requests{
   async addReflectionPost(obj: Object) {
-    const path = '/reflection/create-post';
+    const path = '/reflection/post';
     const response = await this.post(path, obj);
     return response;
   }
 
   async addNewsPost(obj: Object) {
-    const path = '/reflection/create-post';
+    const path = '/reflection/post';
     const response = await this.post(path, obj);
     return response;
   }
@@ -20,7 +20,7 @@ export class PostService extends Requests{
   }
 
   async getAllPosts(){
-    const path = '/reflection/posts?page=0';
+    const path = '/reflection/post';
     const response = await this.get(path);
     return response;
   }

@@ -42,7 +42,6 @@ function AddPost() {
       'title': data.title
     }
     postService.addReflectionPost(postData);
-    // console.log(postData);
   }
   return (
     <div className={styles.addPost}>
