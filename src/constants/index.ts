@@ -10,9 +10,9 @@ export enum ROUTES {
   ARTICLES = '/articles',
   PROJECTS = '/projects',
   REFLECTIONS = '/reflections',
-  MY_PROJECTS = '/my-projects',
-  ADD_POSTS = '/add-posts',
-  PENDING_USERS = '/pending-users',
+  MY_PROJECTS = '/profile/my-projects',
+  ADD_POSTS = '/profile/add-posts',
+  PENDING_USERS = '/profile/pending-users',
 }
 
 export enum COLORS {
