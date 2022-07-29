@@ -45,3 +45,15 @@ export enum TAG_NAMES {
   METHODOLOGY_AR = 'methodologyAR',
   TRAINEE_SUPPORT = 'traineeSupport'
 }
+
+export enum INPUT_FIELD {
+  NAME = 'name',
+  SURNAME = 'surname',
+  USERNAME = 'username',
+  EMAIL = 'email',
+  PHONE = 'phone',
+  PASSWORD = 'password',
+  TEXT = 'text',
+  WORD = 'word',
+  IIN = 'iin'
+}
