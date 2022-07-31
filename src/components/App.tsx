@@ -19,6 +19,7 @@ import {ChakraProvider} from '@chakra-ui/react';
 import Projects from '../pages/Projects';
 import Settings from '../pages/Settings';
 import Notification from '../pages/Notification';
+import {Test} from '../pages/Test/Test';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
               <Route path="projects/:projectId" element={<IndividualProject/>}/>
               <Route path="settings" element={<Settings/>}/>
               <Route path="notification" element={<Notification/>}/>
+              <Route path="test" element={<Test/>}/>
             </Route>
           </Routes>
         </BrowserRouter>
