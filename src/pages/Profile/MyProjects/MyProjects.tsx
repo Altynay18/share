@@ -35,7 +35,7 @@ const MyProjects = () => {
 
       <div className={styles.projectCardContainer}>
         {projects?.map((el, i) => (
-          <div>
+          <div key={el.id}>
             <div className={styles.projectCard}>
             </div>
             <div className={styles.links}>            <Link to={ROUTES.PROJECTS + `/${el?.id}`}>{el?.title}</Link>
