@@ -1,40 +1,54 @@
 // @flow
 import * as React from 'react';
+import {useEffect, useState} from 'react';
 import styles from './AddProject.module.scss';
 import {InputWrapper} from '../../InputWrapper/InputWrapper';
-import {ChangeEvent, useState} from 'react';
 import DefaultButton from '../../DefaultButton';
 import {COLORS} from '../../../constants';
+import {useForm} from 'react-hook-form';
+import {ProjectService} from '../../../services/ProjectService';
+import {Select} from '@chakra-ui/react';
+import {AuthService} from '../../../services/AuthService';
 
 type Props = {
-  onSubmit: () => void
+  afterSubmit: () => void
 };
 
-export function AddProject({onSubmit}: Props) {
-  const [projectName, setProjectName] = useState('');
-  const [member, setMember] = useState('');
-  const handleChange = (e: ChangeEvent, name) => {
-    const target = e.target as HTMLInputElement;
-    switch (name) {
-      case 'projectName':
-        setProjectName(target.value);
-        break;
-      case 'member':
-        setMember(target.value);
-        break;
-      default:
-        break;
-    }
+export function AddProject({afterSubmit}: Props) {
+  const [users, setUsers] = useState([]);
+  const projectService = new ProjectService();
+  const auth = new AuthService();
+  const {register, handleSubmit, formState: {errors}} = useForm();
+  const onSubmit = data => {
+    projectService.createProject(data);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit();
-  };
+  async function getAllUser() {
+    const res = await auth.getAllUser();
+    setUsers(res);
+  }
+
+  useEffect(() => {
+    getAllUser();
+  }, []);
+
   return (
-    <form className={styles.addProject} onSubmit={handleSubmit}>
-
-      <DefaultButton bgColor={COLORS.OCEAN_BLUE}>Создать</DefaultButton>
+    <form className={styles.addProject} onSubmit={handleSubmit(onSubmit)}>
+      <InputWrapper error={errors.title} errText={''}>
+        <input {...register('title', {required: true, maxLength: 20})} />
+      </InputWrapper>
+      <InputWrapper error={errors.title} errText={''}>
+        <input {...register('description', {required: true, maxLength: 20})} />
+      </InputWrapper>
+      {!!users.length &&
+        <Select placeholder="Select User">
+          {users.map((el, i) => (
+            <option value="option1">Option 1</option>
+          ))}
+        </Select>
+      }
+      <DefaultButton type={'submit'}
+                     bgColor={COLORS.OCEAN_BLUE}>Создать</DefaultButton>
     </form>
   );
 };

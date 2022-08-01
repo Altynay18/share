@@ -1,15 +1,17 @@
 import {Requests} from './Requests';
 import {ProjectData} from '../types/services';
 
-export class Projects extends Requests {
+export class ProjectService extends Requests {
   getProjects() {
     const path = '/projects';
     return this.get(path);
   }
 
   createProject(data: ProjectData) {
-    const path = '';
-    return this.get(path, data);
+    const formattedUsers = 'string';
+    const params = `?title=${data.title}&description=${data.description}&users=${formattedUsers}`;
+    const path = `/projects` + params;
+    return this.post(path, {});
   }
 
   editProject(data: ProjectData) {

@@ -18,7 +18,7 @@ export interface RegisterData {
 }
 
 export interface ProjectData {
-  project_name: string,
+  title: string,
   users: string,
   description: string
 }

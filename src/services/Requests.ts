@@ -1,5 +1,5 @@
 import {RequestConfig} from '../types/services';
-export const BASE_URL = 'http://164.92.192.48:8085'
+export const BASE_URL = 'http://159.89.104.8:8022'
 export class Requests {
   baseUrl: string;
 
@@ -75,7 +75,6 @@ export class Requests {
       } else console.log({error: response.statusText});
     } catch (e) {
       console.log({error: e.message});
-      window.location.reload();
     }
   }
 

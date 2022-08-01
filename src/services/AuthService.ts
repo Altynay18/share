@@ -27,6 +27,10 @@ export class AuthService extends Requests {
     const path = '/current-user';
     return this.get(path);
   }
+  getAllUser() {
+    const path = '/users';
+    return this.get(path);
+  }
 
   editUser(data: unknown) {
     const path = '';
