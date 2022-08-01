@@ -4,11 +4,17 @@ import Post from '../../components/Post';
 import styles from './Welcome.module.scss';
 import {Input, InputGroup, InputRightElement} from '@chakra-ui/react';
 import {SearchIcon} from '@chakra-ui/icons';
+import DefaultButton from '../../components/DefaultButton';
+import {useState} from 'react';
+import Modal from '../../components/Modal';
+import AddPost from '../Profile/AddPost';
 
 
 type Props = {};
 
 export function Welcome(props: Props) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className={styles.welcomePageContainer}>
 
@@ -25,8 +31,10 @@ export function Welcome(props: Props) {
           </InputRightElement>
         </InputGroup>
       </div>
-
-      {/* <PostService data={{}} /> */}
+      <div className={styles.addButton}> <DefaultButton bgColor='#9DA2A5' onClick={() => setOpen(true)}>+ Добавить пост</DefaultButton>
+        <Modal open={open} handleClose={() => setOpen(false)}>
+          <AddPost />
+        </Modal></div>
     </div>
   );
 };

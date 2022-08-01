@@ -1,21 +1,24 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import styles from './Reflections.module.scss'
 import Post from '../../components/Post'
-import {Badge, Select} from '@chakra-ui/react'
 import {Input, InputGroup, InputRightElement} from '@chakra-ui/react';
 import {SearchIcon} from '@chakra-ui/icons';
 import {PostService} from '../../services/PostService';
 import {TAG_NAMES} from '../../constants'
+import DefaultButton from '../../components/DefaultButton';
+import AddPost from '../Profile/AddPost';
+import Modal from '../../components/Modal';
 
 function Reflections() {
   const [reflectionPosts, setReflectionPosts] = useState([]);
+  const [open, setOpen] = useState(false);
+
   const postService = new PostService();
 
   const getAllPosts = useCallback(async () => {
     const arr = await postService.getAllPosts();
     setReflectionPosts(arr);
   }, []);
-
 
   async function getPostsByTag(value: string) {
     const arr = await postService.filterByTag({name: value});
@@ -31,7 +34,6 @@ function Reflections() {
       getPostsByTag(event.target.value);
     }
   }
-
 
   useEffect(() => {
     getAllPosts();
@@ -53,6 +55,10 @@ function Reflections() {
           </InputRightElement>
         </InputGroup>
       </div>
+      <div className={styles.addButton}> <DefaultButton bgColor='#9DA2A5' onClick={() => setOpen(true)}>+ Добавить пост</DefaultButton>
+        <Modal open={open} handleClose={() => setOpen(false)}>
+          <AddPost />
+        </Modal></div>
       <div className={styles.tags}>
         <button className={styles.categoryTag1} value='all' onClick={handleClick} >All posts</button>
         <button className={styles.categoryTag2} value={TAG_NAMES.TRAINING_AND_TEACHING} onClick={handleClick}>Обучение и преподавание</button>
