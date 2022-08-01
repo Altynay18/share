@@ -20,7 +20,7 @@ export class PostService extends Requests{
   }
 
   async getAllPosts(){
-    const path = '/reflection/posts';
+    const path = '/reflection/post';
     const response = await this.get(path);
     return response;
   }

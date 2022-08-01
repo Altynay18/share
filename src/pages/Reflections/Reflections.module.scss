@@ -1,6 +1,11 @@
 .welcomePageContainer{
   padding: 2rem;
 
+  .addButton{
+    width: 15rem;
+    margin-bottom: 2rem;
+  }
+
   .welcomePageTitle{
     padding: 2rem 0;
     font-size: 2rem;
@@ -11,8 +16,54 @@
 
   .tags{
     margin-bottom: 3rem;
-    
+    display: flex;
+    gap: 2rem;
+
+    .categoryTag1{
+      display: block;
+      height: 2rem;
+      width: max-content;
+      background-color: #D8DCFF ;
+      border-radius: 1rem;
+    }
+    .categoryTag2{
+      display: block;
+      height: 2rem;
+      width: max-content;
+      background-color: #AEADF0 ;
+      border-radius: 1rem;
+    }
+      
+    .categoryTag3{
+      display: block;
+      height: 2rem;
+      width: max-content;
+      background-color: #C38D94 ;
+      border-radius: 1rem;
+    }
+    .categoryTag4{
+      display: block;
+      height: 2rem;
+      width: max-content;
+      background-color: #60E5BF;
+      border-radius: 1rem;
+    }
+    .categoryTag5{
+      display: block;
+      height: 2rem;
+      width: max-content;
+      background-color: #CDA5F3;
+      border-radius: 1rem;
+    }
+    .categoryTag6{
+      display: block;
+      height: 2rem;
+      width: max-content;
+      background-color: #e9c46a ;
+      border-radius: 1rem;
+    }
   }
+
 }
 
 
