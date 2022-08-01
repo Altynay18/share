@@ -5,3 +5,22 @@
   flex-wrap: wrap;
   margin-top: 3rem;
 }
+
+.projectCardContainer{
+  padding: 3rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .projectCard{
+      width: 190px;
+      height: 120px;
+      background-color: rgb(211, 167, 167);
+      margin: 1rem;
+      border-radius: 1rem;
+  }
+
+  .links{
+    padding-left: 1rem;
+  }
+}
