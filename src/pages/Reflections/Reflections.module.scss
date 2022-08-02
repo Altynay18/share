@@ -1,12 +1,12 @@
-.welcomePageContainer{
+.welcomePageContainer {
   padding: 2rem;
 
-  .addButton{
+  .addButton {
     width: 15rem;
     margin-bottom: 2rem;
   }
 
-  .welcomePageTitle{
+  .welcomePageTitle {
     padding: 2rem 0;
     font-size: 2rem;
     font-weight: 500;
@@ -14,56 +14,55 @@
     justify-content: space-between;
   }
 
-  .tags{
+  .tags {
     margin-bottom: 3rem;
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 10px;
 
-    .categoryTag1{
-      display: block;
-      height: 2rem;
-      width: max-content;
-      background-color: #D8DCFF ;
-      border-radius: 1rem;
+    .categoryTag1 {
+      background-color: #42476a;
     }
-    .categoryTag2{
-      display: block;
-      height: 2rem;
-      width: max-content;
-      background-color: #AEADF0 ;
-      border-radius: 1rem;
+
+    .categoryTag2 {
+      background-color: #AEADF0;
     }
-      
-    .categoryTag3{
-      display: block;
-      height: 2rem;
-      width: max-content;
-      background-color: #C38D94 ;
-      border-radius: 1rem;
+
+    .categoryTag3 {
+      background-color: #e15e6a;
     }
-    .categoryTag4{
-      display: block;
-      height: 2rem;
-      width: max-content;
-      background-color: #60E5BF;
-      border-radius: 1rem;
+
+    .categoryTag4 {
+      background-color: #51b097;
     }
-    .categoryTag5{
-      display: block;
-      height: 2rem;
-      width: max-content;
-      background-color: #CDA5F3;
-      border-radius: 1rem;
+
+    .categoryTag5 {
+      background-color: #ae84d5;
     }
-    .categoryTag6{
+
+    .categoryTag6 {
+      background-color: #ffc23c;
+    }
+
+    .categoryTag1,
+    .categoryTag2,
+    .categoryTag3,
+    .categoryTag4,
+    .categoryTag5,
+    .categoryTag6 {
       display: block;
-      height: 2rem;
       width: max-content;
-      background-color: #e9c46a ;
-      border-radius: 1rem;
+      border-radius: 2rem;
+      padding: 10px 20px;
+      color: #fff;
     }
   }
 
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 

@@ -14,7 +14,7 @@ export function Test(props: Props) {
   const pdfUrl = `http://159.89.104.8:8022/pdf/${articleId}`;
   const baseUrl = BASE_URL
   const user = {
-    name: "SDFDSF"
+    name: "John Doe"
   }
   async function getPdf() {
     const res = await articleService.getPdf(2);
@@ -75,7 +75,8 @@ export function Test(props: Props) {
             name: '${user.name}',
             firstName: '${user.name}',
             lastName: '${user.name}',
-            email: '${user.name}'
+            email: '${user.name}',
+            id: '${user.name}'
         }
       };
 

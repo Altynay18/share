@@ -35,7 +35,7 @@ const SideBar = () => {
         </Link>
         <Link to={ROUTES.MENTORSHIP} className={styles.menuItem}>
           <CastForEducationIcon />
-          Менторство
+          Встречи
         </Link>
         <Link to={ROUTES.TRAINING} className={styles.menuItem}>
           <FeedIcon />

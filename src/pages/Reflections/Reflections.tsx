@@ -3,7 +3,7 @@ import styles from './Reflections.module.scss'
 import Post from '../../components/Post'
 import {Input, InputGroup, InputRightElement} from '@chakra-ui/react';
 import {SearchIcon} from '@chakra-ui/icons';
-import {PostService} from '../../services/PostService';
+import {ReflectionPostService} from '../../services/ReflectionPostService';
 import {TAG_NAMES} from '../../constants'
 import DefaultButton from '../../components/DefaultButton';
 import AddPost from '../Profile/AddPost';
@@ -13,7 +13,7 @@ function Reflections() {
   const [reflectionPosts, setReflectionPosts] = useState([]);
   const [open, setOpen] = useState(false);
 
-  const postService = new PostService();
+  const postService = new ReflectionPostService();
 
   const getAllPosts = useCallback(async () => {
     const arr = await postService.getAllPosts();
@@ -57,8 +57,9 @@ function Reflections() {
       </div>
       <div className={styles.addButton}> <DefaultButton bgColor='#9DA2A5' onClick={() => setOpen(true)}>+ Добавить пост</DefaultButton>
         <Modal open={open} handleClose={() => setOpen(false)}>
-          <AddPost />
-        </Modal></div>
+          <AddPost isReflection/>
+        </Modal>
+      </div>
       <div className={styles.tags}>
         <button className={styles.categoryTag1} value='all' onClick={handleClick} >All posts</button>
         <button className={styles.categoryTag2} value={TAG_NAMES.TRAINING_AND_TEACHING} onClick={handleClick}>Обучение и преподавание</button>
@@ -68,11 +69,13 @@ function Reflections() {
         <button className={styles.categoryTag6} value={TAG_NAMES.TRAINEE_SUPPORT} onClick={handleClick}>Сопровождение учащегося</button>
 
       </div>
-      {
-        reflectionPosts?.map((el, index) =>
-          <Post data={el} key={el.id} />
-        )
-      }
+      <div className={styles.list}>
+        {
+          reflectionPosts?.map((el, index) =>
+            <Post data={el} key={el.id} />
+          )
+        }
+      </div>
     </div >
   )
 }

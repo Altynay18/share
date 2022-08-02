@@ -4,7 +4,7 @@ import Post from '../../../components/Post';
 function MyPosts() {
   return (
     <div>
-      {/* <PostService data={{}}/> */}
+      {/* <ReflectionPostService data={{}}/> */}
     </div>
   )
 }

@@ -1,14 +1,14 @@
 import styles from './AddPostComponent.module.scss';
 import {useForm} from 'react-hook-form';
-import {PostService} from '../../../services/PostService';
+import {ReflectionPostService} from '../../../services/ReflectionPostService';
 import {TAG_NAMES} from '../../../constants';
 
+type Props = {
+  isReflection?: boolean
+}
 
-//TODO: adapt Input component for textarea
-function AddPostComponent() {
-
-
-  const postService = new PostService();
+function AddPostComponent({isReflection}: Props) {
+  const postService = new ReflectionPostService();
   const {register, handleSubmit} = useForm({
     defaultValues: {
       content: '',
@@ -27,7 +27,6 @@ function AddPostComponent() {
   };
   return (
     <div className={styles.addPost}>
-
       <div className={styles.content}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>Название рефлексии:</label>
@@ -38,7 +37,7 @@ function AddPostComponent() {
           <br></br>
           <input {...register('content')}></input>
           <br></br>
-          <select {...register('tag')}>
+          {isReflection && <select {...register('tag')}>
             <option>Выберите теги</option>
             <option value={TAG_NAMES.TRAINING_AND_TEACHING}>Обучение и
               преподавание
@@ -51,9 +50,8 @@ function AddPostComponent() {
             <option value={TAG_NAMES.METHODOLOGY_AR}>Методология AR</option>
             <option value={TAG_NAMES.TRAINEE_SUPPORT}>Сопровождение учащегося
             </option>
-          </select>
+          </select>}
           <br></br>
-
           <input type="submit"/>
         </form>
       </div>
