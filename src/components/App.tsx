@@ -37,6 +37,7 @@ function App() {
                 <Route path="pending-users" element={<PendingUsers/>}/>
                 <Route path="my-projects" element={<MyProjects/>}/>
                 <Route path="add-posts" element={<AddPost/>}/>
+                <Route path="settings" element={<Settings/>}/>
               </Route>
               <Route path="feed" element={<Feed/>}/>
               <Route path="reflections" element={<Reflections/>}/>
@@ -46,7 +47,6 @@ function App() {
               <Route path="articles/:articleId" element={<IndividualArticle/>}/>
               <Route path="projects" element={<Projects/>}/>
               <Route path="projects/:projectId" element={<IndividualProject/>}/>
-              <Route path="settings" element={<Settings/>}/>
               <Route path="notification" element={<Notification/>}/>
               <Route path="test/:articleId" element={<Test/>}/>
               <Route path="users" element={<UserList/>}/>

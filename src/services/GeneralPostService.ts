@@ -15,4 +15,9 @@ export class GeneralPostService extends Requests {
     const path = `/general/post/${data.postId}`;
     return this.post(path, data);
   }
+
+  async getMyPosts() {
+    const path = '/general/getUserPosts';
+    return await this.get(path);
+  }
 }

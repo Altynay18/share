@@ -13,14 +13,16 @@ const Meeting = () => {
 
   };
   return (
-    <div className={styles.mentorship}>
+    <div className={styles.meeting}>
       <PageHeader handleSearch={handleSearch} title={'Список встреч'}/>
       <DefaultButton maxWidth={'15rem'} onClick={() => setIsOpen(true)}>
         <><AddIcon/>add meeting</>
       </DefaultButton>
-      {arr.map((el, i) => (
-        <div key={i}>Meeting Name</div>
-      ))}
+      <div className={styles.list}>
+        {arr.map((el, i) => (
+          <div key={i}>Meeting Name</div>
+        ))}
+      </div>
       <Modal handleClose={() => setIsOpen(false)} open={isOpen}>
         <AddMeeting afterSubmit={() => setIsOpen(false)}/>
       </Modal>
