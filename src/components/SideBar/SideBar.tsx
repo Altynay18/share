@@ -5,45 +5,48 @@ import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import ArticleIcon from '@mui/icons-material/Article';
 import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 import FeedIcon from '@mui/icons-material/Feed';
-import TaskIcon from '@mui/icons-material/Task';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import styles from './SideBar.module.scss';
 import {ROUTES} from '../../constants';
-import {useState} from 'react';
 
 const SideBar = () => {
   // const [clicked, setClicked] = useState(false);
   return (
-    <>
-      {/* <div onClick={() => setClicked(true)}><span>☰</span></div> */}
-      <div className={styles.sidebar}>
+    <div className={styles.sidebar}>
+      <div className={styles.top}>
         <div className={styles.title}>SHARE</div>
         <Link to={ROUTES.PROFILE} className={styles.menuItem}>
-          <PermIdentityIcon />
+          <PermIdentityIcon/>
           Мой профиль
         </Link>
         <Link to={ROUTES.MAIN} className={styles.menuItem}>
-          <DynamicFeedIcon />
+          <DynamicFeedIcon/>
           Лента
         </Link>
         <Link to={ROUTES.REFLECTIONS} className={styles.menuItem}>
-          <DynamicFeedIcon />
+          <DynamicFeedIcon/>
           Рефлексии
         </Link>
         <Link to={ROUTES.ARTICLES} className={styles.menuItem}>
-          <ArticleIcon />
+          <ArticleIcon/>
           Статьи
         </Link>
         <Link to={ROUTES.MENTORSHIP} className={styles.menuItem}>
-          <CastForEducationIcon />
+          <CastForEducationIcon/>
           Встречи
         </Link>
         <Link to={ROUTES.TRAINING} className={styles.menuItem}>
-          <FeedIcon />
+          <FeedIcon/>
           Обучение
         </Link>
       </div>
-    </>
-
+      <div className={styles.bottom}>
+        <Link to={ROUTES.USERS} className={styles.menuItem}>
+          <PersonSearchIcon/>
+          Поиск учителей
+        </Link>
+      </div>
+    </div>
   );
 };
 export default SideBar;

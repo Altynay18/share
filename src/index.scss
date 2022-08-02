@@ -12,6 +12,17 @@ code {
   monospace;
 }
 
+input {
+  outline: none;
+  border: 1px solid var(--light-gray);
+  height: 40px;
+  border-radius: 4px;
+  padding: 0 10px !important;
+  &:hover, &:focus{
+    border: 2px solid var(--ocean-blue);
+  }
+}
+
 button {
   outline: none;
   border: none;

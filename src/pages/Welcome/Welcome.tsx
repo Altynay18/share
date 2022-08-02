@@ -26,12 +26,15 @@ export function Welcome(props: Props) {
     setOpen(false);
     await getAllPost();
   };
+  const handleSearch = (value) => {
+
+  };
   useEffect(() => {
     getAllPost();
   }, []);
   return (
     <div className={styles.welcomePageContainer}>
-      <PageHeader title={'Лента новостей'}/>
+      <PageHeader handleSearch={handleSearch} title={'Лента новостей'}/>
       <div className={styles.addButton}>
         <DefaultButton bgColor="#9DA2A5" onClick={() => setOpen(true)}>
           + Добавить пост
@@ -42,7 +45,7 @@ export function Welcome(props: Props) {
       </div>
 
       <div className={styles.list}>
-        {postList.map((el, i) => (
+        {postList?.map((el, i) => (
           <Post data={el} key={i}/>
         ))}
       </div>

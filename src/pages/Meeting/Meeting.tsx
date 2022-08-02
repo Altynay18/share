@@ -9,9 +9,12 @@ import PageHeader from '../../components/PageHeader';
 const Meeting = () => {
   const [isOpen, setIsOpen] = useState(false);
   const arr = new Array(5).fill(0);
+  const handleSearch = (value) => {
+
+  };
   return (
     <div className={styles.mentorship}>
-      <PageHeader title={'Список встреч'}/>
+      <PageHeader handleSearch={handleSearch} title={'Список встреч'}/>
       <DefaultButton maxWidth={'15rem'} onClick={() => setIsOpen(true)}>
         <><AddIcon/>add meeting</>
       </DefaultButton>

@@ -9,6 +9,10 @@ const IndividualProject = () => {
   const [project, setProject] = useState({});
   const {projectId} = useParams();
   const projectService = new ProjectService();
+  const handleSearch = (value) => {
+
+  };
+
 
   async function addProjectPost(){
 
@@ -23,7 +27,7 @@ const IndividualProject = () => {
   }, []);
   return (
     <div className={styles.individualProject}>
-      <PageHeader title={'Project'}/>
+      <PageHeader handleSearch={handleSearch} title={'Project'}/>
       {/*{project.map((el)=>(*/}
       {/*  <Post data={el}/>*/}
       {/*))}*/}

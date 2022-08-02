@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import {ROUTES} from '../../constants';
 import styles from './Articles.module.scss';
 import PageHeader from '../../components/PageHeader';
 import AddIcon from '@mui/icons-material/Add';
@@ -17,18 +16,22 @@ function Articles() {
     const response = await articleService.uploadPdf(formData);
     console.log(target.files[0], response);
   };
+  const handleSearch = (value) => {
+
+  };
 
   async function getPdf() {
     const res = await articleService.getPdfList();
     setPdfList(res);
   }
 
+
   useEffect(() => {
     getPdf();
   }, []);
   return (
     <div className={styles.articles}>
-      <PageHeader title={'Статьи'}/>
+      <PageHeader handleSearch={handleSearch} title={'Статьи'}/>
       <label htmlFor="addFile">
         <div className={styles.addFile}>
           <AddIcon/>Add File

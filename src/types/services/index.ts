@@ -26,8 +26,16 @@ export interface ProjectData {
 export interface MeetingData {
   email: string,
 }
-export interface ProjectPost{
+
+export interface ProjectPost {
   id: number,
   name: string,
   message: string
+}
+
+export interface FindUser extends Record<string, string>{
+  firstName: string,
+  lastName: string,
+  role: string,
+  school: string
 }

@@ -1,6 +1,6 @@
 import {Requests} from './Requests';
 import {ROUTES} from '../constants';
-import {RegisterData} from '../types/services';
+import {FindUser, RegisterData} from '../types/services';
 
 export class AuthService extends Requests {
   async login(obj: Object) {
@@ -23,7 +23,11 @@ export class AuthService extends Requests {
     return this.get(path);
   }
 
-  getUser() {
+  getUser(userId){
+    const path = `/users/${userId}`;
+    return this.get(path);
+  }
+  getCurrentUser() {
     const path = '/current-user';
     return this.get(path);
   }
@@ -35,5 +39,16 @@ export class AuthService extends Requests {
   editUser(data: unknown) {
     const path = '';
     return this.post(path, data);
+  }
+
+  findUsers(data: FindUser){
+   const params = new URLSearchParams(data).toString();
+    const path = '/search?' + params;
+    return this.get(path);
+  }
+
+  getAllRoles(){
+    const path = '/users';
+    return this.get(path);
   }
 }

@@ -1,11 +1,15 @@
 .sidebar {
   background: var(--black);
   height: 100vh;
-  padding: 5rem;
+  padding: 5rem 0 0;
   font-weight: bold;
   position: sticky;
   top:0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title {

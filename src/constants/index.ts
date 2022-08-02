@@ -14,7 +14,8 @@ export enum ROUTES {
   ADD_POSTS = '/profile/add-posts',
   PENDING_USERS = '/profile/pending-users',
   SETTINGS = '/settings',
-  NOTIFICATION = '/notification'
+  NOTIFICATION = '/notification',
+  USERS = '/users',
 }
 
 export enum COLORS {

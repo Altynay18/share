@@ -1,0 +1,28 @@
+.userList {
+  padding: 2rem;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.findUser {
+  padding: 10px 20px;
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  background: #92d9d9;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.inputRow {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}

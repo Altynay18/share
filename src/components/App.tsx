@@ -20,6 +20,7 @@ import Projects from '../pages/Projects';
 import Settings from '../pages/Settings';
 import Notification from '../pages/Notification';
 import {Test} from '../pages/Test/Test';
+import UserList from '../pages/UserList';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
               <Route path="settings" element={<Settings/>}/>
               <Route path="notification" element={<Notification/>}/>
               <Route path="test/:articleId" element={<Test/>}/>
+              <Route path="users" element={<UserList/>}/>
             </Route>
           </Routes>
         </BrowserRouter>
