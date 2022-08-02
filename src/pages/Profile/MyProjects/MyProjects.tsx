@@ -9,11 +9,6 @@ import AddProject from '../../../components/Forms/AddProject';
 import {ProjectService} from '../../../services/ProjectService';
 import {Link} from 'react-router-dom';
 import {ROUTES} from '../../../constants';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 
 const MyProjects = () => {
   const [open, setOpen] = useState(false);
@@ -35,12 +30,13 @@ const MyProjects = () => {
 
       <div className={styles.projectCardContainer}>
         {projects?.map((el, i) => (
-          <div key={el.id}>
+          <Link to={ROUTES.PROJECTS + `/${el.id}`} key={el.id}>
             <div className={styles.projectCard}>
             </div>
-            <div className={styles.links}>            <Link to={ROUTES.PROJECTS + `/${el?.id}`}>{el?.title}</Link>
+            <div className={styles.links}><Link
+              to={ROUTES.PROJECTS + `/${el?.id}`}>{el?.title}</Link>
             </div>
-          </div>
+          </Link>
         ))
         }
       </div>
@@ -48,9 +44,9 @@ const MyProjects = () => {
       <DefaultButton onClick={() => setOpen(true)}> + Создать
         проект</DefaultButton>
       <Modal open={open} handleClose={() => setOpen(false)}>
-        <AddProject afterSubmit={() => setOpen(false)} />
+        <AddProject afterSubmit={() => setOpen(false)}/>
       </Modal>
-    </div >
+    </div>
   );
 };
 export default MyProjects;

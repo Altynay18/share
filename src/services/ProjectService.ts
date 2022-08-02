@@ -1,5 +1,5 @@
 import {Requests} from './Requests';
-import {ProjectData} from '../types/services';
+import {ProjectData, ProjectPost} from '../types/services';
 
 export class ProjectService extends Requests {
   getProjects() {
@@ -16,6 +16,16 @@ export class ProjectService extends Requests {
 
   editProject(data: ProjectData) {
     const path = '/editProject';
+    return this.post(path, data);
+  }
+
+  getProject(id) {
+    const path = `/project/${id}/messages`;
+    return this.get(path);
+  }
+
+  addProjectPost(data: ProjectPost) {
+    const path = `/project/${data.id}/addMessage?name=${data.name}&message=${data.message}`;
     return this.post(path, data);
   }
 }

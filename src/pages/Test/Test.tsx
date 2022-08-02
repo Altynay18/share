@@ -1,10 +1,26 @@
 // @flow
 import * as React from 'react';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
+import {ArticleService} from '../../services/ArticleService';
+import {useParams} from 'react-router';
+import {BASE_URL} from '../../services/Requests';
 
 type Props = {};
 
 export function Test(props: Props) {
+  const [article, setArticle] = useState(null);
+  const {articleId} = useParams()
+  const articleService = new ArticleService();
+  const pdfUrl = `http://159.89.104.8:8022/pdf/${articleId}`;
+  const baseUrl = BASE_URL
+  const user = {
+    name: "SDFDSF"
+  }
+  async function getPdf() {
+    const res = await articleService.getPdf(2);
+    setArticle(res);
+  }
+
   useEffect(() => {
     const script = document.createElement('script');
     const scriptTag = document.createElement('script');
@@ -19,7 +35,7 @@ export function Test(props: Props) {
         divId: 'adobe-dc-view',
       });
       adobeDCView.previewFile({
-        content: {location: {url: 'https://documentcloud.adobe.com/view-sdk-demo/PDFs/Bodea Brochure.pdf'}},
+        content: {location: {url: '${pdfUrl}'}},
         metaData: {fileName: 'Bodea Brochure.pdf'},
         enableAnnotationAPIs: true,
         includePDFAnnotations: true
@@ -31,10 +47,10 @@ export function Test(props: Props) {
           var uint8Array = new Uint8Array(content);
           var blob = new Blob([uint8Array], { type: 'application/pdf' });
           formData = new FormData();
-          formData.append('pdfFile', blob);
+          formData.append('file', blob);
     
-          fetch("https://practicalpdf.com/code-pens/reflect/", {
-            method: 'POST',
+          fetch("${baseUrl}/pdf?id=${articleId}", {
+            method: 'PUT',
             body: formData,
           })
     
@@ -56,10 +72,10 @@ export function Test(props: Props) {
       
       const profile = {
         userProfile: {
-            name: 'John Doe',
-            firstName: 'John',
-            lastName: 'Doe',
-            email: 'doe@email.com'
+            name: '${user.name}',
+            firstName: '${user.name}',
+            lastName: '${user.name}',
+            email: '${user.name}'
         }
       };
 
@@ -85,8 +101,13 @@ export function Test(props: Props) {
       document.body.removeChild(script);
       document.body.removeChild(scriptTag);
     };
+  }, [articleId]);
+
+  useEffect(() => {
+    getPdf();
   }, []);
 
+  console.log('parsed article', article);
   return (
     <div id="adobe-dc-view"></div>
   );

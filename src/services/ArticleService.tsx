@@ -55,10 +55,19 @@ export class ArticleService extends Requests {
   }
 
   uploadPdf(data: FormData) {
-    const path = '/pdf';
+    const path = '/pdf?tags=fds';
     return this.postFile(path, data);
   }
 
+  getPdfList() {
+    const path = '/pdf';
+    return this.get(path);
+  }
+
+  getPdf(articleId){
+    const path = `/pdf/${articleId}`;
+    return this.getFile(path);
+  }
   async getAnnotationList() {
     const path = '';
     // todo return this.get(path);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {ROUTES} from '../../constants';
 import styles from './Articles.module.scss';
@@ -7,7 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 import {ArticleService} from '../../services/ArticleService';
 
 function Articles() {
-  const arr = new Array(5).fill(0);
+  const [pdfList, setPdfList] = useState([]);
   const articleService = new ArticleService();
 
   const handleChange = async (e) => {
@@ -17,6 +17,15 @@ function Articles() {
     const response = await articleService.uploadPdf(formData);
     console.log(target.files[0], response);
   };
+
+  async function getPdf() {
+    const res = await articleService.getPdfList();
+    setPdfList(res);
+  }
+
+  useEffect(() => {
+    getPdf();
+  }, []);
   return (
     <div className={styles.articles}>
       <PageHeader title={'Статьи'}/>
@@ -29,9 +38,9 @@ function Articles() {
 
       </label>
       <div className={styles.list}>
-        {arr.map((el, i) => (
-          <Link to={ROUTES.ARTICLES + '/1'}>
-            article url
+        {pdfList.map((el, i) => (
+          <Link to={`/test/${el.id}`}>
+            {el.title}
           </Link>
         ))}
       </div>

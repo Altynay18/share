@@ -1,5 +1,7 @@
 import {RequestConfig} from '../types/services';
-export const BASE_URL = 'http://159.89.104.8:8022'
+
+export const BASE_URL = 'http://159.89.104.8:8022';
+
 export class Requests {
   baseUrl: string;
 
@@ -51,7 +53,8 @@ export class Requests {
     try {
       this.#handleToken(config);
       const response = await fetch(url, config);
-      return await response.blob();
+      const blob = await response.blob();
+      return window.URL.createObjectURL(blob);
     } catch (e) {
       console.log({error: e.message});
     }

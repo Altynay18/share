@@ -26,3 +26,8 @@ export interface ProjectData {
 export interface MeetingData {
   email: string,
 }
+export interface ProjectPost{
+  id: number,
+  name: string,
+  message: string
+}

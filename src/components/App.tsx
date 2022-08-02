@@ -47,7 +47,7 @@ function App() {
               <Route path="projects/:projectId" element={<IndividualProject/>}/>
               <Route path="settings" element={<Settings/>}/>
               <Route path="notification" element={<Notification/>}/>
-              <Route path="test" element={<Test/>}/>
+              <Route path="test/:articleId" element={<Test/>}/>
             </Route>
           </Routes>
         </BrowserRouter>
