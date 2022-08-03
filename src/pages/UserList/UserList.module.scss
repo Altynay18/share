@@ -13,6 +13,7 @@
   border: 1px solid var(--light-gray);
   border-radius: 12px;
   background: #92d9d9;
+  margin-bottom: 2rem;
 }
 
 .row {
@@ -25,4 +26,20 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 1.2rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  a {
+    padding: 10px;
+    &:nth-child(even){
+      background: var(--light-gray);
+    }
+    &:hover {
+      color: var(--ocean-blue)
+    }
+  }
 }

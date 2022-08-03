@@ -31,6 +31,7 @@ export function UserList(props: Props) {
     }
   }, [firstName, lastName, role, school]);
 
+  console.log(userList);
   return (
     <div className={styles.userList}>
       <div className={styles.title}>Find Users</div>
@@ -60,11 +61,14 @@ export function UserList(props: Props) {
                    placeholder={'School'} type="text" value={school}/>
           </div>
         </div>
-
       </div>
-      {userList?.map((el, i) =>
-        <Link to={ROUTES.USERS + `/${el.id}`}></Link>,
-      )}
+      <div className={styles.title}>Search Result</div>
+      <div className={styles.list}>
+        {userList?.map((el, i) =>
+          <Link
+            to={ROUTES.USERS + `/${el.id}`}>{el.firstname} {el.lastname}</Link>,
+        )}
+      </div>
     </div>
   );
 };
