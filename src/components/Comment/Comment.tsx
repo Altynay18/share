@@ -1,10 +1,13 @@
 // @flow
 import * as React from 'react';
 import styles from './Comment.module.scss';
+import {CommentData} from '../../types/services';
 
-type Props = {};
+type Props = {
+  data: CommentData
+};
 
-export function Comment(props: Props) {
+export function Comment({data}: Props) {
   return (
     <div className={styles.comment}>
       <div className={styles.header}>

@@ -21,40 +21,47 @@ import Settings from '../pages/Settings';
 import Notification from '../pages/Notification';
 import {Test} from '../pages/Test/Test';
 import UserList from '../pages/UserList';
-
+import React, {useState} from 'react';
+export const UserContext = React.createContext(null);
 function App() {
+  const user = useState(null);
   return (
-    <div className="App">
-      <ChakraProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="register" element={<Auth/>}/>
-            <Route path="login" element={<Auth/>}/>
-            <Route path="/" element={<Layout/>}>
-              <Route index element={<Welcome/>}/>
-              <Route path="profile" element={<Profile/>}>
-                <Route index element={<MyPosts/>}/>
-                <Route path="pending-users" element={<PendingUsers/>}/>
-                <Route path="my-projects" element={<MyProjects/>}/>
-                <Route path="add-posts" element={<AddPost/>}/>
-                <Route path="settings" element={<Settings/>}/>
+    <UserContext.Provider value={user}>
+      <div className="App">
+        <ChakraProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="register" element={<Auth/>}/>
+              <Route path="login" element={<Auth/>}/>
+              <Route path="/" element={<Layout/>}>
+                <Route index element={<Welcome/>}/>
+                <Route path="profile" element={<Profile/>}>
+                  <Route index element={<MyPosts/>}/>
+                  <Route path="pending-users" element={<PendingUsers/>}/>
+                  <Route path="my-projects" element={<MyProjects/>}/>
+                  <Route path="add-posts" element={<AddPost/>}/>
+                  <Route path="settings" element={<Settings/>}/>
+                </Route>
+                <Route path="feed" element={<Feed/>}/>
+                <Route path="reflections" element={<Reflections/>}/>
+                <Route path="mentorship" element={<Meeting/>}/>
+                <Route path="training" element={<Training/>}/>
+                <Route path="articles" element={<Articles/>}/>
+                <Route path="articles/:articleId"
+                       element={<IndividualArticle/>}/>
+                <Route path="projects" element={<Projects/>}/>
+                <Route path="projects/:projectId"
+                       element={<IndividualProject/>}/>
+                <Route path="notification" element={<Notification/>}/>
+                <Route path="test/:articleId" element={<Test/>}/>
+                <Route path="users" element={<UserList/>}/>
               </Route>
-              <Route path="feed" element={<Feed/>}/>
-              <Route path="reflections" element={<Reflections/>}/>
-              <Route path="mentorship" element={<Meeting/>}/>
-              <Route path="training" element={<Training/>}/>
-              <Route path="articles" element={<Articles/>}/>
-              <Route path="articles/:articleId" element={<IndividualArticle/>}/>
-              <Route path="projects" element={<Projects/>}/>
-              <Route path="projects/:projectId" element={<IndividualProject/>}/>
-              <Route path="notification" element={<Notification/>}/>
-              <Route path="test/:articleId" element={<Test/>}/>
-              <Route path="users" element={<UserList/>}/>
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </ChakraProvider>
-    </div>
+            </Routes>
+          </BrowserRouter>
+        </ChakraProvider>
+      </div>
+    </UserContext.Provider>
+
   );
 }
 

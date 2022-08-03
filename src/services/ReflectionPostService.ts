@@ -6,7 +6,7 @@ export class ReflectionPostService extends Requests{
     return await this.post(path, obj);
   }
 
-  async filterByTag(obj: {name: string}){
+  async filterByTag(obj: {tag: string}){
     const path = '/post_by_tag?offset=0&limit=10';
     return await this.post(path, obj);
   }

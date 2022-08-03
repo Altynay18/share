@@ -1,5 +1,5 @@
 .form {
-  max-width: 300px;
+  max-width: 500px;
   padding: 20px;
   margin: auto;
   width: 100%;
@@ -7,6 +7,8 @@
 
 .title {
   text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 .link{
   color: var(--yellow);

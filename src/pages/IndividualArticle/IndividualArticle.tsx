@@ -110,7 +110,7 @@ export function IndividualArticle(props: Props) {
             <div className={styles.miniTitle}>Annotations</div>
             <div className={styles.annotationList}>
               {arr.map((el, i) => (
-                <Comment key={i}/>
+                <Comment data={el} key={i}/>
               ))}
             </div>
           </div>

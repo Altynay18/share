@@ -12,16 +12,36 @@ code {
   monospace;
 }
 
+html {
+  font-size: 14px;
+}
+
 input {
   outline: none;
   border: 1px solid var(--light-gray);
   height: 40px;
   border-radius: 4px;
   padding: 0 10px !important;
-  &:hover, &:focus{
+
+  &:hover, &:focus {
     border: 2px solid var(--ocean-blue);
   }
 }
+
+textarea {
+  outline: none;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  padding: 0 10px !important;
+
+  &:hover, &:focus {
+    border: 2px solid var(--ocean-blue);
+  }
+
+  height: 100px;
+  resize: none !important;
+}
+
 
 button {
   outline: none;

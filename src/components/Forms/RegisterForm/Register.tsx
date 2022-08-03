@@ -22,18 +22,30 @@ export function Register(props: Props) {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <h2 className={styles.title}>Авторизация</h2>
-      <InputWrapper label={'Name'} error={errors.name}
-                    errText={'This name is required'}>
-        <input {...register('name', {required: true})} />
+      <InputWrapper label={'Username'} error={errors.name} errText={'Err'}>
+        <input {...register('username', {required: true})} />
       </InputWrapper>
-      <InputWrapper label={'Surname'} error={errors.name} errText={'Err'}>
-        <input {...register('surname', {required: true})} />
+      <InputWrapper label={'First Name'} error={errors.name}
+                    errText={'This name is required'}>
+        <input {...register('firstname', {required: true})} />
+      </InputWrapper>
+      <InputWrapper label={'Last Name'} error={errors.name} errText={'Err'}>
+        <input {...register('lastname', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'City'} error={errors.city} errText={'Err'}>
         <input {...register('city', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'School'} error={errors.school} errText={'Err'}>
         <input {...register('school', {required: true})} />
+      </InputWrapper>
+      <InputWrapper label={'Title'} error={errors.school} errText={'Err'}>
+        <input {...register('title', {required: true})} />
+      </InputWrapper>
+      <InputWrapper label={'Achievements'} error={errors.school} errText={'Err'}>
+        <input {...register('achievements', {required: true})} />
+      </InputWrapper>
+      <InputWrapper label={'Role'} error={errors.school} errText={'Err'}>
+        <input {...register('role', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'Password'} error={errors.password} errText={'err'}>
         <input {...register('password', {required: true})} />
@@ -44,18 +56,8 @@ export function Register(props: Props) {
           required: true,
         })} />
       </InputWrapper>
-      <div>
-        <label>Role</label>
-        <Select {...register('role')}>
-          <option value="female">female</option>
-          <option value="male">male</option>
-          <option value="other">other</option>
-        </Select>
-        {errors.passwordConfirm &&
-          <span>This passwordConfirm is required</span>}
-      </div>
 
-      <DefaultButton>Зарегистрироваться</DefaultButton>
+      <DefaultButton type={'submit'}>Зарегистрироваться</DefaultButton>
       <div>Есть аккаунт? <Link to={ROUTES.LOGIN}><span
         className={styles.link}>Войдите</span></Link></div>
     </form>

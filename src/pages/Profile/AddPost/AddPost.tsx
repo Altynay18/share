@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './AddPost.module.scss';
 import avatar from '../../../assets/images/avatar.png';
-import AddPostComponent
-  from '../../../components/Forms/AddPostComponent';
+import AddGeneralPost from '../../../components/Forms/AddGeneneralPost';
 
 type Props = {
   isReflection?: boolean
@@ -18,7 +17,8 @@ function AddPost({isReflection}: Props) {
         <div>Name Surname</div>
       </div>
       <div className={styles.content}>
-        <AddPostComponent isReflection={isReflection}/>
+        <AddGeneralPost afterSubmit={() => {
+        }}/>
       </div>
     </div>
   );

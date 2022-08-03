@@ -34,13 +34,9 @@ const Profile = () => {
               </Tab>
             </TabList>
             <TabPanels>
-              <TabPanel
-              >
-              </TabPanel>
-              <TabPanel>
-              </TabPanel>
-              <TabPanel>
-              </TabPanel>
+              <TabPanel></TabPanel>
+              <TabPanel></TabPanel>
+              <TabPanel></TabPanel>
             </TabPanels>
           </Tabs>
         </div>

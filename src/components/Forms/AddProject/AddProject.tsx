@@ -25,7 +25,9 @@ export function AddProject({afterSubmit}: Props) {
 
   async function getAllUser() {
     const res = await auth.getAllUser();
-    setUsers(res);
+    if (res) {
+      setUsers(res);
+    }
   }
 
   useEffect(() => {
@@ -34,10 +36,12 @@ export function AddProject({afterSubmit}: Props) {
 
   return (
     <form className={styles.addProject} onSubmit={handleSubmit(onSubmit)}>
-      <InputWrapper error={errors.title} errText={''}>
+      <div className={styles.title}>Add Project</div>
+      <InputWrapper label={'Title'} error={errors.title} errText={''}>
         <input {...register('title', {required: true, maxLength: 20})} />
       </InputWrapper>
-      <InputWrapper error={errors.title} errText={''}>
+      <InputWrapper label={'Description'} error={errors.description}
+                    errText={''}>
         <input {...register('description', {required: true, maxLength: 20})} />
       </InputWrapper>
       {!!users.length &&

@@ -13,7 +13,6 @@ export function Login(props: Props) {
   });
 
   const onSubmit = (data) => {
-    console.log(data)
     authService.login(data);
   }
   return (

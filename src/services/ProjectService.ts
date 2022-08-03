@@ -8,10 +8,11 @@ export class ProjectService extends Requests {
   }
 
   createProject(data: ProjectData) {
+    // TODO should include me also for users field
     const formattedUsers = 'string';
-    const params = `?title=${data.title}&description=${data.description}&users=${formattedUsers}`;
+    const params = `?title=${data.title}&description=${data.description}`;
     const path = `/projects` + params;
-    return this.post(path, {});
+    return this.post(path, {users:[formattedUsers]});
   }
 
   editProject(data: ProjectData) {

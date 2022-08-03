@@ -21,17 +21,16 @@ function Reflections() {
   }, []);
 
   async function getPostsByTag(value: string) {
-    const arr = await postService.filterByTag({name: value});
-    console.log('hello')
+    const arr = await postService.filterByTag({tag: value});
     setReflectionPosts(arr);
   }
 
-  function handleClick(event) {
+  async function handleClick(event) {
     if (event.target.value === 'all') {
-      getAllPosts();
+      await getAllPosts();
     }
     else {
-      getPostsByTag(event.target.value);
+      await getPostsByTag(event.target.value);
     }
   }
 

@@ -17,7 +17,7 @@ function MyPosts() {
   }, []);
   return (
     <div className={styles.myPosts}>
-      {postList.map((el, i) => (
+      {postList?.map((el, i) => (
         <Post data={el} key={i}/>
       ))}
     </div>
