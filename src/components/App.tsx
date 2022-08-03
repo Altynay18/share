@@ -22,7 +22,10 @@ import Notification from '../pages/Notification';
 import {Test} from '../pages/Test/Test';
 import UserList from '../pages/UserList';
 import React, {useState} from 'react';
+import SelectedProfile from '../pages/SelectedProfile';
+
 export const UserContext = React.createContext(null);
+
 function App() {
   const user = useState(null);
   return (
@@ -42,6 +45,7 @@ function App() {
                   <Route path="add-posts" element={<AddPost/>}/>
                   <Route path="settings" element={<Settings/>}/>
                 </Route>
+                <Route path="profile/:userId" element={<SelectedProfile/>}/>
                 <Route path="feed" element={<Feed/>}/>
                 <Route path="reflections" element={<Reflections/>}/>
                 <Route path="mentorship" element={<Meeting/>}/>
@@ -61,7 +65,6 @@ function App() {
         </ChakraProvider>
       </div>
     </UserContext.Provider>
-
   );
 }
 

@@ -8,6 +8,7 @@ export class AuthService extends Requests {
     const response = await this.post(path, obj);
     if (response) {
       window.sessionStorage.setItem('access_token', response.token);
+      window.sessionStorage.setItem('role', response.role)
       window.location.replace(ROUTES.PROFILE);
     }
   }

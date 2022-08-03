@@ -1,33 +1,23 @@
 import {Requests} from './Requests';
 
 export class AdminService extends Requests {
-  deleteReflectionCommentById(commentId: unknown) {
-    const path = `/deleteReflectionCommentById?commentId=${commentId}`;
-    return this.delete(path);
+  getPendingUsers() {
+    const path = '/admin_users';
+    return this.get(path);
   }
 
-  deleteReflectionPostById(postId: unknown) {
-    const path = `/deleteReflectionPostById?postId=${postId}`;
-    return this.delete(path);
+  getAdminInfo() {
+    const path = '/admin';
+    return this.get(path);
   }
 
-  deleteScienceCommentById(commentId: unknown) {
-    const path = `/deleteScienceCommentById?commentId=${commentId}`;
-    return this.delete(path);
+  activateUser(data) {
+    const path = `/activate-user/${data.id}`;
+    return this.post(path, data);
   }
 
-  deleteSciencePostById(postId: unknown) {
-    const path = `/deleteSciencePostById?postId=${postId}`;
-    return this.delete(path);
-  }
-
-  deleteUserById(id: unknown) {
+  deleteUser(id){
     const path = `/deleteUserById?id=${id}`;
-    return this.delete(path);
-  }
-
-  deleteUserByUsername(username: unknown) {
-    const path = `/deleteUserByUsername?username=${username}`;
     return this.delete(path);
   }
 }

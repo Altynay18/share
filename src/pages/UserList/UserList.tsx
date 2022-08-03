@@ -66,7 +66,7 @@ export function UserList(props: Props) {
       <div className={styles.list}>
         {userList?.map((el, i) =>
           <Link
-            to={ROUTES.USERS + `/${el.id}`}>{el.firstname} {el.lastname}</Link>,
+            to={ROUTES.PROFILE + `/${el.id}`}>{el.firstname} {el.lastname}</Link>,
         )}
       </div>
     </div>

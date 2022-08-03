@@ -15,3 +15,28 @@
   border-bottom: 1px solid var(--light-gray);
   padding: 10px 0;
 }
+
+.approve {
+  background: var(--green);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-right: 20px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.reject {
+  background: var(--red);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

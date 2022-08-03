@@ -3,12 +3,12 @@ import UserCard from '../../components/UserCard';
 import {Tab, TabList, TabPanel, TabPanels, Tabs} from '@chakra-ui/react';
 import {Outlet} from 'react-router';
 import {useNavigate} from 'react-router-dom';
-import {ROUTES} from '../../constants';
+import {ROLES, ROUTES} from '../../constants';
 
 
 const Profile = () => {
   const navigate = useNavigate();
-
+  const isAdmin = sessionStorage.getItem('role') === ROLES.ADMIN;
   return (
     <div className={styles.profileContainer}>
       <UserCard/>
@@ -18,16 +18,24 @@ const Profile = () => {
             <TabList>
               <Tab fontWeight={'600'} fontSize={'1rem'} color={'#564D80'}
                    onClick={() => navigate(ROUTES.PROFILE)}>Мои посты</Tab>
-              <Tab fontWeight={'600'} marginLeft={'3rem'} fontSize={'1rem'}
-                   color={'#564D80'} onClick={() => navigate(ROUTES.ADD_POSTS)}>
-                Написать пост
-              </Tab>
-              <Tab fontWeight={'600'} marginLeft={'3rem'} fontSize={'1rem'}
-                   color={'#564D80'}
-                   onClick={() => navigate(ROUTES.MY_PROJECTS)}>
-                Мои проекты
-              </Tab>
-              <Tab fontWeight={'600'} marginLeft={'3rem'} fontSize={'1rem'}
+              {isAdmin &&
+                <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'} color={'#564D80'}
+                     onClick={() => navigate(ROUTES.PENDING_USERS)}>Пользователи</Tab>
+              }
+              {!isAdmin &&
+                <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
+                     color={'#564D80'}
+                     onClick={() => navigate(ROUTES.ADD_POSTS)}>
+                  Написать пост
+                </Tab>}
+              {!isAdmin &&
+                <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
+                     color={'#564D80'}
+                     onClick={() => navigate(ROUTES.MY_PROJECTS)}>
+                  Мои проекты
+                </Tab>
+              }
+              <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
                    color={'#564D80'}
                    onClick={() => navigate(ROUTES.SETTINGS)}>
                 Настройки
