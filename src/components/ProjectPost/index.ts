@@ -1,0 +1,1 @@
+export {ProjectPost as default} from './ProjectPost';

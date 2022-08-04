@@ -3,22 +3,29 @@ import React, {useEffect, useState} from 'react';
 import {ProjectService} from '../../services/ProjectService';
 import {useParams} from 'react-router';
 import PageHeader from '../../components/PageHeader';
-import Post from '../../components/Post';
-//TODO 
+import ProjectPost from '../../components/ProjectPost';
+import DefaultButton from '../../components/DefaultButton';
+import Modal from '../../components/Modal';
+import AddProjectPost from '../../components/Forms/AddProjectPost';
+
 const IndividualProject = () => {
-  const [project, setProject] = useState({});
+  const [isOpen, setIsOpen] = useState(false);
+  const [project, setProject] = useState([]);
   const {projectId} = useParams();
   const projectService = new ProjectService();
   const handleSearch = (value) => {
 
   };
 
-
-  async function addProjectPost(){
-
+  async function onSubmit(data) {
+    const res = await projectService.addProjectPost({
+      ...data, project_id: projectId,
+    });
+    setIsOpen(false);
   }
+
   async function getProject() {
-    const res = await projectService.getProject(projectId);
+    const res = await projectService.getProjectPosts(projectId);
     setProject(res);
   }
 
@@ -28,9 +35,14 @@ const IndividualProject = () => {
   return (
     <div className={styles.individualProject}>
       <PageHeader handleSearch={handleSearch} title={'Project'}/>
-      {/*{project.map((el)=>(*/}
-      {/*  <Post data={el}/>*/}
-      {/*))}*/}
+      <DefaultButton onClick={() => setIsOpen(true)}>Add Post</DefaultButton>
+      {project.map((el) => (
+        <ProjectPost data={el}/>
+      ))}
+
+      <Modal open={isOpen} handleClose={() => setIsOpen(false)}>
+        <AddProjectPost onSubmit={onSubmit}/>
+      </Modal>
     </div>
   );
 };

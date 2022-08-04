@@ -1,0 +1,37 @@
+.postContainer{
+  width: 100%;
+  height: max-content;
+  border: 2px solid var(--gray);
+  border-radius: 16px;
+  padding: 1rem;
+  font-style: var(--gray);
+}
+
+.postInfo{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--gray);
+}
+.postContent{
+  padding: 1rem;
+}
+
+.postActions{
+  padding: 1rem 0;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+
+  div{
+    border-radius: 16px;
+    background-color: var(--gray);
+    width: max-content;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.2rem;
+  }
+}

@@ -29,10 +29,13 @@ export interface MeetingData {
   email: string,
 }
 
-export interface ProjectPost {
-  id: number,
-  name: string,
-  message: string
+export interface ProjectPostData {
+  date: string;
+  id: 1;
+  text: string;
+  title: null;
+  userfirstname: string;
+  userlastname: string;
 }
 
 export interface FindUser extends Record<string, string> {

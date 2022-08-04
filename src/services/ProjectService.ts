@@ -1,5 +1,5 @@
 import {Requests} from './Requests';
-import {ProjectData, ProjectPost} from '../types/services';
+import {ProjectData} from '../types/services';
 
 export class ProjectService extends Requests {
   getProjects() {
@@ -12,7 +12,7 @@ export class ProjectService extends Requests {
     const formattedUsers = 'string';
     const params = `?title=${data.title}&description=${data.description}`;
     const path = `/projects` + params;
-    return this.post(path, {users:[formattedUsers]});
+    return this.post(path, {users: [formattedUsers]});
   }
 
   editProject(data: ProjectData) {
@@ -20,13 +20,13 @@ export class ProjectService extends Requests {
     return this.post(path, data);
   }
 
-  getProject(id) {
-    const path = `/project/${id}/messages`;
+  getProjectPosts(id) {
+    const path = `/project/${id}/posts`;
     return this.get(path);
   }
 
-  addProjectPost(data: ProjectPost) {
-    const path = `/project/${data.id}/addMessage?name=${data.name}&message=${data.message}`;
+  addProjectPost(data) {
+    const path = '/project/addPost';
     return this.post(path, data);
   }
 }
