@@ -21,11 +21,11 @@ const SideBar = () => {
         </Link>
         <Link to={ROUTES.MAIN} className={styles.menuItem}>
           <DynamicFeedIcon/>
-          Лента
+          Новостная лента
         </Link>
         <Link to={ROUTES.REFLECTIONS} className={styles.menuItem}>
           <DynamicFeedIcon/>
-          Рефлексии
+          Рефлексивная лента
         </Link>
         <Link to={ROUTES.ARTICLES} className={styles.menuItem}>
           <ArticleIcon/>

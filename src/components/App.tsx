@@ -19,7 +19,7 @@ import {ChakraProvider} from '@chakra-ui/react';
 import Projects from '../pages/Projects';
 import Settings from '../pages/Settings';
 import Notification from '../pages/Notification';
-import {Test} from '../pages/Test/Test';
+// import {Test} from '../pages/Test/Test';
 import UserList from '../pages/UserList';
 import React, {useState} from 'react';
 import SelectedProfile from '../pages/SelectedProfile';
@@ -58,7 +58,7 @@ function App() {
                 <Route path="projects/:projectId"
                        element={<IndividualProject/>}/>
                 <Route path="notification" element={<Notification/>}/>
-                <Route path="test/:articleId" element={<Test/>}/>
+                {/* <Route path="test/:articleId" element={<Test/>}/> */}
                 <Route path="search-user" element={<UserList/>}/>
               </Route>
             </Routes>

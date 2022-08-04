@@ -1,26 +1,35 @@
 .authContainer {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  font-family: Poppins-Bold, sans-serif;
+	display: grid;
+	grid-template-columns: 3fr 2fr;
+	font-family: Poppins-Bold, sans-serif;
 }
 
 .mainTitle {
-  font-size: 8rem;
-  color: #001951;
-  font-weight: bold;
+	font-size: 8rem;
+	color: #001951;
+	font-weight: bold;
 }
 
 .infoSection {
-  padding: 5rem;
+	padding-top: 5rem;
+	padding-left: 5rem;
+}
+
+.img {
+	display: block;
+	width: 650px;
+	height: 480px;
+
+	margin-top: 4rem;
 }
 
 .description {
-  color: var(--yellow);
-  font-size: 1.5rem;
-  font-weight: bold;
-  max-width: 500px;
+	color: var(--yellow);
+	font-size: 1.5rem;
+	font-weight: bold;
+	max-width: 500px;
 }
 
 .formSection {
-  display: flex;
+	display: flex;
 }
