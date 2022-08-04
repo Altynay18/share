@@ -6,17 +6,19 @@ import Comment from '../Comment';
 import {PostData} from '../../types/services';
 import {useForm} from 'react-hook-form';
 import InputWrapper from '../InputWrapper';
+import {GeneralPostService} from '../../services/GeneralPostService';
 
 type Props = {
-  data: PostData
+  data: PostData,
+  onCommentSubmit: (arg: any, postId: any) => void
 }
 
-function PostContent({data}: Props) {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => {
-
-
-  }
+function PostContent({data, onCommentSubmit}: Props) {
+  const postService = new GeneralPostService();
+  const {register, handleSubmit, formState: {errors}} = useForm();
+  const makeSubmit = (data) => {
+    onCommentSubmit(data, data.id);
+  };
   return (
     <div className={styles.postModal}>
       <div className={styles.postInfo}>
@@ -37,16 +39,18 @@ function PostContent({data}: Props) {
           </div>
         </div>
       }
-      <div className={styles.postModalActions}>
+      <form onSubmit={handleSubmit(makeSubmit)}
+            className={styles.postModalActions}>
         <div className={styles.title}>Написать комментарии:</div>
         <InputWrapper label={'Name'} error={errors.name} errText={''}>
-          <input {...register("name", { required: true })} />
+          <input {...register('name', {required: true})} />
         </InputWrapper>
         <InputWrapper label={'Content'} error={errors.content} errText={''}>
-          <textarea {...register("content", { required: true })} />
+          <textarea {...register('content', {required: true})} />
         </InputWrapper>
-        <DefaultButton bgColor="#BCD7DA" children={'Отправить'}></DefaultButton>
-      </div>
+        <DefaultButton type={'submit'} bgColor="#BCD7DA"
+                       children={'Отправить'}></DefaultButton>
+      </form>
     </div>
   );
 }

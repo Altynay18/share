@@ -21,4 +21,9 @@ export class ReflectionPostService extends Requests {
     const path = '/reflection/all/posts?' + new URLSearchParams(data);
     return this.get(path);
   }
+
+  addComment(data) {
+    const path = '/post_by_tag?' + new URLSearchParams(data);
+    return this.post(path, []);
+  }
 }

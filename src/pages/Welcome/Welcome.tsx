@@ -27,6 +27,12 @@ export function Welcome(props: Props) {
     setOpen(false);
     await getAllPost();
   };
+
+  const onCommentSubmit = async (formData, postId) => {
+    const res = await postService.addComment({
+      ...formData, postId,
+    });
+  };
   const handleSearch = async (value) => {
     const result = await postService.search({
       title: '',
@@ -52,7 +58,7 @@ export function Welcome(props: Props) {
 
       <div className={styles.list}>
         {postList?.map((el, i) => (
-          <Post data={el} key={i}/>
+          <Post onCommentSubmit={onCommentSubmit} data={el} key={i}/>
         ))}
       </div>
     </div>

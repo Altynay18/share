@@ -26,6 +26,12 @@ function Reflections() {
     setReflectionPosts(arr);
   }, []);
 
+  const onCommentSubmit = async (data, postId)=>{
+    const res = await postService.addComment({
+      ...data, postId
+    })
+  }
+
   async function getPostsByTag(value: string) {
     const arr = await postService.filterByTag({tag: value});
     setReflectionPosts(arr);
@@ -83,7 +89,7 @@ function Reflections() {
       <div className={styles.list}>
         {
           reflectionPosts?.map((el, index) =>
-            <Post data={el} key={el.id}/>,
+            <Post onCommentSubmit={onCommentSubmit} data={el} key={el.id}/>,
           )
         }
       </div>

@@ -4,7 +4,7 @@ import styles from './Comment.module.scss';
 import {CommentData} from '../../types/services';
 
 type Props = {
-  data: CommentData
+  data: CommentData,
 };
 
 export function Comment({data}: Props) {

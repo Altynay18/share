@@ -45,9 +45,9 @@ export interface FindUser extends Record<string, string> {
   school: string
 }
 
-export interface CommentData {
+export interface CommentData extends Record<string, string> {
   content: string,
-  postId: number,
+  postId: string,
   name: string
 }
 
@@ -69,8 +69,9 @@ export interface ProjectSearch extends Record<string, string> {
 }
 
 export interface ReflectionSearch extends GeneralSearch {
-  tag: string
+  tag: string;
 }
+
 export interface GeneralSearch extends Record<string, string> {
   title: string,
   content: string,

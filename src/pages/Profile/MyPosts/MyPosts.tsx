@@ -7,6 +7,12 @@ function MyPosts() {
   const [postList, setPostList] = useState([]);
   const postService = new GeneralPostService();
 
+  const onCommentSubmit = async (data, postId) => {
+    const res = await postService.addComment({
+      ...data, postId,
+    });
+  };
+
   async function getPostList() {
     const res = await postService.getMyPosts();
     setPostList(res);
@@ -18,7 +24,7 @@ function MyPosts() {
   return (
     <div className={styles.myPosts}>
       {postList?.map((el, i) => (
-        <Post data={el} key={i}/>
+        <Post onCommentSubmit={onCommentSubmit} data={el} key={i}/>
       ))}
     </div>
   );

@@ -9,10 +9,11 @@ import {ChatIcon, StarIcon} from '@chakra-ui/icons';
 import {PostData} from '../../types/services';
 
 type Props = {
-  data: PostData
+  data: PostData,
+  onCommentSubmit: (arg: any, postId: any)=>void
 };
 
-export function Post({data}: Props) {
+export function Post({data, onCommentSubmit}: Props) {
   const [open, setOpen] = useState(false);
   return (
     <div key={data?.id} className={styles.postContainer} onClick={() => {
@@ -32,7 +33,7 @@ export function Post({data}: Props) {
         <div className={styles.comment}><ChatIcon w={4} h={4}/>Комментарии</div>
       </div>
       <Modal open={open} handleClose={() => setOpen(false)}>
-        <PostContent data={data}/>
+        <PostContent data={data} onCommentSubmit={onCommentSubmit}/>
       </Modal>
     </div>
   );
