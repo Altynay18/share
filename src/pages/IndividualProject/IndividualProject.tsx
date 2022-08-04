@@ -7,6 +7,7 @@ import ProjectPost from '../../components/ProjectPost';
 import DefaultButton from '../../components/DefaultButton';
 import Modal from '../../components/Modal';
 import AddProjectPost from '../../components/Forms/AddProjectPost';
+import {COLORS} from '../../constants';
 
 const IndividualProject = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,7 @@ const IndividualProject = () => {
   return (
     <div className={styles.individualProject}>
       <PageHeader handleSearch={handleSearch} title={'Project'}/>
-      <DefaultButton onClick={() => setIsOpen(true)}>Add Post</DefaultButton>
+      <DefaultButton maxWidth={'15rem'} bgColor={COLORS.DARK_GRAY}  onClick={() => setIsOpen(true)}>Add Post</DefaultButton>
       {project.map((el) => (
         <ProjectPost data={el}/>
       ))}

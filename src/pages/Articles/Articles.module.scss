@@ -15,13 +15,15 @@
 .addFile {
   display: flex;
   align-items: center;
-  background: var(--yellow);
-  border-radius: 12px;
-  padding: 10px 20px;
+  background: var(--dark-gray);
+  border-radius: 6px;
+  padding: 1rem 2rem;
+  height: 2.5rem;
   color: var(--white);
   margin-bottom: 20px;
   justify-content: center;
   max-width: 200px;
+  font-weight: bold;
 
   input {
     display: none;

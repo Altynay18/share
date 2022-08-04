@@ -8,6 +8,7 @@ import AddGeneralPost from '../../components/Forms/AddGeneneralPost';
 import {GeneralPostService} from '../../services/GeneralPostService';
 import PageHeader from '../../components/PageHeader';
 import Post from '../../components/Post';
+import {COLORS} from '../../constants';
 
 
 type Props = {};
@@ -36,7 +37,7 @@ export function Welcome(props: Props) {
     <div className={styles.welcomePageContainer}>
       <PageHeader handleSearch={handleSearch} title={'Лента новостей'}/>
       <div className={styles.addButton}>
-        <DefaultButton bgColor="#9DA2A5" onClick={() => setOpen(true)}>
+        <DefaultButton maxWidth={'15rem'} bgColor={COLORS.DARK_GRAY} onClick={() => setOpen(true)}>
           + Добавить пост
         </DefaultButton>
         <Modal open={open} handleClose={() => setOpen(false)}>

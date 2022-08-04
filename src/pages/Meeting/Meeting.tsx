@@ -5,6 +5,7 @@ import {useState} from 'react';
 import DefaultButton from '../../components/DefaultButton';
 import AddIcon from '@mui/icons-material/Add';
 import PageHeader from '../../components/PageHeader';
+import {COLORS} from '../../constants';
 
 const Meeting = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ const Meeting = () => {
   return (
     <div className={styles.meeting}>
       <PageHeader handleSearch={handleSearch} title={'Список встреч'}/>
-      <DefaultButton maxWidth={'15rem'} onClick={() => setIsOpen(true)}>
+      <DefaultButton maxWidth={'15rem'} bgColor={COLORS.DARK_GRAY} onClick={() => setIsOpen(true)}>
         <><AddIcon/>add meeting</>
       </DefaultButton>
       <div className={styles.list}>
