@@ -34,8 +34,8 @@ export interface ProjectPostData {
   id: 1;
   text: string;
   title: null;
-  userfirstname: string;
-  userlastname: string;
+  userfirstname?: string;
+  userlastname?: string;
 }
 
 export interface FindUser extends Record<string, string> {

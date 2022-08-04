@@ -1,3 +1,11 @@
 .selectedProfile{
   padding: 2rem;
 }
+.row{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  &>div{
+    border-right: 1px solid var(--light-gray);
+    padding: 10px;
+  }
+}

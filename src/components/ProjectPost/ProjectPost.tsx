@@ -12,8 +12,10 @@ export function ProjectPost({data}: Props) {
         <div>11 Июля &bull; 12:05</div>
         <div>{data?.userfirstname} {data?.userlastname}</div>
       </div>
-      <div>{data?.title}</div>
-      <div className={styles.postContent}>{data?.text}</div>
+      <div className={styles.content}>
+        <div className={styles.title}>{data?.title}</div>
+        <div className={styles.postContent}>{data?.text}</div>
+      </div>
     </div>
   );
 };

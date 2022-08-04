@@ -41,7 +41,7 @@ const SideBar = () => {
         </Link>
       </div>
       <div className={styles.bottom}>
-        <Link to={ROUTES.USERS} className={styles.menuItem}>
+        <Link to={ROUTES.SEARCH_USER} className={styles.menuItem}>
           <PersonSearchIcon/>
           Поиск учителей
         </Link>

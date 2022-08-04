@@ -15,8 +15,8 @@ export function AddProjectPost({onSubmit}: Props) {
       <InputWrapper label={'Title'} errText={''} error={''}>
         <input {...register('title', {required: true})} />
       </InputWrapper>
-      <InputWrapper label={'Content'} errText={''} error={''}>
-        <input {...register('content', {required: true})} />
+      <InputWrapper label={'Text'} errText={''} error={''}>
+        <input {...register('text', {required: true})} />
       </InputWrapper>
       <DefaultButton type={'submit'}>Add Post</DefaultButton>
     </form>

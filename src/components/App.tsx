@@ -58,7 +58,7 @@ function App() {
                        element={<IndividualProject/>}/>
                 <Route path="notification" element={<Notification/>}/>
                 <Route path="test/:articleId" element={<Test/>}/>
-                <Route path="users" element={<UserList/>}/>
+                <Route path="search-user" element={<UserList/>}/>
               </Route>
             </Routes>
           </BrowserRouter>

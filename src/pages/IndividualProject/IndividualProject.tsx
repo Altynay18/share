@@ -23,6 +23,9 @@ const IndividualProject = () => {
       ...data, project_id: projectId,
     });
     setIsOpen(false);
+    if (res) {
+      getProject();
+    }
   }
 
   async function getProject() {
@@ -36,10 +39,13 @@ const IndividualProject = () => {
   return (
     <div className={styles.individualProject}>
       <PageHeader handleSearch={handleSearch} title={'Project'}/>
-      <DefaultButton maxWidth={'15rem'} bgColor={COLORS.DARK_GRAY}  onClick={() => setIsOpen(true)}>Add Post</DefaultButton>
-      {project.map((el) => (
-        <ProjectPost data={el}/>
-      ))}
+      <DefaultButton maxWidth={'15rem'} bgColor={COLORS.DARK_GRAY}
+                     onClick={() => setIsOpen(true)}>Add Post</DefaultButton>
+     <div className={styles.list}>
+       {project.map((el) => (
+         <ProjectPost data={el}/>
+       ))}
+     </div>
 
       <Modal open={isOpen} handleClose={() => setIsOpen(false)}>
         <AddProjectPost onSubmit={onSubmit}/>

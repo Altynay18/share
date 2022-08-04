@@ -15,7 +15,7 @@ export enum ROUTES {
   PENDING_USERS = 'pending-users',
   SETTINGS = 'settings',
   NOTIFICATION = '/notification',
-  USERS = '/users',
+  SEARCH_USER = '/search-user',
 }
 
 export enum COLORS {
