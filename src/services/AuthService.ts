@@ -14,7 +14,7 @@ export class AuthService extends Requests {
   }
 
   async register(data: RegisterData) {
-    const path = '/register';
+    const path = '/full-register';
     return await this.post(path, data);
   }
 

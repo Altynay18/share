@@ -19,7 +19,8 @@ const Profile = () => {
               <Tab fontWeight={'600'} fontSize={'1rem'} color={'#564D80'}
                    onClick={() => navigate(ROUTES.PROFILE)}>Мои посты</Tab>
               {isAdmin &&
-                <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'} color={'#564D80'}
+                <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
+                     color={'#564D80'}
                      onClick={() => navigate(ROUTES.PENDING_USERS)}>Пользователи</Tab>
               }
               {!isAdmin &&
@@ -28,13 +29,11 @@ const Profile = () => {
                      onClick={() => navigate(ROUTES.ADD_POSTS)}>
                   Написать пост
                 </Tab>}
-              {!isAdmin &&
-                <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
-                     color={'#564D80'}
-                     onClick={() => navigate(ROUTES.MY_PROJECTS)}>
-                  Мои проекты
-                </Tab>
-              }
+              <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
+                   color={'#564D80'}
+                   onClick={() => navigate(ROUTES.MY_PROJECTS)}>
+                Мои проекты
+              </Tab>
               <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
                    color={'#564D80'}
                    onClick={() => navigate(ROUTES.SETTINGS)}>

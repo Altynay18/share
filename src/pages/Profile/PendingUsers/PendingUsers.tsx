@@ -24,11 +24,10 @@ export function PendingUsers(props: Props) {
   useEffect(() => {
     getPendingUserList();
   }, []);
-  const arr = new Array(5).fill(0);
   return (
     <div className={styles.pendingUsers}>
       <div className={styles.title}>Запросы на авторизацию:</div>
-      {userList.map((el, i) => (
+      {userList?.map((el, i) => (
         <div key={i} className={styles.row}>
           <span className={styles.id}>{el.id}</span>
           <span className={styles.userName}>{el.firstname} {el.lastname}</span>

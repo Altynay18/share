@@ -11,12 +11,16 @@ import {AuthService} from '../../services/AuthService';
 type Props = {};
 
 export function Layout(props: Props) {
-  const user = useContext(UserContext);
+  const [user, setUser] = useContext(UserContext);
   const authService = new AuthService();
 
-  function getUserInfo(){
-    const res = authService.getCurrentUser()
+  async function getUserInfo() {
+    const res = await authService.getCurrentUser();
+    if (res) {
+      setUser(res);
+    }
   }
+
   useEffect(() => {
     getUserInfo();
   }, []);
