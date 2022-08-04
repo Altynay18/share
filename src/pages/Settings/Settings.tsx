@@ -40,11 +40,10 @@ export function Settings(props: Props) {
           <input
             defaultValue={user?.school}   {...register('school', {required: true})} />
         </InputWrapper>
-        <InputWrapper label={'Role'} error={errors.passwordConfirm}
-                      errText={'This Role is required'}>
-          <input defaultValue={user?.role}   {...register('role', {
-            required: true,
-          })} />
+        <InputWrapper label={'title'} error={errors.title}
+                      errText={'This title is required'}>
+          <input
+            defaultValue={user?.title}   {...register('title', {required: true})} />
         </InputWrapper>
         <InputWrapper label={'password'} error={errors.password}
                       errText={'This password is required'}>

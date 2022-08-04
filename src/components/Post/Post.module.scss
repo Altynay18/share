@@ -17,6 +17,9 @@
 .postContent{
   padding: 1rem;
 }
+.comment{
+  cursor: pointer;
+}
 
 .postActions{
   padding: 1rem 0;
@@ -32,6 +35,6 @@
       display: flex;
       gap: 0.5rem;
       align-items: center;
-      padding: 0.2rem;
+      padding: 0.5rem 1rem;
     }
 }

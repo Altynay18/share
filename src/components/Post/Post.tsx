@@ -29,12 +29,11 @@ export function Post({data}: Props) {
       </div>
       <div className={styles.postContent}>{data?.content}</div>
       <div className={styles.postActions}>
-        <div><StarIcon w={4} h={4}/>Нравится</div>
-        <div><ChatIcon w={4} h={4}/> Комментарии</div>
+        <div className={styles.comment}><ChatIcon w={4} h={4}/>Комментарии</div>
       </div>
       <Modal open={open} handleClose={() => setOpen(false)}>
         <PostContent data={data}/>
       </Modal>
     </div>
   );
-};
+}
