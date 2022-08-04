@@ -14,8 +14,14 @@ const IndividualProject = () => {
   const [project, setProject] = useState([]);
   const {projectId} = useParams();
   const projectService = new ProjectService();
-  const handleSearch = (value) => {
 
+  const handleSearch = async (value) => {
+    const res = await projectService.search({
+      title: value, description: '',
+    });
+    if (res) {
+      setProject(res);
+    }
   };
 
   async function onSubmit(data) {
@@ -41,11 +47,11 @@ const IndividualProject = () => {
       <PageHeader handleSearch={handleSearch} title={'Project'}/>
       <DefaultButton maxWidth={'15rem'} bgColor={COLORS.DARK_GRAY}
                      onClick={() => setIsOpen(true)}>Add Post</DefaultButton>
-     <div className={styles.list}>
-       {project.map((el) => (
-         <ProjectPost data={el}/>
-       ))}
-     </div>
+      <div className={styles.list}>
+        {project.map((el) => (
+          <ProjectPost data={el}/>
+        ))}
+      </div>
 
       <Modal open={isOpen} handleClose={() => setIsOpen(false)}>
         <AddProjectPost onSubmit={onSubmit}/>

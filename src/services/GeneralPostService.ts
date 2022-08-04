@@ -1,4 +1,5 @@
 import {Requests} from './Requests';
+import {GeneralSearch} from '../types/services';
 
 export class GeneralPostService extends Requests {
   async addPost(obj: Object) {
@@ -19,5 +20,10 @@ export class GeneralPostService extends Requests {
   async getMyPosts() {
     const path = '/general/getUserPosts';
     return await this.get(path);
+  }
+
+  search(data: GeneralSearch) {
+    const path = '/general/search?' + new URLSearchParams(data);
+    return this.get(path);
   }
 }

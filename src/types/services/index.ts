@@ -62,3 +62,16 @@ export interface PostData {
 export interface Tag {
   tag: string;
 }
+
+export interface ProjectSearch extends Record<string, string> {
+  title: string,
+  description: string
+}
+
+export interface ReflectionSearch extends GeneralSearch {
+  tag: string
+}
+export interface GeneralSearch extends Record<string, string> {
+  title: string,
+  content: string,
+}

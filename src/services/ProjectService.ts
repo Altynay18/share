@@ -1,5 +1,5 @@
 import {Requests} from './Requests';
-import {ProjectData} from '../types/services';
+import {ProjectData, ProjectSearch} from '../types/services';
 
 export class ProjectService extends Requests {
   getProjects() {
@@ -28,5 +28,10 @@ export class ProjectService extends Requests {
   addProjectPost(data) {
     const path = '/project/addPost?' + new URLSearchParams(data);
     return this.post(path, {});
+  }
+
+  search(data: ProjectSearch) {
+    const path = `/project/search?` + new URLSearchParams(data);
+    return this.get(path)
   }
 }

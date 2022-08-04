@@ -2,21 +2,24 @@
 import * as React from 'react';
 import styles from './Register.module.scss';
 import DefaultButton from '../../DefaultButton';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {ROUTES} from '../../../constants';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {AuthService} from '../../../services/AuthService';
 import {RegisterData} from '../../../types/services';
 import InputWrapper from '../../InputWrapper';
-import {Select} from '@chakra-ui/react';
 
 type Props = {};
 
 export function Register(props: Props) {
+  const navigate = useNavigate();
   const {register, handleSubmit, formState: {errors}} = useForm();
   const authService = new AuthService();
   const onSubmit: SubmitHandler<RegisterData> = async data => {
     const res = await authService.register(data);
+    if (res) {
+      navigate(ROUTES.LOGIN);
+    }
   };
 
   return (
@@ -40,12 +43,6 @@ export function Register(props: Props) {
       </InputWrapper>
       <InputWrapper label={'Title'} error={errors.school} errText={'Err'}>
         <input {...register('title', {required: true})} />
-      </InputWrapper>
-      <InputWrapper label={'Achievements'} error={errors.school} errText={'Err'}>
-        <input {...register('achievements', {required: true})} />
-      </InputWrapper>
-      <InputWrapper label={'Role'} error={errors.school} errText={'Err'}>
-        <input {...register('role', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'Password'} error={errors.password} errText={'err'}>
         <input {...register('password', {required: true})} />

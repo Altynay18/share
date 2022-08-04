@@ -20,15 +20,19 @@ export function Welcome(props: Props) {
 
   async function getAllPost() {
     const result = await postService.getAllPosts();
-    setPostList(result);
+    if (result) setPostList(result);
   }
 
   const afterSubmit = async () => {
     setOpen(false);
     await getAllPost();
   };
-  const handleSearch = (value) => {
-
+  const handleSearch = async (value) => {
+    const result = await postService.search({
+      title: '',
+      content: value,
+    });
+    if (result) setPostList(result);
   };
   useEffect(() => {
     getAllPost();
@@ -37,7 +41,8 @@ export function Welcome(props: Props) {
     <div className={styles.welcomePageContainer}>
       <PageHeader handleSearch={handleSearch} title={'Лента новостей'}/>
       <div className={styles.addButton}>
-        <DefaultButton maxWidth={'15rem'} bgColor={COLORS.DARK_GRAY} onClick={() => setOpen(true)}>
+        <DefaultButton maxWidth={'15rem'} bgColor={COLORS.DARK_GRAY}
+                       onClick={() => setOpen(true)}>
           + Добавить пост
         </DefaultButton>
         <Modal open={open} handleClose={() => setOpen(false)}>
