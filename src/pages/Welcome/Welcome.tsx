@@ -4,11 +4,11 @@ import {useEffect, useState} from 'react';
 import styles from './Welcome.module.scss';
 import DefaultButton from '../../components/DefaultButton';
 import Modal from '../../components/Modal';
-import AddGeneralPost from '../../components/Forms/AddGeneneralPost';
 import {GeneralPostService} from '../../services/GeneralPostService';
 import PageHeader from '../../components/PageHeader';
 import Post from '../../components/Post';
 import {COLORS} from '../../constants';
+import AddPost from '../../components/Forms/AddPost';
 
 
 type Props = {};
@@ -40,6 +40,10 @@ export function Welcome(props: Props) {
     });
     if (result) setPostList(result);
   };
+
+  const onSubmit = async (data) => {
+    const res = await postService.addPost(data);
+  };
   useEffect(() => {
     getAllPost();
   }, []);
@@ -52,7 +56,7 @@ export function Welcome(props: Props) {
           + Добавить пост
         </DefaultButton>
         <Modal open={open} handleClose={() => setOpen(false)}>
-          <AddGeneralPost afterSubmit={afterSubmit}/>
+          <AddPost onSubmit={onSubmit}/>
         </Modal>
       </div>
 

@@ -12,7 +12,7 @@ import Welcome from '../pages/Welcome';
 import MyPosts from '../pages/Profile/MyPosts';
 import Feed from '../pages/Feed';
 import MyProjects from '../pages/Profile/MyProjects';
-import AddPost from '../pages/Profile/AddPost';
+import AddPost from './Forms/AddPost';
 import Reflections from '../pages/Reflections';
 import IndividualArticle from '../pages/IndividualArticle';
 import {ChakraProvider} from '@chakra-ui/react';
@@ -23,6 +23,7 @@ import {Test} from '../pages/Test/Test';
 import UserList from '../pages/UserList';
 import React, {useState} from 'react';
 import SelectedProfile from '../pages/SelectedProfile';
+import AddPostPage from '../pages/Profile/AddPostPage';
 
 export const UserContext = React.createContext(null);
 
@@ -42,7 +43,7 @@ function App() {
                   <Route index element={<MyPosts/>}/>
                   <Route path="pending-users" element={<PendingUsers/>}/>
                   <Route path="my-projects" element={<MyProjects/>}/>
-                  <Route path="add-posts" element={<AddPost/>}/>
+                  <Route path="add-posts" element={<AddPostPage/>}/>
                   <Route path="settings" element={<Settings/>}/>
                 </Route>
                 <Route path="profile/:userId" element={<SelectedProfile/>}/>

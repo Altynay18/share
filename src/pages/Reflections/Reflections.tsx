@@ -4,7 +4,7 @@ import Post from '../../components/Post';
 import {ReflectionPostService} from '../../services/ReflectionPostService';
 import {TAG_NAMES} from '../../constants';
 import DefaultButton from '../../components/DefaultButton';
-import AddPost from '../Profile/AddPost';
+import AddPost from '../../components/Forms/AddPost';
 import Modal from '../../components/Modal';
 import PageHeader from '../../components/PageHeader';
 
@@ -26,11 +26,16 @@ function Reflections() {
     setReflectionPosts(arr);
   }, []);
 
-  const onCommentSubmit = async (data, postId)=>{
+  const onCommentSubmit = async (data, postId) => {
     const res = await postService.addComment({
-      ...data, postId
-    })
-  }
+      ...data, postId,
+    });
+  };
+  const onPostSubmit = async (data) => {
+    const res = await postService.addPost({
+      ...data, tag: [data.tag],
+    });
+  };
 
   async function getPostsByTag(value: string) {
     const arr = await postService.filterByTag({tag: value});
@@ -58,7 +63,7 @@ function Reflections() {
                                                        onClick={() => setOpen(true)}>+
         Добавить пост</DefaultButton>
         <Modal open={open} handleClose={() => setOpen(false)}>
-          <AddPost isReflection/>
+          <AddPost isReflection onSubmit={onPostSubmit}/>
         </Modal>
       </div>
       <div className={styles.tags}>
