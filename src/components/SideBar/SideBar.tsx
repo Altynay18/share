@@ -31,14 +31,14 @@ const SideBar = () => {
           <ArticleIcon/>
           Статьи
         </Link>
-        <Link to={ROUTES.MENTORSHIP} className={styles.menuItem}>
-          <CastForEducationIcon/>
-          Встречи
-        </Link>
-        <Link to={ROUTES.TRAINING} className={styles.menuItem}>
-          <FeedIcon/>
-          Обучение
-        </Link>
+        {/*<Link to={ROUTES.MENTORSHIP} className={styles.menuItem}>*/}
+        {/*  <CastForEducationIcon/>*/}
+        {/*  Встречи*/}
+        {/*</Link>*/}
+        {/*<Link to={ROUTES.TRAINING} className={styles.menuItem}>*/}
+        {/*  <FeedIcon/>*/}
+        {/*  Обучение*/}
+        {/*</Link>*/}
       </div>
       <div className={styles.bottom}>
         <Link to={ROUTES.SEARCH_USER} className={styles.menuItem}>
