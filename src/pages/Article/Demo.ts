@@ -1,5 +1,5 @@
 import {annotations} from './annotationList';
-import {Requests} from '../../services/Requests';
+import {ArticleService} from '../../services/ArticleService';
 
 interface AnnotationFilter {
   annotationIds?: string[],
@@ -19,7 +19,7 @@ interface AnnotationUserProfile {
 
 const API_KEY = '949e5531d9b947f887843f1c5bb2bd8f';
 
-export class Demo extends Requests {
+export class Demo extends ArticleService {
   readonly pdfUrl: any;
   readonly fileName: any;
   readonly fileId: string;
@@ -41,17 +41,24 @@ export class Demo extends Requests {
   }
 
   init() {
-    console.log(this);
     const pdfUrl = this.pdfUrl;
     const fileName = this.fileName;
     const fileId = this.fileId;
     const annotations = this.annotations;
     const user = this.user;
+
+    const makeAddAnnotationApi = (annotation, fileId) => this.addAnnotation({
+      fileId,
+      annotation,
+    });
+    const getAnnotationListApi = this.getAnnotationList;
+
     const viewerConfig = {
       /* Enable commenting APIs */
       enableAnnotationAPIs: true,  /* Default value is false */
       includePDFAnnotations: true,
     };
+
     document.addEventListener('adobe_dc_view_sdk.ready', function () {
       // @ts-ignore
       const adobeDCView = new window.AdobeDC.View({
@@ -153,6 +160,23 @@ export class Demo extends Requests {
               listenOn: ['ANNOTATION_SELECTED'],
             },
           );
+
+          /* API to register events listener */
+          annotationManager.registerEventListener(
+            function (event) {
+              if (event?.data?.creator?.id === profile?.userProfile?.id) {
+                makeAddAnnotationApi(event.data, fileId).then(()=>{})
+              } else {
+                /* NOTE: unselectAnnotation() prevents user from pressing edit and delete buttons */
+                annotationManager.unselectAnnotation();
+              }
+            },
+            {
+              /* Pass the list of events in listenOn. */
+              /* If no event is passed in listenOn, then all the annotation events will be received. */
+              listenOn: ['ANNOTATION_ADDED'],
+            },
+          );
         });
       });
 
@@ -161,17 +185,6 @@ export class Demo extends Requests {
 
   async fetchAnnotationList() {
 
-  }
-
-  addAnnotationsToFile(annotationManager) {
-    /* API to add annotations */
-    annotationManager.addAnnotations(this.annotations)
-      .then(function () {
-        console.log('Annotations added through API successfully');
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   }
 
   makeDeleteAnnotation(id, annotationManager) {

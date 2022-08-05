@@ -1,1 +1,0 @@
-export {IndividualArticle as default} from './IndividualArticle';
