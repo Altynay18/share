@@ -12,20 +12,14 @@ export function AddProjectPost({onSubmit}: Props) {
   const toast = useToast()
 
   const {register, handleSubmit, formState: {errors}} = useForm();
-  // errors ? toast({
-  //   title: 'Account created.',
+  // toast({
+  //   title: '',
   //   description: "We've created your account for you.",
-  //   status: 'error',
+  //   status: 'success',
   //   duration: 9000,
   //   isClosable: true,
-  // }) :
-  //   toast({
-  //     title: 'Account created.',
-  //     description: "We've created your account for you.",
-  //     status: 'success',
-  //     duration: 9000,
-  //     isClosable: true,
-  //   })
+  // })
+
   return (
     <form className={styles.addProjectPost} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.title}>Add Post</div>

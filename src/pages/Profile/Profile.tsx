@@ -11,32 +11,32 @@ const Profile = () => {
   const isAdmin = sessionStorage.getItem('role') === ROLES.ADMIN;
   return (
     <div className={styles.profileContainer}>
-      <UserCard/>
+      <UserCard />
       <div className={styles.infoSection}>
         <div className={styles.navs}>
           <Tabs>
             <TabList>
               <Tab fontWeight={'600'} fontSize={'1rem'} color={'#564D80'}
-                   onClick={() => navigate(ROUTES.PROFILE)}>Мои посты</Tab>
+                onClick={() => navigate(ROUTES.PROFILE)}>Мои посты</Tab>
               {isAdmin &&
                 <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
-                     color={'#564D80'}
-                     onClick={() => navigate(ROUTES.PENDING_USERS)}>Пользователи</Tab>
+                  color={'#564D80'}
+                  onClick={() => navigate(ROUTES.PENDING_USERS)}>Пользователи</Tab>
               }
-              {!isAdmin &&
+              {/* {!isAdmin &&
                 <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
                      color={'#564D80'}
                      onClick={() => navigate(ROUTES.ADD_POSTS)}>
                   Написать пост
-                </Tab>}
+                </Tab>} */}
               <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
-                   color={'#564D80'}
-                   onClick={() => navigate(ROUTES.MY_PROJECTS)}>
+                color={'#564D80'}
+                onClick={() => navigate(ROUTES.MY_PROJECTS)}>
                 Мои проекты
               </Tab>
               <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
-                   color={'#564D80'}
-                   onClick={() => navigate(ROUTES.SETTINGS)}>
+                color={'#564D80'}
+                onClick={() => navigate(ROUTES.SETTINGS)}>
                 Настройки
               </Tab>
             </TabList>
@@ -47,7 +47,7 @@ const Profile = () => {
             </TabPanels>
           </Tabs>
         </div>
-        <Outlet/>
+        <Outlet />
 
       </div>
     </div>
