@@ -5,11 +5,28 @@
 .list {
   display: flex;
   flex-direction: column;
+
+  a {
+    padding: 10px;
+    margin: 5px 0;
+    &:nth-child(even){
+      background: var(--light-gray);
+    }
+    &:nth-child(odd){
+      background: var(--gray);
+    }
+    &:hover{
+      opacity: 0.8;
+    }
+  }
 }
 
 .title {
-  font-weight: bold;
-  font-size: 1.2rem;
+  padding: 2rem 0;
+  font-size: 2rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
 }
 
 .addFile {
