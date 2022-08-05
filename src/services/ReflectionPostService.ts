@@ -18,7 +18,7 @@ export class ReflectionPostService extends Requests {
   }
 
   search(data: ReflectionSearch) {
-    const path = '/reflection/all/posts?' + new URLSearchParams(data);
+    const path = '/search?' + new URLSearchParams(data);
     return this.get(path);
   }
 

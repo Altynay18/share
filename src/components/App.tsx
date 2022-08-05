@@ -4,7 +4,7 @@ import Profile from '../pages/Profile';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Meeting from '../pages/Meeting/Meeting';
 import Training from '../pages/Training';
-import Articles from '../pages/Articles';
+import ArticleList from '../pages/ArticleList';
 import Layout from './Layout';
 import IndividualProject from '../pages/IndividualProject';
 import PendingUsers from '../pages/Profile/PendingUsers';
@@ -19,7 +19,7 @@ import {ChakraProvider} from '@chakra-ui/react';
 import Projects from '../pages/Projects';
 import Settings from '../pages/Settings';
 import Notification from '../pages/Notification';
-// import {Test} from '../pages/Test/Test';
+import Article from '../pages/Article';
 import UserList from '../pages/UserList';
 import React, {useState} from 'react';
 import SelectedProfile from '../pages/SelectedProfile';
@@ -51,14 +51,12 @@ function App() {
                 <Route path="reflections" element={<Reflections/>}/>
                 <Route path="mentorship" element={<Meeting/>}/>
                 <Route path="training" element={<Training/>}/>
-                <Route path="articles" element={<Articles/>}/>
-                <Route path="articles/:articleId"
-                       element={<IndividualArticle/>}/>
+                <Route path="articles" element={<ArticleList/>}/>
+                <Route path="articles/:articleId" element={<Article/>}/>
                 <Route path="projects" element={<Projects/>}/>
                 <Route path="projects/:projectId"
                        element={<IndividualProject/>}/>
                 <Route path="notification" element={<Notification/>}/>
-                {/* <Route path="test/:articleId" element={<Test/>}/> */}
                 <Route path="search-user" element={<UserList/>}/>
               </Route>
             </Routes>
