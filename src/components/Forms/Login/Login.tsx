@@ -45,7 +45,7 @@ export function Login(props: Props) {
   };
   return (
     <div className={styles.formContainer}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <label className={styles.formLabel}>Логин</label>
         <input placeholder={'Login'} {...register('username')}
                className={styles.formInput}></input>
