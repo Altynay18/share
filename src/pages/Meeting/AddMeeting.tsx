@@ -11,7 +11,15 @@ type Props = {
 
 export function AddMeeting({afterSubmit}: Props) {
   const meetingService = new MeetingService();
-  const {register, handleSubmit, watch, formState: {errors}} = useForm();
+  const {register, handleSubmit} = useForm({
+    defaultValues: {
+      agenda: '',
+      start_time: "2022-08-08T00:00:00",
+      topic: '',
+      users: ['string', 'test']
+    }
+  });
+
   const onSubmit = async data => {
     console.log(data);
     const response = await meetingService.createMeeting(data);
@@ -21,12 +29,21 @@ export function AddMeeting({afterSubmit}: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <InputWrapper label={'Time'} error={errors.title} errText={''}>
-        <input type={'time'} {...register('title', {required: true})} />
+      <InputWrapper label={'Agenda'} error={''} errText={''}>
+        <input {...register('agenda', {required: true})} />
       </InputWrapper>
-      <InputWrapper label={'Users'} error={errors.users} errText={''}>
+      <InputWrapper label={'Topic'} error={''} errText={''}>
+        <input {...register('topic', {required: true})} />
+      </InputWrapper>
+      <InputWrapper label={'Time'} error={''} errText={''}>
+        <input type={'time'} {...register('start_time', {required: true})} />
+      </InputWrapper>
+      <InputWrapper label={'User 1'} error={''} errText={''}>
         <input {...register('users', {required: true})} />
       </InputWrapper>
+      {/* <InputWrapper label={'User 2'} error={''} errText={''}>
+        <input {...register('users', {required: true})} />
+      </InputWrapper> */}
       <DefaultButton type={'submit'}>Add Meeting</DefaultButton>
     </form>
   );
