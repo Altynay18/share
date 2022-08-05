@@ -14,7 +14,6 @@ type Props = {
 }
 
 function PostContent({data, onCommentSubmit}: Props) {
-  const postService = new GeneralPostService();
   const {register, handleSubmit, formState: {errors}} = useForm();
   const makeSubmit = (formData) => {
     onCommentSubmit({name: formData.name, content: formData.content}, data.id);

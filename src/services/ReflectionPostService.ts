@@ -23,7 +23,7 @@ export class ReflectionPostService extends Requests {
   }
 
   addComment(data) {
-    const path = '/post_by_tag?' + new URLSearchParams(data);
-    return this.post(path, []);
+    const path = '/reflection-comment?' + new URLSearchParams(data);
+    return this.post(path, {});
   }
 }
