@@ -1,7 +1,8 @@
 .addPost{
-  border: 2px solid var(--gray);
+    // border: 2px solid var(--gray);
   border-radius: 1rem;
   padding: 2rem;
+  width: 100%;
   
 
   .title{
@@ -34,7 +35,7 @@
   form{
     input {
       border: 2px solid var(--gray);
-      width: 100%;
+      width: 700px;
       height: 8rem;
       margin-bottom: 2rem;
       border-radius: 1rem;

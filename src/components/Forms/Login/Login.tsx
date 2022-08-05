@@ -53,7 +53,7 @@ export function Login(props: Props) {
         <br></br>
         <input {...register("username")} className={styles.formInput}></input>
         <br></br>
-        <label className={styles.formLabel}>Почта:</label>
+        <label className={styles.formLabel}>Пароль:</label>
         <br></br>
         <input {...register("password")} className={styles.formInput}></input>
 

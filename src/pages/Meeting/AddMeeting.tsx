@@ -14,14 +14,15 @@ export function AddMeeting({afterSubmit}: Props) {
   const {register, handleSubmit, watch, formState: {errors}} = useForm();
   const onSubmit = async data => {
     console.log(data);
-    // const response = await meetingService.createMeeting(data);
+    const response = await meetingService.createMeeting(data);
+    console.log("meeting res:", response)
     afterSubmit();
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <InputWrapper label={'Title'} error={errors.title} errText={''}>
-        <input {...register('title', {required: true})} />
+      <InputWrapper label={'Time'} error={errors.title} errText={''}>
+        <input type={'time'} {...register('title', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'Users'} error={errors.users} errText={''}>
         <input {...register('users', {required: true})} />
