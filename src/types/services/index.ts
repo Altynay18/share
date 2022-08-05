@@ -48,7 +48,9 @@ export interface FindUser extends Record<string, string> {
 export interface CommentData extends Record<string, string> {
   content: string,
   postId: string,
-  name: string
+  name: string,
+  ownername?: string,
+  ownerlastname?: string,
 }
 
 export interface PostData {
