@@ -6,15 +6,36 @@ import DefaultButton from '../../components/DefaultButton';
 import InputWrapper from '../../components/InputWrapper';
 import {AuthService} from '../../services/AuthService';
 import {UserContext} from '../../components/App';
+import {useToast} from '@chakra-ui/react'
 
 type Props = {};
 
 export function Settings(props: Props) {
+  const toast = useToast()
+
   const {register, handleSubmit, watch, formState: {errors}} = useForm();
   const [user, setUser] = useContext(UserContext);
   const authService = new AuthService();
   const onSubmit = async data => {
     const response = await authService.editUser(data);
+
+    if (response) {
+      toast({
+        title: "Данные успешно обновлены!",
+        status: "success",
+        duration: 3000,
+        isClosable: true
+      });
+    }
+    else {
+      toast({
+        title: "Ошибка! Проверьте все данные",
+        status: "error",
+        duration: 3000,
+        isClosable: true
+      });
+    }
+    console.log(response)
   };
 
   return (
@@ -22,40 +43,40 @@ export function Settings(props: Props) {
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <h2 className={styles.title}>Настройки</h2>
         <InputWrapper label={'First Name'} error={errors.name}
-                      errText={'This name is required'}>
+          errText={'This name is required'}>
           <input
             defaultValue={user?.firstname}  {...register('name', {required: true})} />
         </InputWrapper>
         <InputWrapper label={'Last Name'} error={errors.surname}
-                      errText={'This surname is required'}>
+          errText={'This surname is required'}>
           <input
             defaultValue={user?.lastname}   {...register('surname', {required: true})} />
         </InputWrapper>
         <InputWrapper label={'city'} error={errors.city}
-                      errText={'This city is required'}>
+          errText={'This city is required'}>
           <input defaultValue={user?.city}   {...register('city', {required: true})} />
         </InputWrapper>
         <InputWrapper label={'school'} error={errors.school}
-                      errText={'This city is required'}>
+          errText={'This city is required'}>
           <input
             defaultValue={user?.school}   {...register('school', {required: true})} />
         </InputWrapper>
         <InputWrapper label={'title'} error={errors.title}
-                      errText={'This title is required'}>
+          errText={'This title is required'}>
           <input
             defaultValue={user?.title}   {...register('title', {required: true})} />
         </InputWrapper>
         <InputWrapper label={'password'} error={errors.password}
-                      errText={'This password is required'}>
+          errText={'This password is required'}>
           <input
             defaultValue={user?.password}   {...register('password', {required: true})} />
         </InputWrapper>
         <InputWrapper label={'password confirm'} error={errors.passwordConfirm}
-                      errText={'This passwordConfirm is required'}>
+          errText={'This passwordConfirm is required'}>
           <input
             defaultValue={user?.passwordConfirm}   {...register('passwordConfirm', {
-            required: true,
-          })} />
+              required: true,
+            })} />
         </InputWrapper>
         <DefaultButton type={'submit'}>
           Save

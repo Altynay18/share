@@ -16,25 +16,25 @@ const SideBar = () => {
       <div className={styles.top}>
         <div className={styles.title}>SHARE</div>
         <Link to={ROUTES.PROFILE} className={styles.menuItem}>
-          <PermIdentityIcon/>
+          <PermIdentityIcon />
           Мой профиль
         </Link>
         <Link to={ROUTES.MAIN} className={styles.menuItem}>
-          <DynamicFeedIcon/>
+          <DynamicFeedIcon />
           Новостная лента
         </Link>
         <Link to={ROUTES.REFLECTIONS} className={styles.menuItem}>
-          <DynamicFeedIcon/>
+          <DynamicFeedIcon />
           Рефлексивная лента
         </Link>
         <Link to={ROUTES.ARTICLES} className={styles.menuItem}>
-          <ArticleIcon/>
+          <ArticleIcon />
           Статьи
         </Link>
-        {/*<Link to={ROUTES.MENTORSHIP} className={styles.menuItem}>*/}
-        {/*  <CastForEducationIcon/>*/}
-        {/*  Встречи*/}
-        {/*</Link>*/}
+        <Link to={ROUTES.MENTORSHIP} className={styles.menuItem}>
+          <CastForEducationIcon />
+          Встречи
+        </Link>
         {/*<Link to={ROUTES.TRAINING} className={styles.menuItem}>*/}
         {/*  <FeedIcon/>*/}
         {/*  Обучение*/}
@@ -42,7 +42,7 @@ const SideBar = () => {
       </div>
       <div className={styles.bottom}>
         <Link to={ROUTES.SEARCH_USER} className={styles.menuItem}>
-          <PersonSearchIcon/>
+          <PersonSearchIcon />
           Поиск учителей
         </Link>
       </div>

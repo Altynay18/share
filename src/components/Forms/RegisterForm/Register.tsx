@@ -8,17 +8,34 @@ import {SubmitHandler, useForm} from 'react-hook-form';
 import {AuthService} from '../../../services/AuthService';
 import {RegisterData} from '../../../types/services';
 import InputWrapper from '../../InputWrapper';
+import {useToast} from '@chakra-ui/react'
+
 
 type Props = {};
 
 export function Register(props: Props) {
+  const toast = useToast()
   const navigate = useNavigate();
   const {register, handleSubmit, formState: {errors}} = useForm();
   const authService = new AuthService();
   const onSubmit: SubmitHandler<RegisterData> = async data => {
     const res = await authService.register(data);
     if (res) {
+      toast({
+        title: "Вы успешно зарегистрировались",
+        status: "success",
+        duration: 3000,
+        isClosable: true
+      });
       navigate(ROUTES.LOGIN);
+    }
+    else {
+      toast({
+        title: "Ошибка! Проверьте все данные",
+        status: "error",
+        duration: 3000,
+        isClosable: true
+      });
     }
   };
 
@@ -29,7 +46,7 @@ export function Register(props: Props) {
         <input {...register('username', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'First Name'} error={errors.name}
-                    errText={'This name is required'}>
+        errText={'This name is required'}>
         <input {...register('firstname', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'Last Name'} error={errors.name} errText={'Err'}>
@@ -48,7 +65,7 @@ export function Register(props: Props) {
         <input {...register('password', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'Password Confirm'} error={errors.passwordConfirm}
-                    errText={'err'}>
+        errText={'err'}>
         <input {...register('passwordConfirm', {
           required: true,
         })} />

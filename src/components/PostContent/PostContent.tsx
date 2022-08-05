@@ -16,8 +16,10 @@ type Props = {
 function PostContent({data, onCommentSubmit}: Props) {
   const postService = new GeneralPostService();
   const {register, handleSubmit, formState: {errors}} = useForm();
-  const makeSubmit = (data) => {
-    onCommentSubmit(data, data.id);
+  const makeSubmit = async (data) => {
+    const res = await onCommentSubmit(data, data.id);
+    console.log(res)
+    //TODO: add toast
   };
   return (
     <div className={styles.postModal}>
@@ -34,13 +36,13 @@ function PostContent({data, onCommentSubmit}: Props) {
           <div className={styles.title}>Комментарии:</div>
           <div>
             {data?.comment.map((el, i) => (
-              <Comment key={i} data={el}/>
+              <Comment key={i} data={el} />
             ))}
           </div>
         </div>
       }
       <form onSubmit={handleSubmit(makeSubmit)}
-            className={styles.postModalActions}>
+        className={styles.postModalActions}>
         <div className={styles.title}>Написать комментарии:</div>
         <InputWrapper label={'Name'} error={errors.name} errText={''}>
           <input {...register('name', {required: true})} />
@@ -49,7 +51,7 @@ function PostContent({data, onCommentSubmit}: Props) {
           <textarea {...register('content', {required: true})} />
         </InputWrapper>
         <DefaultButton type={'submit'} bgColor="#BCD7DA"
-                       children={'Отправить'}></DefaultButton>
+          children={'Отправить'}></DefaultButton>
       </form>
     </div>
   );
