@@ -21,17 +21,22 @@ export function SelectedProfile(props: Props) {
   return (
     <div className={styles.selectedProfile}>
       <div className={styles.title}>User Info</div>
-      <div className={styles.row}>
-        <div>First Name</div>
-        <div>{user?.firstname}</div>
-      </div>
-      <div>
-        <div>Last Name</div>
-        <div>{user?.lastname}</div>
-      </div>
-      <div>
-        <div>Username</div>
-        <div>{user?.username}</div>
+      <div className={styles.content}>
+        <img height={200} width={200} className={styles.img} src="/avatar.png"  alt="avatar"/>
+       <div className={styles.info}>
+         <div className={styles.row}>
+           <div>First Name</div>
+           <div>{user?.firstname}</div>
+         </div>
+         <div className={styles.row}>
+           <div>Last Name</div>
+           <div>{user?.lastname}</div>
+         </div>
+         <div className={styles.row}>
+           <div>Username</div>
+           <div>{user?.username}</div>
+         </div>
+       </div>
       </div>
     </div>
   );
