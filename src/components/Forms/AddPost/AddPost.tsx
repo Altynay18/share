@@ -6,6 +6,7 @@ import DefaultButton from '../../DefaultButton';
 import {ReflectionPostService} from '../../../services/ReflectionPostService';
 import {TAG_NAMES} from '../../../constants';
 import {Select} from '@chakra-ui/react';
+import {useToast} from '@chakra-ui/react'
 
 type Props = {
   isReflection?: boolean,
@@ -13,10 +14,17 @@ type Props = {
 }
 
 function AddPost({onSubmit, isReflection}: Props) {
+  const toast = useToast()
   const {register, handleSubmit, formState: {errors}} = useForm();
   const postService = new ReflectionPostService();
   const makeSubmit = async data => {
-    onSubmit(data);
+    const res = onSubmit(data);
+    toast({
+      title: "Вы успешно добавили пост",
+      status: "success",
+      duration: 3000,
+      isClosable: true
+    });
   };
   return (
     <form onSubmit={handleSubmit(makeSubmit)} className={styles.addPost}>

@@ -9,18 +9,38 @@ import {useForm} from 'react-hook-form';
 import {ProjectService} from '../../../services/ProjectService';
 import {Select} from '@chakra-ui/react';
 import {AuthService} from '../../../services/AuthService';
+import {useToast} from '@chakra-ui/react'
+
 
 type Props = {
   afterSubmit: () => void
 };
 
 export function AddProject({afterSubmit}: Props) {
+  const toast = useToast()
   const [users, setUsers] = useState([]);
   const projectService = new ProjectService();
   const auth = new AuthService();
   const {register, handleSubmit, formState: {errors}} = useForm();
-  const onSubmit = data => {
-    projectService.createProject(data);
+  const onSubmit = async data => {
+    const res = await projectService.createProject(data);
+    // console.log("fdddd", res)
+    if (res === 'Project has been created') {
+      toast({
+        title: "Вы успешно создали проект!",
+        status: "success",
+        duration: 3000,
+        isClosable: true
+      });
+    }
+    else {
+      toast({
+        title: "Ошибка! Проверьте все данные",
+        status: "error",
+        duration: 3000,
+        isClosable: true
+      });
+    }
   };
 
   async function getAllUser() {
@@ -41,7 +61,7 @@ export function AddProject({afterSubmit}: Props) {
         <input {...register('title', {required: true, maxLength: 20})} />
       </InputWrapper>
       <InputWrapper label={'Description'} error={errors.description}
-                    errText={''}>
+        errText={''}>
         <input {...register('description', {required: true, maxLength: 20})} />
       </InputWrapper>
       {!!users.length &&
@@ -52,7 +72,9 @@ export function AddProject({afterSubmit}: Props) {
         </Select>
       }
       <DefaultButton type={'submit'}
-                     bgColor={COLORS.OCEAN_BLUE}>Создать</DefaultButton>
+        bgColor={COLORS.OCEAN_BLUE}>Создать</DefaultButton>
     </form>
   );
 };
+
+
