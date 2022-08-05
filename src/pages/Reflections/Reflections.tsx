@@ -15,9 +15,9 @@ function Reflections() {
 
   const handleSearch = async (value) => {
     const res = await postService.search({
-      title: value,
+      title: '',
       content: value,
-      tag: value,
+      tag: '',
     });
     if (res) setReflectionPosts(res);
   };

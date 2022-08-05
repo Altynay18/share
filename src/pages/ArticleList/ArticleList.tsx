@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import styles from './Articles.module.scss';
+import styles from './ArticleList.module.scss';
 import PageHeader from '../../components/PageHeader';
 import AddIcon from '@mui/icons-material/Add';
 import {ArticleService} from '../../services/ArticleService';
+import {ROUTES} from '../../constants';
 
-function Articles() {
+function ArticleList() {
   const [pdfList, setPdfList] = useState([]);
   const articleService = new ArticleService();
 
@@ -42,7 +43,7 @@ function Articles() {
       </label>
       <div className={styles.list}>
         {pdfList.map((el, i) => (
-          <Link to={`/test/${el.id}`}>
+          <Link to={ROUTES.ARTICLES + `/${el.id}`}>
             {el.title}
           </Link>
         ))}
@@ -51,4 +52,4 @@ function Articles() {
   );
 }
 
-export default Articles;
+export default ArticleList;

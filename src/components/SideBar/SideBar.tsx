@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 import ArticleIcon from '@mui/icons-material/Article';
-import CastForEducationIcon from '@mui/icons-material/CastForEducation';
-import FeedIcon from '@mui/icons-material/Feed';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import styles from './SideBar.module.scss';
 import {ROUTES} from '../../constants';

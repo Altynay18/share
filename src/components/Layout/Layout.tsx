@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import {useContext, useEffect} from 'react';
+import {useCallback, useContext, useEffect} from 'react';
 import SideBar from '../SideBar';
 import {Outlet} from 'react-router';
 import styles from './Layout.module.scss';
@@ -14,16 +14,14 @@ export function Layout(props: Props) {
   const [user, setUser] = useContext(UserContext);
   const authService = new AuthService();
 
-  async function getUserInfo() {
+  const getUserInfo = useCallback(async () => {
     const res = await authService.getCurrentUser();
-    if (res) {
-      setUser(res);
-    }
-  }
+    if (res) setUser(res);
+  }, []);
 
   useEffect(() => {
-    getUserInfo();
-  }, []);
+    getUserInfo().then();
+  }, [getUserInfo]);
   return (
     <div className={styles.layout}>
       <SideBar/>
