@@ -14,17 +14,14 @@ type Props = {
 }
 
 function PostContent({data, onCommentSubmit}: Props) {
-  const postService = new GeneralPostService();
   const {register, handleSubmit, formState: {errors}} = useForm();
-  const makeSubmit = async (data) => {
-    const res = await onCommentSubmit(data, data.id);
-    console.log(res)
-    //TODO: add toast
+  const makeSubmit = (formData) => {
+    onCommentSubmit({name: formData.name, content: formData.content}, data.id);
   };
   return (
     <div className={styles.postModal}>
       <div className={styles.postInfo}>
-        <div>11 Июля &bull; 12:05</div>
+        <div>Post ID: {data?.id}</div>
         <Badge borderRadius="16px" px="2" backgroundColor={'#FFCA7A'}>
           {'#post type'}
         </Badge>

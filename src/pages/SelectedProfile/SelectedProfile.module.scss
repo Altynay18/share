@@ -1,11 +1,37 @@
-.selectedProfile{
+.selectedProfile {
   padding: 2rem;
 }
-.row{
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.content{
+  display: grid;
+  grid-template-columns: 200px auto;
+  gap: 20px;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.row {
   display: grid;
   grid-template-columns: 30% 70%;
-  &>div{
-    border-right: 1px solid var(--light-gray);
+
+  &:nth-child(even) {
+    background: var(--light-gray);
+  }
+
+  & > div {
     padding: 10px;
   }
+}
+
+.img {
+  border-radius: 50%;
 }

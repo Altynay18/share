@@ -18,7 +18,7 @@ function AddPost({onSubmit, isReflection}: Props) {
   const {register, handleSubmit, formState: {errors}} = useForm();
   const postService = new ReflectionPostService();
   const makeSubmit = async data => {
-    const res = onSubmit(data);
+    onSubmit(data);
     toast({
       title: "Вы успешно добавили пост",
       status: "success",
@@ -30,8 +30,8 @@ function AddPost({onSubmit, isReflection}: Props) {
     <form onSubmit={handleSubmit(makeSubmit)} className={styles.addPost}>
       <div className={styles.title}>Создать публикацию</div>
       <div className={styles.content}>
-        <InputWrapper label={'Name'} error={errors.name} errText={''}>
-          <input {...register('name', {required: true})} />
+        <InputWrapper label={'Title'} error={errors.name} errText={''}>
+          <input {...register('title', {required: true})} />
         </InputWrapper>
         <InputWrapper label={'Content'} error={errors.content} errText={''}>
           <textarea {...register('content', {required: true})} />

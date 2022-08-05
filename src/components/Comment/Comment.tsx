@@ -11,11 +11,11 @@ export function Comment({data}: Props) {
   return (
     <div className={styles.comment}>
       <div className={styles.header}>
-        <div className={styles.name}>John Doe</div>
-        <div className={styles.role}>Tutor</div>
+        <div className={styles.name}>{data?.name}</div>
+        <div className={styles.role}>{data?.ownername}</div>
       </div>
       <div className={styles.body}>
-        <div className={styles.content}>Idfhsjdk dsjf sdfk</div>
+        <div className={styles.content}>{data?.content}</div>
       </div>
     </div>
   );
