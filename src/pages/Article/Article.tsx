@@ -17,6 +17,7 @@ export function Article(props: Props) {
   const baseUrl = BASE_URL;
   const user = {
     name: 'John Doe',
+    id: 1
   };
   const demo = new Demo({
     pdfUrl,

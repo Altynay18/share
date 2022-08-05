@@ -40,7 +40,8 @@ export const annotations = [
     },
     "creator": {
       "type": "Person",
-      "name": "John Smith"
+      "name": "John Smith",
+      "id": "1"
     },
     "created": "2020-04-03T14:56:54Z",
     "modified": "2020-04-03T15:00:14Z"
@@ -76,7 +77,8 @@ export const annotations = [
     },
     "creator": {
       "type": "Person",
-      "name": "John Smith"
+      "name": "John Smith",
+      "id": "1"
     },
     "created": "2018-08-02T14:45:37Z",
     "modified": "2020-01-20T07:54:10Z"
@@ -132,7 +134,8 @@ export const annotations = [
     },
     "creator": {
       "type": "Person",
-      "name": "John Smith"
+      "name": "John Smith",
+      "id": "1"
     },
     "created": "2020-04-01T20:35:17Z",
     "modified": "2020-04-01T20:35:17Z"
@@ -170,7 +173,8 @@ export const annotations = [
     },
     "creator": {
       "type": "Person",
-      "name": "John Smith"
+      "name": "John Smith",
+      "id": "1"
     },
     "created": "2021-01-20T14:45:37Z",
     "modified": "2021-01-20T14:45:37Z"
@@ -216,7 +220,8 @@ export const annotations = [
     },
     "creator": {
       "type": "Person",
-      "name": "John Smith"
+      "name": "John Smith",
+      "id": "1"
     },
     "created": "2020-02-21T14:45:37Z",
     "modified": "2020-02-21T07:54:10Z"
@@ -270,7 +275,8 @@ export const annotations = [
     },
     "creator": {
       "type": "Person",
-      "name": "John Smith"
+      "name": "John Smith",
+      "id": "1"
     },
     "created": "2020-04-01T20:37:03Z",
     "modified": "2020-04-01T20:37:03Z"
@@ -316,7 +322,8 @@ export const annotations = [
     },
     "creator": {
       "type": "Person",
-      "name": "John Smith"
+      "name": "John Smith",
+      "id": "1"
     },
     "created": "2020-02-21T14:45:37Z",
     "modified": "2020-02-21T07:54:10Z"
@@ -362,7 +369,8 @@ export const annotations = [
     },
     "creator": {
       "type": "Person",
-      "name": "John Smith"
+      "name": "John Smith",
+      "id": "1"
     },
     "created": "2020-02-21T14:45:37Z",
     "modified": "2020-02-21T07:54:10Z"
@@ -408,7 +416,8 @@ export const annotations = [
     },
     "creator": {
       "type": "Person",
-      "name": "John Smith"
+      "name": "John Smith",
+      "id": "1"
     },
     "created": "2020-04-01T20:39:26Z",
     "modified": "2020-04-01T20:39:26Z"
@@ -652,7 +661,8 @@ export const annotations = [
     },
     "creator": {
       "type": "Person",
-      "name": "John Smith"
+      "name": "John Smith",
+      "id": "1"
     },
     "created": "2020-01-21T14:45:37Z",
     "modified": "2020-01-21T07:54:10Z"
