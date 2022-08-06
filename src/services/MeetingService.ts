@@ -6,4 +6,14 @@ export class MeetingService extends Requests {
     const path = '/zoom/create-meeting';
     return this.post(path, data);
   }
+
+  getNotifications() {
+    const path = '/notification?page=0';
+    return this.get(path);
+  }
+
+  getStatus() {
+    const path = '​/notification​/check';
+    return this.get(path);
+  }
 }
