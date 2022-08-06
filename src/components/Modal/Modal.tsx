@@ -9,7 +9,7 @@ type Props = {
 
 export function Modal({children, open, handleClose}: Props) {
   return (
-    <ModalChakra isOpen={open} onClose={handleClose} size={'xl'}>
+    <ModalChakra isOpen={open} onClose={handleClose} size={'2xl'}>
       <ModalOverlay />
       <ModalContent>
         <ModalBody>

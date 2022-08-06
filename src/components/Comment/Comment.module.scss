@@ -1,17 +1,25 @@
 .comment {
   border-radius: 12px;
-  border: 1px solid var(--light-gray);
+  border: 1px solid var(--dark-gray);
   padding: 1rem 1.2rem;
   margin-bottom: 10px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.03)
+}
+
+.name{
+  border-bottom: 1px solid var(--light-gray);
+  font-weight: 600;
+  width: 100%;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  border-bottom: 1px solid var(--light-gray);
 }
+textarea{
+  border: 1px solid var(--dark-gray);
 
+}
 .body {
 }

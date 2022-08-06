@@ -16,17 +16,17 @@ type Props = {
 function PostContent({data, onCommentSubmit}: Props) {
   const {register, handleSubmit, formState: {errors}} = useForm();
   const makeSubmit = (formData) => {
-    onCommentSubmit({name: formData.name, content: formData.content}, data.id);
+    onCommentSubmit({content: formData.content}, data.id);
   };
   return (
     <div className={styles.postModal}>
       <div className={styles.postInfo}>
         <div>Post ID: {data?.id}</div>
-        <Badge borderRadius="16px" px="2" backgroundColor={'#FFCA7A'}>
+        {/* <Badge borderRadius="16px" px="2" backgroundColor={'#FFCA7A'} alignItems={'center'}>
           {'#post type'}
-        </Badge>
+        </Badge> */}
       </div>
-      <div>{data?.title}</div>
+      <div className={styles.postTitle}>{data?.title}</div>
       <div className={styles.postContent}>{data?.content}</div>
       {!!data?.comment?.length &&
         <div className={styles.postModalComments}>
@@ -41,13 +41,13 @@ function PostContent({data, onCommentSubmit}: Props) {
       <form onSubmit={handleSubmit(makeSubmit)}
         className={styles.postModalActions}>
         <div className={styles.title}>Написать комментарии:</div>
-        <InputWrapper label={'Name'} error={errors.name} errText={''}>
+        {/* <InputWrapper label={'Name'} error={errors.name} errText={''}>
           <input {...register('name', {required: true})} />
-        </InputWrapper>
-        <InputWrapper label={'Content'} error={errors.content} errText={''}>
+        </InputWrapper> */}
+        <InputWrapper error={errors.content} errText={''}>
           <textarea {...register('content', {required: true})} />
         </InputWrapper>
-        <DefaultButton type={'submit'} bgColor="#BCD7DA"
+        <DefaultButton type={'submit'}
           children={'Отправить'}></DefaultButton>
       </form>
     </div>

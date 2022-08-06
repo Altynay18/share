@@ -65,14 +65,14 @@ export function AddProject({afterSubmit}: Props) {
         <input {...register('description', {required: true, maxLength: 20})} />
       </InputWrapper>
       {!!users.length &&
-        <Select placeholder="Select User">
+        <Select placeholder="Select User" marginBottom={'2rem'}>
           {users.map((el, i) => (
-            <option value="option1">Option 1</option>
+            <option key={el.id} value="option1">Option 1</option>
           ))}
         </Select>
       }
       <DefaultButton type={'submit'}
-        bgColor={COLORS.OCEAN_BLUE}>Создать</DefaultButton>
+      >Создать</DefaultButton>
     </form>
   );
 };

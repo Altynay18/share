@@ -14,16 +14,16 @@ type Props = {
 };
 
 export function DefaultButton({
-                                onClick,
-                                children,
-                                bgColor = COLORS.YELLOW,
-                                maxWidth = '100%',
-                                type,
-                              }: Props) {
+  onClick,
+  children,
+  bgColor = '#7F5283',
+  maxWidth = '100%',
+  type,
+}: Props) {
   return (
     <Button type={type} style={{backgroundColor: bgColor, maxWidth}}
-            onClick={onClick}
-            className={styles.defaultButton}>
+      onClick={onClick}
+      className={styles.defaultButton}>
       {children}
     </Button>
   );
