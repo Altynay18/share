@@ -16,14 +16,13 @@ export class ArticleService extends Requests {
     return this.getFile(path);
   }
 
-  async getAnnotationList() {
-    const path = '';
-    // todo return this.get(path);
-    return [];
+  async getGlobalAnnotationList(pdfId) {
+    const path = `/annotation/global/${pdfId}`;
+    return this.get(path);
   }
 
   addAnnotation(data) {
-    const path = `/annotation/global/${data.fileId}?` + new URLSearchParams({annotation: JSON.stringify(data.annotation)});
+    const path = `/annotation/global?` + new URLSearchParams(data);
     return this.post(path, {});
   }
 }

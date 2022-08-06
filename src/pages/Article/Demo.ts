@@ -1,5 +1,6 @@
 import {annotations} from './annotationList';
 import {ArticleService} from '../../services/ArticleService';
+import {BASE_URL} from '../../services/Requests';
 
 interface AnnotationFilter {
   annotationIds?: string[],
@@ -22,20 +23,19 @@ const API_KEY = '949e5531d9b947f887843f1c5bb2bd8f';
 export class Demo extends ArticleService {
   readonly pdfUrl: any;
   readonly fileName: any;
-  readonly fileId: string;
+  readonly pdfId: string;
   readonly user: AnnotationUserProfile;
   readonly annotations: any;
 
   constructor({
-                pdfUrl,
-                fileId,
+                pdfId,
                 fileName,
                 user,
               }) {
     super();
-    this.pdfUrl = pdfUrl;
+    this.pdfUrl = BASE_URL + `/pdf/${pdfId}`;
     this.fileName = fileName;
-    this.fileId = '6d07d124-ac85-43b3-a867-36930f502ac6';
+    this.pdfId = pdfId;
     this.user = user;
     this.annotations = annotations;
   }
@@ -43,15 +43,14 @@ export class Demo extends ArticleService {
   init() {
     const pdfUrl = this.pdfUrl;
     const fileName = this.fileName;
-    const fileId = this.fileId;
+    const pdfId = this.pdfId;
     const annotations = this.annotations;
     const user = this.user;
+    let isAllAnnotationsLoadedFromServer = false;
 
-    const makeAddAnnotationApi = (annotation, fileId) => this.addAnnotation({
-      fileId,
-      annotation,
-    });
-    const getAnnotationListApi = this.getAnnotationList;
+    const makeAddAnnotationApi = (data) => this.addAnnotation(data);
+
+    const makeGetAnnotationApi = () => this.getGlobalAnnotationList(pdfId);
 
     const viewerConfig = {
       /* Enable commenting APIs */
@@ -70,7 +69,7 @@ export class Demo extends ArticleService {
         content: {location: {url: pdfUrl}},
         metaData: {
           fileName,
-          id: fileId,
+          id: pdfId,
         },
         enableAnnotationAPIs: true,
         includePDFAnnotations: true,
@@ -86,7 +85,7 @@ export class Demo extends ArticleService {
           const formData = new FormData();
           formData.append('file', blob);
 
-          fetch(`${this.baseUrl}/pdf?id=${fileId}`, {
+          fetch(`${this.baseUrl}/pdf?id=${pdfId}`, {
             method: 'PUT',
             body: formData,
           }).then();
@@ -110,7 +109,7 @@ export class Demo extends ArticleService {
 
       const profile = {
         userProfile: {
-          name: user.name,
+          name: user?.name || 'Name is Undefined',
           firstName: user?.firstName,
           lastName: user?.lastName,
           username: user?.username,
@@ -135,14 +134,20 @@ export class Demo extends ArticleService {
       previewFilePromise.then(function (adobeViewer) {
         adobeViewer.getAnnotationManager().then(function (annotationManager) {
 
-          /* API to add annotations */
-          annotationManager.addAnnotations(annotations)
-            .then(function () {
-              console.log('Annotations added through API successfully');
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+          makeGetAnnotationApi().then((list) => {
+            console.log(list);
+            /* API to add annotations */
+            if (list) {
+              annotationManager.addAnnotations(annotations)
+                .then(function () {
+                  console.log('Annotations added through API successfully');
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+            }
+            isAllAnnotationsLoadedFromServer = true;
+          });
 
           /* API to register events listener */
           annotationManager.registerEventListener(
@@ -164,8 +169,12 @@ export class Demo extends ArticleService {
           /* API to register events listener */
           annotationManager.registerEventListener(
             function (event) {
-              if (event?.data?.creator?.id === profile?.userProfile?.id) {
-                makeAddAnnotationApi(event.data, fileId).then(()=>{})
+              if (event?.data?.creator?.id === profile?.userProfile?.id && isAllAnnotationsLoadedFromServer) {
+                console.log(JSON.stringify(event.data))
+                makeAddAnnotationApi({
+                  annotation: JSON.stringify(event.data), pdfId
+                }).then(() => {
+                });
               } else {
                 /* NOTE: unselectAnnotation() prevents user from pressing edit and delete buttons */
                 annotationManager.unselectAnnotation();
