@@ -22,7 +22,7 @@ export class ArticleService extends Requests {
   }
 
   addAnnotation(data) {
-    const path = `/annotation/global?` + new URLSearchParams(data);
-    return this.post(path, {});
+    const path = `/annotation/global?pdfId=${data.pdfId}`;
+    return this.post(path, data.annotation);
   }
 }

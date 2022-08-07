@@ -13,8 +13,8 @@ interface AnnotationFilter {
 interface AnnotationUserProfile {
   name: string,
   id: string,
-  firstName?: string,
-  lastName?: string,
+  firstname?: string,
+  lastname?: string,
   username?: string
 }
 
@@ -109,9 +109,9 @@ export class Demo extends ArticleService {
 
       const profile = {
         userProfile: {
-          name: user?.name || 'Name is Undefined',
-          firstName: user?.firstName,
-          lastName: user?.lastName,
+          name: user?.firstname + ' ' + user?.lastname,
+          firstName: user?.firstname,
+          lastName: user?.lastname,
           username: user?.username,
           id: user.id.toString(),
         },
@@ -135,26 +135,37 @@ export class Demo extends ArticleService {
         adobeViewer.getAnnotationManager().then(function (annotationManager) {
 
           makeGetAnnotationApi().then((list) => {
-            console.log(list);
-            /* API to add annotations */
-            if (list) {
+            const annotations = [];
+
+            list.map((el) => {
+              try {
+                const parsedObject = JSON.parse(JSON.parse(el));
+                if (parsedObject) {
+                  annotations.push(parsedObject);
+                }
+              } catch (e) {
+                console.log('ERR', e);
+              }
+            });
+            if (annotations.length) {
               annotationManager.addAnnotations(annotations)
                 .then(function () {
                   console.log('Annotations added through API successfully');
+                  isAllAnnotationsLoadedFromServer = true;
                 })
                 .catch(function (error) {
                   console.log(error);
                 });
+            } else {
+              isAllAnnotationsLoadedFromServer = true;
             }
-            isAllAnnotationsLoadedFromServer = true;
+
           });
 
           /* API to register events listener */
           annotationManager.registerEventListener(
             function (event) {
-              if (event?.data?.creator?.id === profile?.userProfile?.id) {
-                console.log(event);
-              } else {
+              if (event?.data?.creator?.id !== profile?.userProfile?.id) {
                 /* NOTE: unselectAnnotation() prevents user from pressing edit and delete buttons */
                 annotationManager.unselectAnnotation();
               }
@@ -170,9 +181,8 @@ export class Demo extends ArticleService {
           annotationManager.registerEventListener(
             function (event) {
               if (event?.data?.creator?.id === profile?.userProfile?.id && isAllAnnotationsLoadedFromServer) {
-                console.log(JSON.stringify(event.data))
                 makeAddAnnotationApi({
-                  annotation: JSON.stringify(event.data), pdfId
+                  annotation: JSON.stringify(event.data), pdfId,
                 }).then(() => {
                 });
               } else {
