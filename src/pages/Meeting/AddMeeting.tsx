@@ -16,13 +16,15 @@ export function AddMeeting({afterSubmit}: Props) {
       agenda: '',
       start_time: "2022-08-08T00:00:00",
       topic: '',
-      users: ['string', 'test']
+      users: 'string,test'
     }
   });
 
   const onSubmit = async data => {
-    console.log(data);
-    const response = await meetingService.createMeeting(data);
+    const users = data.users.split(',')
+    const response = await meetingService.createMeeting({
+      ...data, users: users
+    });
     console.log("meeting res:", response)
     afterSubmit();
   };

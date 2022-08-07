@@ -19,11 +19,6 @@ const Meeting = () => {
       <DefaultButton maxWidth={'15rem'} bgColor={'#7F5283'} onClick={() => setIsOpen(true)}>
         <><AddIcon />add meeting</>
       </DefaultButton>
-      <div className={styles.list}>
-        {arr.map((el, i) => (
-          <div key={i}>Meeting Name</div>
-        ))}
-      </div>
       <Modal handleClose={() => setIsOpen(false)} open={isOpen}>
         <AddMeeting afterSubmit={() => setIsOpen(false)} />
       </Modal>
