@@ -51,7 +51,7 @@ function AddPost({onSubmit, isReflection}: Props) {
           </option>
         </Select>}
       </div>
-      <DefaultButton type={'submit'}>Add Post</DefaultButton>
+      <DefaultButton type={'submit'} bgColor={'#7F5283'}>Add Post</DefaultButton>
     </form>
   );
 }

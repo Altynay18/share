@@ -40,12 +40,15 @@ const MyProjects = () => {
         ))
         }
       </div>
+      <div className={styles.actions}>
+        <DefaultButton onClick={() => setOpen(true)} bgColor={'#7F5283'} maxWidth={'30%'}> + Создать
+          проект</DefaultButton>
+        <Modal open={open} handleClose={() => setOpen(false)}>
+          <AddProject afterSubmit={() => setOpen(false)} />
+        </Modal>
+      </div>
 
-      <DefaultButton onClick={() => setOpen(true)}> + Создать
-        проект</DefaultButton>
-      <Modal open={open} handleClose={() => setOpen(false)}>
-        <AddProject afterSubmit={() => setOpen(false)}/>
-      </Modal>
+
     </div>
   );
 };

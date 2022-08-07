@@ -1,10 +1,11 @@
 .postContainer{
   width: 100%;
   height: max-content;
-  border: 2px solid var(--gray);
+  border: 1px solid #000;
   border-radius: 16px;
   padding: 1rem;
-  font-style: var(--gray);
+  font-size: 1.1rem;
+  // font-style: var(--gray);
 }
 
 .postInfo{
@@ -12,7 +13,7 @@
     flex-direction: row;
     gap: 2rem;
     padding: 1rem 0;
-    border-bottom: 2px solid var(--gray);
+    border-bottom: 1px solid #000;
 }
 .postContent{
   padding: 1rem;

@@ -15,9 +15,9 @@ const Meeting = () => {
   };
   return (
     <div className={styles.meeting}>
-      <PageHeader handleSearch={handleSearch} title={'Список встреч'}/>
-      <DefaultButton maxWidth={'15rem'} bgColor={COLORS.DARK_GRAY} onClick={() => setIsOpen(true)}>
-        <><AddIcon/>add meeting</>
+      <PageHeader handleSearch={handleSearch} title={'Список встреч'} />
+      <DefaultButton maxWidth={'15rem'} bgColor={'#7F5283'} onClick={() => setIsOpen(true)}>
+        <><AddIcon />add meeting</>
       </DefaultButton>
       <div className={styles.list}>
         {arr.map((el, i) => (
@@ -25,7 +25,7 @@ const Meeting = () => {
         ))}
       </div>
       <Modal handleClose={() => setIsOpen(false)} open={isOpen}>
-        <AddMeeting afterSubmit={() => setIsOpen(false)}/>
+        <AddMeeting afterSubmit={() => setIsOpen(false)} />
       </Modal>
     </div>
   );

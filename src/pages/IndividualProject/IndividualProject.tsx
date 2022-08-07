@@ -44,17 +44,17 @@ const IndividualProject = () => {
   }, []);
   return (
     <div className={styles.individualProject}>
-      <PageHeader handleSearch={handleSearch} title={'Project'}/>
-      <DefaultButton maxWidth={'15rem'} bgColor={COLORS.DARK_GRAY}
-                     onClick={() => setIsOpen(true)}>Add Post</DefaultButton>
+      <PageHeader handleSearch={handleSearch} title={'Project'} />
+      <DefaultButton maxWidth={'15rem'}
+        onClick={() => setIsOpen(true)}>+ Add Post</DefaultButton>
       <div className={styles.list}>
         {project.map((el) => (
-          <ProjectPost data={el}/>
+          <ProjectPost data={el} />
         ))}
       </div>
 
       <Modal open={isOpen} handleClose={() => setIsOpen(false)}>
-        <AddProjectPost onSubmit={onSubmit}/>
+        <AddProjectPost onSubmit={onSubmit} />
       </Modal>
     </div>
   );

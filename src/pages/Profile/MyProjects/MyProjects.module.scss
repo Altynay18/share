@@ -15,7 +15,7 @@
   .projectCard{
       width: 190px;
       height: 120px;
-      background-color: rgb(211, 167, 167);
+      background: linear-gradient(90deg, rgba(239,174,52,1) 0%, rgba(209,128,51,1) 100%);
       margin: 1rem;
       border-radius: 1rem;
   }
@@ -23,4 +23,10 @@
   .links{
     padding-left: 1rem;
   }
+}
+
+.actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
