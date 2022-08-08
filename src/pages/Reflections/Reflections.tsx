@@ -30,7 +30,9 @@ function Reflections() {
     const res = await postService.addComment({
       ...data, postId,
     });
-    
+    getAllPosts();
+
+
   };
   const onPostSubmit = async (data) => {
     const res = await postService.addPost({
