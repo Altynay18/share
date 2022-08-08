@@ -46,6 +46,7 @@ export class Demo extends ArticleService {
     const pdfId = this.pdfId;
     const annotations = this.annotations;
     const user = this.user;
+
     let isAllAnnotationsLoadedFromServer = false;
 
     const makeAddAnnotationApi = (data) => this.addAnnotation(data);

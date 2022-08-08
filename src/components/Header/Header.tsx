@@ -8,7 +8,6 @@ import {useCallback, useEffect, useState} from 'react';
 import {MeetingService} from '../../services/MeetingService';
 
 const Header = () => {
-
   const [status, setStatus] = useState(false);
   const meetingService = new MeetingService()
 
@@ -20,8 +19,6 @@ const Header = () => {
   useEffect(() => {
     getNotifications();
   }, []);
-
-  console.log(status)
 
   const navigate = useNavigate();
   const logout = () => {

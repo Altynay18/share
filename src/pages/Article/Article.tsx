@@ -28,7 +28,7 @@ export function Article(props: Props) {
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  }, [user]);
 
   return (
     <div id="adobe-dc-view"></div>
