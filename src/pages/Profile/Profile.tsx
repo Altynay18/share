@@ -23,12 +23,7 @@ const Profile = () => {
                   color={'#564D80'}
                   onClick={() => navigate(ROUTES.PENDING_USERS)}>Пользователи</Tab>
               }
-              {/* {!isAdmin &&
-                <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
-                     color={'#564D80'}
-                     onClick={() => navigate(ROUTES.ADD_POSTS)}>
-                  Написать пост
-                </Tab>} */}
+
               <Tab fontWeight={'600'} marginLeft={'1rem'} fontSize={'1rem'}
                 color={'#564D80'}
                 onClick={() => navigate(ROUTES.MY_PROJECTS)}>

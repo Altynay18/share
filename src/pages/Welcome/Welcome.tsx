@@ -32,6 +32,8 @@ export function Welcome(props: Props) {
     const res = await postService.addComment({
       ...formData, postId,
     });
+    getAllPost();
+
   };
   const handleSearch = async (value) => {
     const result = await postService.search({
@@ -43,6 +45,8 @@ export function Welcome(props: Props) {
 
   const onSubmit = async (data) => {
     const res = await postService.addPost(data);
+    setOpen(false);
+    getAllPost();
   };
   useEffect(() => {
     getAllPost();

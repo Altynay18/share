@@ -25,6 +25,7 @@ export function AddProject({afterSubmit}: Props) {
   const onSubmit = async data => {
     const res = await projectService.createProject(data);
     // console.log("fdddd", res)
+
     if (res === 'Project has been created') {
       toast({
         title: "Вы успешно создали проект!",
@@ -41,6 +42,8 @@ export function AddProject({afterSubmit}: Props) {
         isClosable: true
       });
     }
+    afterSubmit();
+
   };
 
   async function getAllUser() {
@@ -67,7 +70,7 @@ export function AddProject({afterSubmit}: Props) {
       {!!users.length &&
         <Select placeholder="Select User" marginBottom={'2rem'}>
           {users.map((el, i) => (
-            <option key={el.id} value="option1">Option 1</option>
+            <option key={el.id} value="option1">{el?.firstname + ' '}{el?.lastname}</option>
           ))}
         </Select>
       }

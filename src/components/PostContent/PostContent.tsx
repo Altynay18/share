@@ -18,6 +18,8 @@ function PostContent({data, onCommentSubmit}: Props) {
   const makeSubmit = (formData) => {
     onCommentSubmit({content: formData.content}, data.id);
   };
+
+  console.log("data", data)
   return (
     <div className={styles.postModal}>
       <div className={styles.postInfo}>
