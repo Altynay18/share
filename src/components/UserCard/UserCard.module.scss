@@ -1,11 +1,8 @@
 
 /* FOR MOBILE DEVICES: */
-@media screen and (max-width: 414px) {   
 
-}
 
 /* FOR TABLET DEVICES: */
-@media screen and (max-width: 1280px) {   
   .userCard {
     border-radius: 16px;
     background: #fcf4f3;
@@ -13,10 +10,9 @@
     flex-direction: row;
     align-items: center;
     padding: 2rem;
-    height: 40%;
-    width: 80%;
+    height: 340px;
+    width: 100%;
   }
-}
 
 .userCard {
   border-radius: 16px;

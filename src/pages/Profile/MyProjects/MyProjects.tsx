@@ -20,6 +20,11 @@ const MyProjects = () => {
     setProjects(projects);
   }
 
+  const handleAfterSubmit = () => {
+    setOpen(false)
+    getProjects();
+  }
+
   useEffect(() => {
     getProjects();
   }, []);
@@ -44,7 +49,7 @@ const MyProjects = () => {
         <DefaultButton onClick={() => setOpen(true)} bgColor={'#7F5283'} maxWidth={'30%'}> + Создать
           проект</DefaultButton>
         <Modal open={open} handleClose={() => setOpen(false)}>
-          <AddProject afterSubmit={() => setOpen(false)} />
+          <AddProject afterSubmit={() => handleAfterSubmit} />
         </Modal>
       </div>
 

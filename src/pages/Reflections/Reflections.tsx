@@ -30,11 +30,15 @@ function Reflections() {
     const res = await postService.addComment({
       ...data, postId,
     });
+    
   };
   const onPostSubmit = async (data) => {
     const res = await postService.addPost({
       ...data, tag: [data.tag],
     });
+    setOpen(false);
+    getAllPosts();
+
   };
 
   async function getPostsByTag(value: string) {
