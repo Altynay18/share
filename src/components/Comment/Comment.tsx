@@ -14,7 +14,7 @@ export function Comment({data}: Props) {
     <div className={styles.comment}>
       <div className={styles.header}>
         <div className={styles.name}>User</div>
-        <div className={styles.role}>{data ? data.user[0].firstname : 'Username'}</div>
+        <div className={styles.role}>{data ? data.user.firstname : 'Username'}</div>
       </div>
       <div className={styles.body}>
         <div className={styles.content}>{data?.content}</div>
