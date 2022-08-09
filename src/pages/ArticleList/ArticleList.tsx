@@ -4,7 +4,7 @@ import styles from './ArticleList.module.scss';
 import AddIcon from '@mui/icons-material/Add';
 import {ArticleService} from '../../services/ArticleService';
 import {ROUTES} from '../../constants';
-import Modal from '../../components/Modal';
+import ReflexTags from '../../components/ReflexTags';
 
 function ArticleList() {
   const [pdfList, setPdfList] = useState([]);
@@ -26,6 +26,18 @@ function ArticleList() {
     if (res) setPdfList(res);
   }, []);
 
+  async function getArticlesByTag(value: string) {
+    const arr = await articleService.filterByTag(value);
+    if (arr) setPdfList(arr);
+  }
+
+  const handleClick = async (e) => {
+    if (e.target.value === 'all') {
+      await getPdf;
+    } else {
+      await getArticlesByTag(e.target.value);
+    }
+  };
   useEffect(() => {
     getPdf();
   }, []);
@@ -38,8 +50,8 @@ function ArticleList() {
           <input onChange={handleChange} id="addFile" type="file"
                  accept={'application/pdf'}/>
         </div>
-
       </label>
+      <ReflexTags handleClick={handleClick}/>
       <div className={styles.list}>
         {pdfList.map((el, i) => (
           <Link key={i} to={ROUTES.ARTICLES + `/${el.id}`}>

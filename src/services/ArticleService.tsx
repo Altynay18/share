@@ -25,4 +25,9 @@ export class ArticleService extends Requests {
     const path = `/annotation/global?pdfId=${data.pdfId}`;
     return this.post(path, data.annotation);
   }
+
+  filterByTag(tagName: string){
+    const path = `/pdf/${tagName}`;
+    return this.get(path);
+  }
 }

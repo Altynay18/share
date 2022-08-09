@@ -1,0 +1,44 @@
+.reflexTags{}
+.tags {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .categoryTag1 {
+    background-color: #42476a;
+  }
+
+  .categoryTag2 {
+    background-color: #AEADF0;
+  }
+
+  .categoryTag3 {
+    background-color: #e15e6a;
+  }
+
+  .categoryTag4 {
+    background-color: #51b097;
+  }
+
+  .categoryTag5 {
+    background-color: #ae84d5;
+  }
+
+  .categoryTag6 {
+    background-color: #ffc23c;
+  }
+
+  .categoryTag1,
+  .categoryTag2,
+  .categoryTag3,
+  .categoryTag4,
+  .categoryTag5,
+  .categoryTag6 {
+    display: block;
+    width: max-content;
+    border-radius: 2rem;
+    padding: 10px 20px;
+    color: #fff;
+  }
+}
