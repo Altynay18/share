@@ -29,7 +29,7 @@ export function Post({data, onCommentSubmit}: Props) {
           </Badge>
         ))}
       </div>
-      <img src={data.imageLink} alt=""/>
+      <img className={styles.img} src={'/test.jpg'} alt="post"/>
       <div className={styles.postContent}>{data?.content}</div>
       <div className={styles.postActions}>
         <div className={styles.comment}><ChatIcon w={4} h={4}/>Комментарии</div>

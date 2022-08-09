@@ -2,9 +2,9 @@ import {Requests} from './Requests';
 import {PostData, ReflectionSearch} from '../types/services';
 
 export class ReflectionPostService extends Requests {
-  async addPost(data: PostData) {
+  async addPost(formData) {
     const path = '/reflection/post';
-    return await this.post(path, data);
+    return await this.postFile(path, formData);
   }
 
   async filterByTag(obj: { tag: string }) {

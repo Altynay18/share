@@ -32,10 +32,15 @@ function Reflections() {
     });
     await getAllPosts();
   };
+
   const onPostSubmit = async (data) => {
-    const res = await postService.addPost({
-      ...data, tag: [data.tag],
-    });
+    const formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('content', data.content);
+    formData.append('file', data.file[0]);
+    formData.append('image', data.image[0]);
+    formData.append('tag', data.tag);
+    const res = await postService.addPost(formData);
     setOpen(false);
     await getAllPosts();
   };
