@@ -30,7 +30,7 @@ export function PendingUsers(props: Props) {
       {userList?.map((el, i) => (
         <div key={i} className={styles.row}>
           <span className={styles.id}>{el.id}</span>
-          <span className={styles.userName}>{el.firstname} {el.lastname}</span>
+          <span className={styles.email}>{el.firstname} {el.lastname}</span>
           <button onClick={() => approve(el)}
                   className={styles.approve}>APPROVE
           </button>

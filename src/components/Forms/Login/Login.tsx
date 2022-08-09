@@ -3,6 +3,8 @@ import {ROUTES} from '../../../constants';
 import {AuthService} from '../../../services/AuthService';
 import styles from './Login.module.scss';
 import {useToast} from '@chakra-ui/react';
+import {Link} from 'react-router-dom';
+import * as React from 'react';
 
 type Props = {};
 
@@ -13,14 +15,13 @@ export function Login(props: Props) {
   const authService = new AuthService();
   const {register, handleSubmit} = useForm({
     defaultValues: {
-      username: '',
+      email: '',
       password: '',
     },
   });
 
   const onSubmit = async (data) => {
     const res = await authService.login(data);
-    console.log('Fredcx', res);
     if (res) {
       console.log('hey');
       window.sessionStorage.setItem('access_token', res.token);
@@ -36,7 +37,7 @@ export function Login(props: Props) {
     } else {
       toast({
         title: 'Ошибка',
-        description: 'Неправильный логин или пароль',
+        description: 'Неправильный емайл или пароль',
         status: 'error',
         duration: 9000,
         isClosable: true,
@@ -46,13 +47,15 @@ export function Login(props: Props) {
   return (
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <label className={styles.formLabel}>Логин</label>
-        <input placeholder={'Login'} {...register('username')}
+        <label className={styles.formLabel}>Емайл</label>
+        <input placeholder={'Email'} {...register('email')}
                className={styles.formInput}></input>
         <label className={styles.formLabel}>Пароль:</label>
         <input placeholder={'Password'} {...register('password')}
                className={styles.formInput}></input>
         <input type="submit" className={styles.submitBtn}/>
+        <div>Нет аккаунта? <Link to={ROUTES.REGISTER}><span
+          className={styles.link}>Зарегистрируйтесь</span></Link></div>
       </form>
     </div>
 

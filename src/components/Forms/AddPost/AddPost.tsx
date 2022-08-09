@@ -50,6 +50,13 @@ function AddPost({onSubmit, isReflection}: Props) {
           <option value={TAG_NAMES.TRAINEE_SUPPORT}>Сопровождение учащегося
           </option>
         </Select>}
+
+        <InputWrapper label={'image'} error={errors.content} errText={''}>
+          <input type={'file'} accept={'image/*'} {...register('image', {required: true})} />
+        </InputWrapper>
+        <InputWrapper label={'File'} error={errors.content} errText={''}>
+          <input type={'file'} {...register('file', {required: true})} />
+        </InputWrapper>
       </div>
       <DefaultButton type={'submit'} bgColor={'#7F5283'}>Add Post</DefaultButton>
     </form>

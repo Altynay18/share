@@ -28,7 +28,7 @@ const SideBar = () => {
         </Link>
         <Link to={ROUTES.ARTICLES} className={styles.menuItem}>
           <ArticleIcon />
-          Статьи
+          Библиотека
         </Link>
         <Link to={ROUTES.MENTORSHIP} className={styles.menuItem}>
           <CastForEducationIcon />

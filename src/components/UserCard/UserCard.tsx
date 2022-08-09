@@ -10,11 +10,11 @@ const UserCard = () => {
     <div className={styles.userCard}>
       <div className={styles.header}>
         <img src={avatarImg} className={styles.avatar} alt="avatar" />
-        <div className={styles.userName}>{user?.firstname} {user?.lastname}</div>
+        <div className={styles.email}>{user?.firstname} {user?.lastname}</div>
       </div>
       <div className={styles.body}>
         <div className={styles.row}>
-          <span>Аккаунт:</span><span>{user?.username}</span>
+          <span>Аккаунт:</span><span>{user?.email}</span>
         </div>
         <div className={styles.row}>
           <span>ФИО:</span><span>{user?.firstname + ' '}{user?.lastname}</span>

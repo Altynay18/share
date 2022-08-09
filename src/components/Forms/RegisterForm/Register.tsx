@@ -80,7 +80,7 @@ export function Register(props: Props) {
           <option key={i} value={el}>{el}</option>))}
       </Select>
       <label>Роль в SHARE</label>
-      <Select className={styles.select} {...register('role')}>
+      <Select className={styles.select} {...register('title')}>
         <option>Выберите роль в SHARE</option>
         {roles.map((el, i) => (
           <option key={i} value={el}>{el}</option>))}

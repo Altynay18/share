@@ -9,10 +9,6 @@ export function generateID(id, list) {
 
 export function validateRegex(str: string, field: string): boolean {
   switch (field) {
-    case INPUT_FIELD.USERNAME: {
-      const reg = /(?=^[a-zA-Z0-9-_]{3,15}$)(?=.*[a-zA-Z].*)/g;
-      return reg.test(str);
-    }
     case INPUT_FIELD.PASSWORD: {
       const reg = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}/g;
       return reg.test(str);

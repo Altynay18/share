@@ -59,7 +59,7 @@ export interface PostData {
   id: number,
   content: string,
   comment: CommentData[],
-  username?: string
+  email?: string
 }
 
 export interface Tag {

@@ -22,7 +22,7 @@ const Auth = () => {
   };
   const formik = useFormik({
     initialValues: {
-      username: '',
+      email: '',
       password: '',
       firstname: '',
       lastname: '',

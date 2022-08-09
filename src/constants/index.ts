@@ -51,7 +51,6 @@ export enum TAG_NAMES {
 export enum INPUT_FIELD {
   NAME = 'name',
   SURNAME = 'surname',
-  USERNAME = 'username',
   EMAIL = 'email',
   PHONE = 'phone',
   PASSWORD = 'password',

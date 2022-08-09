@@ -15,7 +15,7 @@ interface AnnotationUserProfile {
   id: string,
   firstname?: string,
   lastname?: string,
-  username?: string
+  email?: string
 }
 
 const API_KEY = '949e5531d9b947f887843f1c5bb2bd8f';
@@ -113,7 +113,7 @@ export class Demo extends ArticleService {
           name: user?.firstname + ' ' + user?.lastname,
           firstName: user?.firstname,
           lastName: user?.lastname,
-          username: user?.username,
+          email: user?.email,
           id: user.id.toString(),
         },
       };

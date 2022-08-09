@@ -42,13 +42,17 @@ export function Welcome(props: Props) {
   };
 
   const onSubmit = async (data) => {
-    const res = await postService.addPost(data);
+    const formData = new FormData()
+    formData.append('title', data.title)
+    formData.append('content', data.content)
+    formData.append('file', data.file[0])
+    formData.append('image', data.image[0])
+    const res = await postService.addPost(formData);
     setOpen(false);
     getAllPost();
   };
 
   const handleChange = async (e) => {
-    console.log(e.target.value);
     const res = await postService.getPostsBySchool(e.target.value)
     if(res) setPostList(res)
   };

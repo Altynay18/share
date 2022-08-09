@@ -4,7 +4,7 @@ import {CommentData, GeneralSearch} from '../types/services';
 export class GeneralPostService extends Requests {
   async addPost(obj: Object) {
     const path = '/general/post';
-    return await this.post(path, obj);
+    return await this.postFile(path, obj);
   }
 
   async getAllPosts() {
@@ -32,7 +32,7 @@ export class GeneralPostService extends Requests {
     return this.post(path, {});
   }
   getPostsBySchool(school){
-    const path = `/schoolTags/${school}`;
+    const path = ``;
     return this.get(path);
   }
 }

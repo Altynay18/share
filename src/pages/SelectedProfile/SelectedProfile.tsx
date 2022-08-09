@@ -33,8 +33,8 @@ export function SelectedProfile(props: Props) {
            <div>{user?.lastname}</div>
          </div>
          <div className={styles.row}>
-           <div>Username</div>
-           <div>{user?.username}</div>
+           <div>Email</div>
+           <div>{user?.email}</div>
          </div>
        </div>
       </div>
