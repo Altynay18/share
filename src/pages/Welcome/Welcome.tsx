@@ -73,7 +73,7 @@ export function Welcome(props: Props) {
     <div className={styles.welcomePageContainer}>
       <PageHeader handleSearch={handleSearch} title={'Лента новостей'}/>
       <Select className={styles.select} onChange={handleChange}>
-        <option value={'ALL'}>Поиск по школам</option>
+        <option value={'ALL'}>Все школы</option>
         {schools.map((el, i) => (
           <option key={i} value={el}>{el}</option>
         ))}
