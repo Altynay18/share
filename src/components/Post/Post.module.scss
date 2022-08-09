@@ -1,4 +1,4 @@
-.postContainer{
+.postContainer {
   width: 100%;
   height: max-content;
   border: 1px solid #000;
@@ -8,34 +8,42 @@
   // font-style: var(--gray);
 }
 
-.postInfo{
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid #000;
+.postInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #000;
 }
-.postContent{
+
+.postContent {
   padding: 1rem;
 }
-.comment{
+
+.comment {
   cursor: pointer;
 }
 
-.postActions{
+.postActions {
   padding: 1rem 0;
   font-weight: 500;
   display: flex;
   flex-direction: row;
   gap: 3rem;
+  align-items: center;
 
-    div{
-      border-radius: 16px;
-      background-color: var(--gray);
-      width: max-content;
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      padding: 0.5rem 1rem;
-    }
+  div {
+    border-radius: 16px;
+    background-color: var(--gray);
+    width: max-content;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.link {
+  color: var(--yellow);
+  border-bottom: 1px solid var(--yellow)
 }
