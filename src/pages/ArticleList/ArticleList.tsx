@@ -27,7 +27,7 @@ function ArticleList() {
 
   const handleClick = async (e) => {
     if (e.target.value === 'all') {
-      await getPdf;
+      await getPdf();
     } else {
       await getArticlesByTag(e.target.value);
     }
