@@ -38,7 +38,6 @@ function Reflections() {
     });
     setOpen(false);
     await getAllPosts();
-
   };
 
   async function getPostsByTag(value: string) {
@@ -58,7 +57,6 @@ function Reflections() {
     getAllPosts();
   }, []);
 
-  console.log(reflectionPosts);
   return (
     <div className={styles.welcomePageContainer}>
       <PageHeader title={'Рефлексии других учителей:'}

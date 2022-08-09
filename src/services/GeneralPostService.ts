@@ -32,7 +32,7 @@ export class GeneralPostService extends Requests {
     return this.post(path, {});
   }
   getPostsBySchool(school){
-    const path = ``;
+    const path = `/general/getUserPosts/${school}`;
     return this.get(path);
   }
 }

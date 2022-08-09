@@ -11,7 +11,6 @@ import AddPost from '../../components/Forms/AddPost';
 import {Select} from '@chakra-ui/react';
 import {GeneralService} from '../../services/GeneralService';
 
-
 type Props = {};
 
 export function Welcome(props: Props) {
@@ -30,9 +29,9 @@ export function Welcome(props: Props) {
     const res = await postService.addComment({
       ...formData, postId,
     });
-    getAllPost();
-
+    if (res) getAllPost();
   };
+
   const handleSearch = async (value) => {
     const result = await postService.search({
       title: '',
@@ -42,19 +41,23 @@ export function Welcome(props: Props) {
   };
 
   const onSubmit = async (data) => {
-    const formData = new FormData()
-    formData.append('title', data.title)
-    formData.append('content', data.content)
-    formData.append('file', data.file[0])
-    formData.append('image', data.image[0])
+    const formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('content', data.content);
+    formData.append('file', data.file[0]);
+    formData.append('image', data.image[0]);
     const res = await postService.addPost(formData);
+    if (res) await getAllPost();
     setOpen(false);
-    getAllPost();
   };
 
   const handleChange = async (e) => {
-    const res = await postService.getPostsBySchool(e.target.value)
-    if(res) setPostList(res)
+    if (e.target.value === 'ALL') {
+      await getAllPost();
+    } else {
+      const res = await postService.getPostsBySchool(e.target.value);
+      if (res) setPostList(res);
+    }
   };
 
   async function getSchoolList() {
@@ -70,7 +73,7 @@ export function Welcome(props: Props) {
     <div className={styles.welcomePageContainer}>
       <PageHeader handleSearch={handleSearch} title={'Лента новостей'}/>
       <Select className={styles.select} onChange={handleChange}>
-        <option>Поиск по школам</option>
+        <option value={'ALL'}>Поиск по школам</option>
         {schools.map((el, i) => (
           <option key={i} value={el}>{el}</option>
         ))}
