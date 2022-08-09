@@ -20,7 +20,7 @@ const SideBar = () => {
         </Link>
         <Link to={ROUTES.MAIN} className={styles.menuItem}>
           <DynamicFeedIcon />
-          Новостная лента
+          Анонсы
         </Link>
         <Link to={ROUTES.REFLECTIONS} className={styles.menuItem}>
           <DynamicFeedIcon />
