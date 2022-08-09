@@ -12,4 +12,8 @@ export class GeneralService extends Requests {
     // return this.get(path);
     return ['Член основной пятёрки SHARE', 'Координатор SHARE', 'Школьный координатор SHARE', 'Сетевой координатор SHARE', 'Волонтёр SHARE'];
   }
+  getTagList(){
+    const path = '/';
+    return this.get(path);
+  }
 }

@@ -77,36 +77,36 @@ export class Demo extends ArticleService {
       }, viewerConfig);
 
 
-      adobeDCView.registerCallback(
-        // @ts-ignore
-        window.AdobeDC.View.Enum.CallbackType.SAVE_API,
-        function (metaData, content, options) {
-          const uint8Array = new Uint8Array(content);
-          const blob = new Blob([uint8Array], {type: 'application/pdf'});
-          const formData = new FormData();
-          formData.append('file', blob);
-
-          fetch(`${this.baseUrl}/pdf?id=${pdfId}`, {
-            method: 'PUT',
-            body: formData,
-          }).then();
-
-          return new Promise((resolve, reject) => {
-            resolve({
-              // @ts-ignore
-              code: window.AdobeDC.View.Enum.ApiResponseCode.SUCCESS,
-              data: {
-                metaData,
-              },
-            });
-          });
-        },
-        {
-          autoSaveFrequency: 0,
-          enableFocusPolling: false,
-          showSaveButton: true,
-        },
-      );
+      // adobeDCView.registerCallback(
+      //   // @ts-ignore
+      //   window.AdobeDC.View.Enum.CallbackType.SAVE_API,
+      //   function (metaData, content, options) {
+      //     const uint8Array = new Uint8Array(content);
+      //     const blob = new Blob([uint8Array], {type: 'application/pdf'});
+      //     const formData = new FormData();
+      //     formData.append('file', blob);
+      //
+      //     fetch(`${this.baseUrl}/pdf?id=${pdfId}`, {
+      //       method: 'PUT',
+      //       body: formData,
+      //     }).then();
+      //
+      //     return new Promise((resolve, reject) => {
+      //       resolve({
+      //         // @ts-ignore
+      //         code: window.AdobeDC.View.Enum.ApiResponseCode.SUCCESS,
+      //         data: {
+      //           metaData,
+      //         },
+      //       });
+      //     });
+      //   },
+      //   {
+      //     autoSaveFrequency: 0,
+      //     enableFocusPolling: false,
+      //     showSaveButton: true,
+      //   },
+      // );
 
       const profile = {
         userProfile: {

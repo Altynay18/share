@@ -63,9 +63,11 @@ function Reflections() {
     <div className={styles.welcomePageContainer}>
       <PageHeader title={'Рефлексии других учителей:'}
                   handleSearch={handleSearch}/>
-      <div className={styles.addButton}><DefaultButton bgColor="#7F5283"
-                                                       onClick={() => setOpen(true)}>+
-        Добавить пост</DefaultButton>
+      <div className={styles.addButton}>
+        <DefaultButton bgColor="#7F5283"
+                       onClick={() => setOpen(true)}>+
+          Добавить пост
+        </DefaultButton>
         <Modal open={open} handleClose={() => setOpen(false)}>
           <AddPost isReflection onSubmit={onPostSubmit}/>
         </Modal>

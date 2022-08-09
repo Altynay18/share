@@ -1,8 +1,9 @@
 import {Requests} from './Requests';
 
 export class ArticleService extends Requests {
-  uploadPdf(data: FormData) {
-    const path = '/pdf?tags=fds';
+  uploadPdf(data: FormData, tags) {
+    console.log(tags)
+    const path = `/pdf?tags=${tags}`;
     return this.postFile(path, data);
   }
 
@@ -27,7 +28,7 @@ export class ArticleService extends Requests {
   }
 
   filterByTag(tagName: string){
-    const path = `/pdf/${tagName}`;
+    const path = `/pdf/getPdfListByTagName/${tagName}`;
     return this.get(path);
   }
 }

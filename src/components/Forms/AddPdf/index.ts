@@ -1,0 +1,1 @@
+export {AddPdf as default} from './AddPdf';

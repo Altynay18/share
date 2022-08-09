@@ -31,4 +31,8 @@ export class GeneralPostService extends Requests {
     const path = '/post-comment?' + new URLSearchParams(data);
     return this.post(path, {});
   }
+  getPostsBySchool(school){
+    const path = `/schoolTags/${school}`;
+    return this.get(path);
+  }
 }

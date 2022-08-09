@@ -7,26 +7,24 @@ import Modal from '../../components/Modal';
 import {GeneralPostService} from '../../services/GeneralPostService';
 import PageHeader from '../../components/PageHeader';
 import Post from '../../components/Post';
-import {COLORS} from '../../constants';
 import AddPost from '../../components/Forms/AddPost';
+import {Select} from '@chakra-ui/react';
+import {GeneralService} from '../../services/GeneralService';
 
 
 type Props = {};
 
 export function Welcome(props: Props) {
+  const [schools, setSchools] = useState([]);
   const [open, setOpen] = useState(false);
   const [postList, setPostList] = useState([]);
   const postService = new GeneralPostService();
+  const generalService = new GeneralService();
 
   async function getAllPost() {
     const result = await postService.getAllPosts();
     if (result) setPostList(result);
   }
-
-  const afterSubmit = async () => {
-    setOpen(false);
-    await getAllPost();
-  };
 
   const onCommentSubmit = async (formData, postId) => {
     const res = await postService.addComment({
@@ -48,25 +46,44 @@ export function Welcome(props: Props) {
     setOpen(false);
     getAllPost();
   };
+
+  const handleChange = async (e) => {
+    console.log(e.target.value);
+    const res = await postService.getPostsBySchool(e.target.value)
+    if(res) setPostList(res)
+  };
+
+  async function getSchoolList() {
+    const list = await generalService.getSchoolList();
+    if (list) setSchools(list);
+  }
+
   useEffect(() => {
     getAllPost();
+    getSchoolList();
   }, []);
   return (
     <div className={styles.welcomePageContainer}>
-      <PageHeader handleSearch={handleSearch} title={'Лента новостей'} />
+      <PageHeader handleSearch={handleSearch} title={'Лента новостей'}/>
+      <Select className={styles.select} onChange={handleChange}>
+        <option>Выберите теги</option>
+        {schools.map((el, i) => (
+          <option key={i} value={el}>{el}</option>
+        ))}
+      </Select>
       <div className={styles.addButton}>
         <DefaultButton maxWidth={'15rem'} bgColor={'#7F5283'}
-          onClick={() => setOpen(true)}>
+                       onClick={() => setOpen(true)}>
           + Добавить пост
         </DefaultButton>
         <Modal open={open} handleClose={() => setOpen(false)}>
-          <AddPost onSubmit={onSubmit} />
+          <AddPost onSubmit={onSubmit}/>
         </Modal>
       </div>
 
       <div className={styles.list}>
         {postList?.map((el, i) => (
-          <Post onCommentSubmit={onCommentSubmit} data={el} key={i} />
+          <Post onCommentSubmit={onCommentSubmit} data={el} key={i}/>
         ))}
       </div>
     </div>

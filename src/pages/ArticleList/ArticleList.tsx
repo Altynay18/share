@@ -1,25 +1,19 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import styles from './ArticleList.module.scss';
-import AddIcon from '@mui/icons-material/Add';
 import {ArticleService} from '../../services/ArticleService';
 import {ROUTES} from '../../constants';
 import ReflexTags from '../../components/ReflexTags';
+import Modal from '../../components/Modal';
+import AddPdf from '../../components/Forms/AddPdf';
+import DefaultButton from '../../components/DefaultButton';
+import AddIcon from '@mui/icons-material/Add';
 
 function ArticleList() {
   const [pdfList, setPdfList] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   const articleService = new ArticleService();
 
-  const handleChange = async (e) => {
-    const target = e.target as HTMLInputElement;
-    const formData = new FormData();
-    formData.append('file', target.files[0]);
-    const response = await articleService.uploadPdf(formData);
-
-    if (response) {
-      getPdf();
-    }
-  };
 
   const getPdf = useCallback(async () => {
     const res = await articleService.getPdfList();
@@ -38,19 +32,24 @@ function ArticleList() {
       await getArticlesByTag(e.target.value);
     }
   };
+
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append('file', data.file[0]);
+    const response = await articleService.uploadPdf(formData, data.tag);
+    if (response) await getPdf();
+  };
   useEffect(() => {
     getPdf();
   }, []);
   return (
     <div className={styles.articles}>
       <div className={styles.title}>Article List</div>
-      <label htmlFor="addFile">
-        <div className={styles.addFile}>
-          <AddIcon/>Add File
-          <input onChange={handleChange} id="addFile" type="file"
-                 accept={'application/pdf'}/>
-        </div>
-      </label>
+      <div className={styles.addButton}>
+        <DefaultButton maxWidth={"15rem"} onClick={() => setIsOpen(true)}>
+          <><AddIcon/> Загрузить файл</>
+        </DefaultButton>
+      </div>
       <ReflexTags handleClick={handleClick}/>
       <div className={styles.list}>
         {pdfList.map((el, i) => (
@@ -59,6 +58,9 @@ function ArticleList() {
           </Link>
         ))}
       </div>
+      <Modal open={isOpen} handleClose={() => setIsOpen(false)}>
+        <AddPdf onSubmit={onSubmit}/>
+      </Modal>
     </div>
   );
 }

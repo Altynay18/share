@@ -1,0 +1,24 @@
+.addFile {
+  display: flex;
+  align-items: center;
+  background: #7F5283;
+  border-radius: 6px;
+  padding: 1rem 2rem;
+  height: 2.5rem;
+  color: var(--white);
+  margin-bottom: 20px;
+  justify-content: center;
+  max-width: 200px;
+  font-weight: bold;
+
+  input {
+    display: none;
+  }
+}
+.select{
+  margin-bottom: 20px;
+}
+.err{
+  color: var(--red);
+  font-weight: bold;
+}

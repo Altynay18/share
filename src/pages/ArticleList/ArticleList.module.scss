@@ -20,29 +20,13 @@
     }
   }
 }
-
+.addButton{
+  margin-bottom: 2rem;
+}
 .title {
   padding: 2rem 0;
   font-size: 2rem;
   font-weight: 500;
   display: flex;
   justify-content: space-between;
-}
-
-.addFile {
-  display: flex;
-  align-items: center;
-  background: #7F5283;
-  border-radius: 6px;
-  padding: 1rem 2rem;
-  height: 2.5rem;
-  color: var(--white);
-  margin-bottom: 20px;
-  justify-content: center;
-  max-width: 200px;
-  font-weight: bold;
-
-  input {
-    display: none;
-  }
 }
