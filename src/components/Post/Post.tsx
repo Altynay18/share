@@ -21,6 +21,15 @@ const colors = {
   traineeSupport: '#ffc23c'
 }
 
+const tags = {
+  trainingAndTeaching: 'Обучение и преподавание',
+  teachersCollaboration: 'Сотрудничество учителей',
+  createConditions: 'Создание условий',
+  methodologyAR: 'Методология AR',
+  traineeSupport: 'Сопровождение учащегося'
+}
+
+
 
 export function Post({data, onCommentSubmit}: Props) {
   const [open, setOpen] = useState(false);
@@ -36,7 +45,7 @@ export function Post({data, onCommentSubmit}: Props) {
         <div>{data?.email}</div>
         {data?.tag && data?.tag.map((el, i) => (
           <Badge borderRadius="16px" px="2" backgroundColor={colors[el.tag]}>
-            {el.tag}
+            {tags[el.tag]}
           </Badge>
         ))}
       </div>

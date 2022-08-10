@@ -47,13 +47,13 @@ export function Login(props: Props) {
   return (
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <label className={styles.formLabel}>Емайл</label>
+        <label className={styles.formLabel}>Почта</label>
         <input placeholder={'Email'} {...register('email')}
-               className={styles.formInput}></input>
+          className={styles.formInput}></input>
         <label className={styles.formLabel}>Пароль:</label>
         <input placeholder={'Password'} {...register('password')}
-               className={styles.formInput}></input>
-        <input type="submit" className={styles.submitBtn}/>
+          className={styles.formInput}></input>
+        <input type="submit" className={styles.submitBtn} />
         <div>Нет аккаунта? <Link to={ROUTES.REGISTER}><span
           className={styles.link}>Зарегистрируйтесь</span></Link></div>
       </form>
