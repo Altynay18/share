@@ -10,11 +10,22 @@ import {PostData} from '../../types/services';
 
 type Props = {
   data: PostData,
-  onCommentSubmit: (arg: any, postId: any)=>void
+  onCommentSubmit: (arg: any, postId: any) => void
 };
+
+const colors = {
+  trainingAndTeaching: '#AEADF0',
+  teachersCollaboration: '#e15e6a',
+  createConditions: '#51b097',
+  methodologyAR: '#ae84d5',
+  traineeSupport: '#ffc23c'
+}
+
 
 export function Post({data, onCommentSubmit}: Props) {
   const [open, setOpen] = useState(false);
+
+  console.log('post data', data)
   return (
     <div key={data?.id} className={styles.postContainer} onClick={() => {
       setOpen(true);
@@ -24,19 +35,19 @@ export function Post({data, onCommentSubmit}: Props) {
         <div>{data?.title}</div>
         <div>{data?.email}</div>
         {data?.tag && data?.tag.map((el, i) => (
-          <Badge borderRadius="16px" px="2" backgroundColor={'#FFCA7A'}>
+          <Badge borderRadius="16px" px="2" backgroundColor={colors[el.tag]}>
             {el.tag}
           </Badge>
         ))}
       </div>
-      <img className={styles.img} src={data.imageLink} alt="post"/>
+      <img className={styles.img} src={data.imageLink} alt="post" />
       <div className={styles.postContent}>{data?.content}</div>
       <div className={styles.postActions}>
-        <div className={styles.comment}><ChatIcon w={4} h={4}/>Комментарии</div>
-        {data?.fileLink &&  <a className={styles.link} href={data.fileLink} target={'_blank'}>Link to File</a>}
+        <div className={styles.comment}><ChatIcon w={4} h={4} />Комментарии</div>
+        {data?.fileLink && <a className={styles.link} href={data.fileLink} target={'_blank'}>Link to File</a>}
       </div>
       <Modal open={open} handleClose={() => setOpen(false)}>
-        <PostContent data={data} onCommentSubmit={onCommentSubmit}/>
+        <PostContent data={data} onCommentSubmit={onCommentSubmit} />
       </Modal>
     </div>
   );
