@@ -4,12 +4,10 @@ import {useEffect, useState} from 'react';
 import styles from './AddProject.module.scss';
 import {InputWrapper} from '../../InputWrapper/InputWrapper';
 import DefaultButton from '../../DefaultButton';
-import {COLORS} from '../../../constants';
 import {useForm} from 'react-hook-form';
 import {ProjectService} from '../../../services/ProjectService';
-import {Select} from '@chakra-ui/react';
+import {Select, useToast} from '@chakra-ui/react';
 import {AuthService} from '../../../services/AuthService';
-import {useToast} from '@chakra-ui/react'
 
 
 type Props = {
@@ -17,35 +15,32 @@ type Props = {
 };
 
 export function AddProject({afterSubmit}: Props) {
-  const toast = useToast()
+  const toast = useToast();
   const [users, setUsers] = useState([]);
   const projectService = new ProjectService();
   const auth = new AuthService();
   const {register, handleSubmit, formState: {errors}} = useForm();
   const onSubmit = async data => {
     const res = await projectService.createProject(data);
-    // console.log("fdddd", res)
 
     if (res === 'Project has been created') {
       toast({
-        title: "Вы успешно создали проект!",
-        status: "success",
+        title: 'Вы успешно создали проект!',
+        status: 'success',
         duration: 3000,
-        isClosable: true
+        isClosable: true,
       });
-    }
-    else {
+    } else {
       toast({
-        title: "Ошибка! Проверьте все данные",
-        status: "error",
+        title: 'Ошибка! Проверьте все данные',
+        status: 'error',
         duration: 3000,
-        isClosable: true
+        isClosable: true,
       });
     }
     afterSubmit();
 
   };
-
   async function getAllUser() {
     const res = await auth.getAllUser();
     if (res) {
@@ -64,13 +59,15 @@ export function AddProject({afterSubmit}: Props) {
         <input {...register('title', {required: true, maxLength: 20})} />
       </InputWrapper>
       <InputWrapper label={'Description'} error={errors.description}
-        errText={''}>
+                    errText={''}>
         <input {...register('description', {required: true, maxLength: 20})} />
       </InputWrapper>
       {!!users.length &&
-        <Select placeholder="Select User" marginBottom={'2rem'}>
+        <Select {...register('users', {required: true})} placeholder="Select User"
+                marginBottom={'2rem'}>
           {users.map((el, i) => (
-            <option key={el.id} value="option1">{el?.firstname + ' '}{el?.lastname}</option>
+            <option key={el.id}
+                    value={el.email}>{el?.firstname + ' '}{el?.lastname}</option>
           ))}
         </Select>
       }

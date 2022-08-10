@@ -52,8 +52,10 @@ export function Post({data, onCommentSubmit}: Props) {
       <img className={styles.img} src={data.imageLink} alt="post" />
       <div className={styles.postContent}>{data?.content}</div>
       <div className={styles.postActions}>
-        <div className={styles.comment}><ChatIcon w={4} h={4} />Комментарии</div>
-        {data?.fileLink && <a className={styles.link} href={data.fileLink} target={'_blank'}>Link to File</a>}
+        <div className={styles.comment}><ChatIcon w={4} h={4}/>Комментарии</div>
+        {data?.fileLink &&
+          <a className={styles.link} href={data.fileLink} target={'_blank'}>Link
+            to File</a>}
       </div>
       <Modal open={open} handleClose={() => setOpen(false)}>
         <PostContent data={data} onCommentSubmit={onCommentSubmit} />
