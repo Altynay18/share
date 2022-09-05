@@ -25,9 +25,13 @@ const IndividualProject = () => {
   };
 
   async function onSubmit(data) {
-    const res = await projectService.addProjectPost({
-      ...data, project_id: projectId,
-    });
+    const formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('text', data.text);
+    if(data?.file[0]) formData.append('file', data.file[0]);
+    if(data?.image[0]) formData.append('image', data.image[0]);
+    formData.append('project_id', projectId)
+    const res = await projectService.addProjectPost(formData);
     setIsOpen(false);
     if (res) {
       getProject();

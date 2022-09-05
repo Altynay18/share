@@ -24,8 +24,8 @@ export class ProjectService extends Requests {
   }
 
   addProjectPost(data) {
-    const path = '/project/addPost?' + new URLSearchParams(data);
-    return this.post(path, {});
+    const path = '/project/addPost';
+    return this.postFile(path, data);
   }
 
   search(data: ProjectSearch) {

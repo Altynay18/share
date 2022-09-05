@@ -1,8 +1,9 @@
-import InputWrapper from '../../InputWrapper';
-import {useForm} from 'react-hook-form';
+import InputWrapper  from '../../InputWrapper';
+import {useForm}     from 'react-hook-form';
 import DefaultButton from '../../DefaultButton';
-import styles from './AddProjectPost.module.scss'
-import {useToast} from '@chakra-ui/react';
+import styles        from './AddProjectPost.module.scss'
+import {useToast}    from '@chakra-ui/react';
+import React         from 'react';
 
 type Props = {
   onSubmit: (arg: any) => void
@@ -28,6 +29,13 @@ export function AddProjectPost({onSubmit}: Props) {
       </InputWrapper>
       <InputWrapper label={'Text'} errText={''} error={''}>
         <input {...register('text', {required: true})} />
+      </InputWrapper>
+
+      <InputWrapper label={'image'} error={errors.content} errText={''}>
+        <input type={'file'} accept={'image/*'} {...register('image')} />
+      </InputWrapper>
+      <InputWrapper label={'File'} error={errors.content} errText={''}>
+        <input type={'file'} {...register('file')} />
       </InputWrapper>
       <DefaultButton type={'submit'}>Add Post</DefaultButton>
     </form>

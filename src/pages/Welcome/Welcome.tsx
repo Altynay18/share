@@ -1,15 +1,15 @@
 // @flow
-import * as React from 'react';
+import * as React            from 'react';
 import {useEffect, useState} from 'react';
-import styles from './Welcome.module.scss';
-import DefaultButton from '../../components/DefaultButton';
-import Modal from '../../components/Modal';
-import {GeneralPostService} from '../../services/GeneralPostService';
-import PageHeader from '../../components/PageHeader';
-import Post from '../../components/Post';
-import AddPost from '../../components/Forms/AddPost';
-import {Select} from '@chakra-ui/react';
-import {GeneralService} from '../../services/GeneralService';
+import styles                from './Welcome.module.scss';
+import DefaultButton         from '../../components/DefaultButton';
+import Modal                 from '../../components/Modal';
+import {GeneralPostService}  from '../../services/GeneralPostService';
+import PageHeader            from '../../components/PageHeader';
+import Post                  from '../../components/Post';
+import AddPost               from '../../components/Forms/AddPost';
+import {Select}              from '@chakra-ui/react';
+import {GeneralService}      from '../../services/GeneralService';
 
 type Props = {};
 
@@ -34,7 +34,7 @@ export function Welcome(props: Props) {
 
   const handleSearch = async (value) => {
     const result = await postService.search({
-      title: '',
+      title:   '',
       content: value,
     });
     if (result) setPostList(result);
@@ -43,9 +43,10 @@ export function Welcome(props: Props) {
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append('title', data.title);
+    formData.append('name', data.title);
     formData.append('content', data.content);
-    formData.append('file', data.file[0]);
-    formData.append('image', data.image[0]);
+    formData.append('file', data.file[0] ? data.file[0] : null);
+    formData.append('image', data.image[0] ? data.image[0] : null);
     const res = await postService.addPost(formData);
     if (res) await getAllPost();
     setOpen(false);
@@ -70,29 +71,29 @@ export function Welcome(props: Props) {
     getSchoolList();
   }, []);
   return (
-    <div className={styles.welcomePageContainer}>
-      <PageHeader handleSearch={handleSearch} title={'Лента новостей'}/>
-      <Select className={styles.select} onChange={handleChange}>
-        <option value={'ALL'}>Все школы</option>
-        {schools.map((el, i) => (
-          <option key={i} value={el}>{el}</option>
-        ))}
-      </Select>
-      <div className={styles.addButton}>
-        <DefaultButton maxWidth={'15rem'} bgColor={'#7F5283'}
-                       onClick={() => setOpen(true)}>
-          + Добавить пост
-        </DefaultButton>
-        <Modal open={open} handleClose={() => setOpen(false)}>
-          <AddPost onSubmit={onSubmit}/>
-        </Modal>
-      </div>
+      <div className={styles.welcomePageContainer}>
+        <PageHeader handleSearch={handleSearch} title={'Лента новостей'} />
+        <Select className={styles.select} onChange={handleChange}>
+          <option value={'ALL'}>Все школы</option>
+          {schools.map((el, i) => (
+              <option key={i} value={el}>{el}</option>
+          ))}
+        </Select>
+        <div className={styles.addButton}>
+          <DefaultButton maxWidth={'15rem'} bgColor={'#7F5283'}
+                         onClick={() => setOpen(true)}>
+            + Добавить пост
+          </DefaultButton>
+          <Modal open={open} handleClose={() => setOpen(false)}>
+            <AddPost onSubmit={onSubmit} />
+          </Modal>
+        </div>
 
-      <div className={styles.list}>
-        {postList?.map((el, i) => (
-          <Post onCommentSubmit={onCommentSubmit} data={el} key={i}/>
-        ))}
+        <div className={styles.list}>
+          {postList?.map((el, i) => (
+              <Post onCommentSubmit={onCommentSubmit} data={el} key={i} />
+          ))}
+        </div>
       </div>
-    </div>
   );
 };

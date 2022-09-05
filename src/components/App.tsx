@@ -14,7 +14,6 @@ import Feed from '../pages/Feed';
 import MyProjects from '../pages/Profile/MyProjects';
 import Reflections from '../pages/Reflections';
 import {ChakraProvider} from '@chakra-ui/react';
-import Projects from '../pages/Projects';
 import Settings from '../pages/Settings';
 import Notification from '../pages/Notification';
 import Article from '../pages/Article';
@@ -51,7 +50,6 @@ function App() {
                 <Route path="training" element={<Training/>}/>
                 <Route path="articles" element={<ArticleList/>}/>
                 <Route path="articles/:articleId" element={<Article/>}/>
-                <Route path="projects" element={<Projects/>}/>
                 <Route path="projects/:projectId"
                        element={<IndividualProject/>}/>
                 <Route path="notification" element={<Notification/>}/>
