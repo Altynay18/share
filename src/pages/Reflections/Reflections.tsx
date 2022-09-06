@@ -1,12 +1,12 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import styles from './Reflections.module.scss';
-import Post from '../../components/Post';
-import {ReflectionPostService} from '../../services/ReflectionPostService';
-import DefaultButton from '../../components/DefaultButton';
-import AddPost from '../../components/Forms/AddPost';
-import Modal from '../../components/Modal';
-import PageHeader from '../../components/PageHeader';
-import ReflexTags from '../../components/ReflexTags';
+import styles                                    from './Reflections.module.scss';
+import Post                                      from '../../components/Post';
+import {ReflectionPostService}                   from '../../services/ReflectionPostService';
+import DefaultButton                             from '../../components/DefaultButton';
+import AddPost                                   from '../../components/Forms/AddPost';
+import Modal                                     from '../../components/Modal';
+import PageHeader                                from '../../components/PageHeader';
+import ReflexTags                                from '../../components/ReflexTags';
 
 function Reflections() {
   const [reflectionPosts, setReflectionPosts] = useState([]);
@@ -15,9 +15,9 @@ function Reflections() {
 
   const handleSearch = async (value) => {
     const res = await postService.search({
-      title: '',
+      title:   '',
       content: value,
-      tag: '',
+      tag:     '',
     });
     if (res) setReflectionPosts(res);
   };
@@ -37,8 +37,8 @@ function Reflections() {
     const formData = new FormData();
     formData.append('title', data.title);
     formData.append('content', data.content);
-    formData.append('file', data.file[0]);
-    formData.append('image', data.image[0]);
+    if (data.file[0]) formData.append('file', data.file[0]);
+    if (data.image[0]) formData.append('image', data.image[0]);
     formData.append('tag', data.tag);
     const res = await postService.addPost(formData);
     setOpen(false);
@@ -63,29 +63,29 @@ function Reflections() {
   }, []);
 
   return (
-    <div className={styles.welcomePageContainer}>
-      <PageHeader title={'Рефлексии других учителей:'}
-                  handleSearch={handleSearch}/>
-      <div className={styles.addButton}>
-        <DefaultButton bgColor="#7F5283"
-                       onClick={() => setOpen(true)}>+
-          Добавить пост
-        </DefaultButton>
-        <Modal open={open} handleClose={() => setOpen(false)}>
-          <AddPost isReflection onSubmit={onPostSubmit}/>
-        </Modal>
-      </div>
+      <div className={styles.welcomePageContainer}>
+        <PageHeader title={'Рефлексии других учителей:'}
+                    handleSearch={handleSearch} />
+        <div className={styles.addButton}>
+          <DefaultButton bgColor="#7F5283"
+                         onClick={() => setOpen(true)}>+
+            Добавить пост
+          </DefaultButton>
+          <Modal open={open} handleClose={() => setOpen(false)}>
+            <AddPost isReflection onSubmit={onPostSubmit} />
+          </Modal>
+        </div>
 
-      <ReflexTags handleClick={handleClick}/>
+        <ReflexTags handleClick={handleClick} />
 
-      <div className={styles.list}>
-        {
-          reflectionPosts?.map((el, index) =>
-            <Post onCommentSubmit={onCommentSubmit} data={el} key={el.id}/>,
-          )
-        }
+        <div className={styles.list}>
+          {
+            reflectionPosts?.map((el, index) =>
+                <Post onCommentSubmit={onCommentSubmit} data={el} key={el.id} />,
+            )
+          }
+        </div>
       </div>
-    </div>
   );
 }
 

@@ -45,8 +45,8 @@ export function Welcome(props: Props) {
     formData.append('title', data.title);
     formData.append('name', data.title);
     formData.append('content', data.content);
-    formData.append('file', data.file[0] ? data.file[0] : null);
-    formData.append('image', data.image[0] ? data.image[0] : null);
+    if(data.file[0]) formData.append('file', data.file[0] ? data.file[0] : null);
+    if(data.image[0]) formData.append('image', data.image[0] ? data.image[0] : null);
     const res = await postService.addPost(formData);
     if (res) await getAllPost();
     setOpen(false);
