@@ -34,7 +34,6 @@ const tags = {
 export function Post({data, onCommentSubmit}: Props) {
   const [open, setOpen] = useState(false);
 
-  console.log('post data', data)
   return (
     <div key={data?.id} className={styles.postContainer} onClick={() => {
       setOpen(true);

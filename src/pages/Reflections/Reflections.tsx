@@ -19,7 +19,7 @@ function Reflections() {
       content: value,
       tag:     '',
     });
-    if (res) setReflectionPosts(res);
+    if (res) setReflectionPosts(res.reverse());
   };
   const getAllPosts = useCallback(async () => {
     const arr = await postService.getAllPosts();
