@@ -7,9 +7,9 @@ import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 import styles from './SideBar.module.scss';
 import {ROUTES} from '../../constants';
 
-const SideBarComponent = () => {
+const SideBarComponent = ({onClick = ()=>{}}) => {
     return (
-        <div className={styles.sidebar}>
+        <div className={styles.sidebar} onClick={onClick}>
             <div className={styles.top}>
                 <div className={styles.title}>SHARE</div>
                 <Link to={ROUTES.PROFILE} className={styles.menuItem}>

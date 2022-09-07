@@ -12,7 +12,7 @@ const SideBar = () => {
               <div className={styles.mobileSidebar}>
                 <MenuIcon className={styles.burger} onClick={() => setClicked((prevState) => !prevState)} />
               </div>
-              {clicked && <SideBarComponent />}
+              {clicked && <SideBarComponent onClick={()=>setClicked(false)} />}
             </>
             : <SideBarComponent />
         }
