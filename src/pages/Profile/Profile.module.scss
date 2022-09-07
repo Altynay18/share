@@ -11,7 +11,7 @@
 }
 
 /* FOR TABLET DEVICES: */
-@media screen and (min-device-width: 450px) and (max-device-width: 1280px) {
+@media screen and (max-device-width: 1280px) {
   .profileContainer{
     display: grid;
     grid-auto-flow: row;
@@ -23,6 +23,15 @@
 
 
 /* FOR MOBILE DEVICES: */
-@media screen and (min-device-width: 360px) and (max-device-width: 414px) {
-
+@media screen and (max-device-width: 510px) {
+  .profileContainer{
+     grid-template-columns: 1fr;
+  }
+  .buttons{
+    display: flex;
+    flex-direction: column !important;
+  }
+  .infoSection{
+    padding: 0;
+  }
 }

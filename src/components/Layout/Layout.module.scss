@@ -15,6 +15,7 @@
 }
 @media screen and (max-device-width: 510px) {
   .layout{
-    grid-template-columns: 1fr;
+    display: initial;
+    grid-template-columns: initial;
   }
 }

@@ -15,7 +15,7 @@ const Profile = () => {
       <div className={styles.infoSection}>
         <div className={styles.navs}>
           <Tabs>
-            <TabList>
+            <TabList className={styles.buttons}>
               <Tab fontWeight={'600'} fontSize={'1rem'} color={'#564D80'}
                 onClick={() => navigate(ROUTES.PROFILE)}>Мои посты</Tab>
               {isAdmin &&

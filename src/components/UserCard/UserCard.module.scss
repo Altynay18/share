@@ -1,18 +1,17 @@
-
 /* FOR MOBILE DEVICES: */
 
 
 /* FOR TABLET DEVICES: */
-  .userCard {
-    border-radius: 16px;
-    background: #fcf4f3;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 2rem;
-    height: 340px;
-    width: 100%;
-  }
+.userCard {
+  border-radius: 16px;
+  background: #fcf4f3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2rem;
+  height: 340px;
+  width: 100%;
+}
 
 .userCard {
   border-radius: 16px;
@@ -21,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  height:   900px;
+  height: 900px;
 }
 
 .email {
@@ -31,18 +30,25 @@
   font-size: 1.2rem;
 }
 
-.avatar{
+.avatar {
   border-radius: 50%;
   height: 200px;
   width: 200px;
   margin-bottom: 20px;
 }
 
-.row{
+.row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 10px;
-  :first-child{
+
+  :first-child {
     font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .userCard {
+    margin-bottom: 20px;
   }
 }

@@ -73,6 +73,9 @@
 /* FOR MOBILE DEVICES: */
 @media screen and (max-device-width: 510px) {
   .mobileSidebar{
+    position: sticky;
+    top:0;
+    z-index: 10;
     background: var(--black);
     padding: 5px 10px;
     .burger{
