@@ -19,11 +19,11 @@ function Reflections() {
       content: value,
       tag:     '',
     });
-    if (res) setReflectionPosts(res.reverse());
+    if (res) setReflectionPosts(res);
   };
   const getAllPosts = useCallback(async () => {
     const arr = await postService.getAllPosts();
-    setReflectionPosts(arr);
+    setReflectionPosts(arr.reverse());
   }, []);
 
   const onCommentSubmit = async (data, postId) => {
