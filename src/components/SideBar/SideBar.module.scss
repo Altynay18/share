@@ -72,15 +72,22 @@
 
 /* FOR MOBILE DEVICES: */
 @media screen and (max-device-width: 510px) {
+  .sidebar{
+    position: fixed;
+    z-index: 9;
+    width: 100vw;
+    height: 100vh;
+  }
   .mobileSidebar{
+    background: var(--black);
+    padding: 5px 10px;
     position: sticky;
     top:0;
     z-index: 10;
-    background: var(--black);
-    padding: 5px 10px;
     .burger{
       color: var(--white);
       font-size: 2rem;
+
     }
   }
 }

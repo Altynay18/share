@@ -8,10 +8,12 @@ const SideBar = () => {
   const isMobile = window.innerWidth < 510;
   return (
       <Fragment>
-        {isMobile ? <div className={styles.mobileSidebar}>
-              <MenuIcon className={styles.burger} onClick={() => setClicked((prevState) => !prevState)} />
+        {isMobile ? <>
+              <div className={styles.mobileSidebar}>
+                <MenuIcon className={styles.burger} onClick={() => setClicked((prevState) => !prevState)} />
+              </div>
               {clicked && <SideBarComponent />}
-            </div>
+            </>
             : <SideBarComponent />
         }
       </Fragment>
