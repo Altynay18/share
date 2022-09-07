@@ -19,7 +19,7 @@ export function PageHeader({title, handleSearch}: Props) {
   return (
     <div className={styles.welcomePageTitle}>
       {title}
-      <InputGroup size="md" width={'20%'}>
+      <InputGroup size="md" className={styles.search}>
         <Input
           pr="4.5rem"
           border="2px"

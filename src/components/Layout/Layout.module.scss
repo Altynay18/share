@@ -5,14 +5,16 @@
 .container{
 }
 
-@media screen and (min-device-width: 360px) and (max-device-width: 414px) {   
-
-}
 
 /* FOR TABLET DEVICES: */
 @media screen and (min-device-width: 450px) and (max-device-width: 1280px) {   
   .layout{
     display: grid;
     grid-template-columns: 0.5fr 4.5fr;
+  }
+}
+@media screen and (max-device-width: 510px) {
+  .layout{
+    grid-template-columns: 1fr;
   }
 }

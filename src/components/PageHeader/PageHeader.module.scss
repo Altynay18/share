@@ -4,8 +4,19 @@
   font-weight: 500;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .tags {
   margin-bottom: 3rem;
+}
+
+.search{
+  width: 20% !important;
+}
+
+@media screen and (max-width: 510px){
+  .search{
+    width: 100% !important;
+  }
 }

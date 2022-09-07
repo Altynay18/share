@@ -47,10 +47,17 @@
   color: var(--yellow);
   border-bottom: 1px solid var(--yellow)
 }
-.img{
+
+.img {
   width: 60%;
   height: 20vw;
   object-fit: cover;
   display: block;
   justify-content: center;
+}
+
+@media screen and (max-width: 1360px) {
+  .postContainer {
+    width: initial;
+  }
 }
