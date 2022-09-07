@@ -42,6 +42,7 @@ export function Post({data, onCommentSubmit}: Props) {
         <div>Post ID: {data?.id}</div>
         <div>{data?.title}</div>
         <div>{data?.email}</div>
+        <div>Автор: {data?.username}</div>
         {data?.tag && data?.tag.map((el, i) => (
           <Badge borderRadius="16px" px="2" backgroundColor={colors[el.tag]}>
             {tags[el.tag]}

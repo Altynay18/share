@@ -61,7 +61,8 @@ export interface PostData {
   comment: CommentData[],
   email?: string,
   imageLink?: string,
-  fileLink?: string
+  fileLink?: string,
+  username?: string
 }
 
 export interface Tag {
