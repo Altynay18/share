@@ -36,6 +36,8 @@ export interface ProjectPostData {
   title: null;
   userfirstname?: string;
   userlastname?: string;
+  imageLink?: string,
+  fileLink?: string
 }
 
 export interface FindUser extends Record<string, string> {
