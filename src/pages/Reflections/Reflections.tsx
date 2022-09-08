@@ -23,7 +23,7 @@ function Reflections() {
   };
   const getAllPosts = useCallback(async () => {
     const arr = await postService.getAllPosts();
-    setReflectionPosts(arr.reverse());
+    setReflectionPosts(arr);
   }, []);
 
   const onCommentSubmit = async (data, postId) => {
