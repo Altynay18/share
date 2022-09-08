@@ -10,7 +10,7 @@ export class GeneralService extends Requests {
   getRoleList() {
     const path = '/';
     // return this.get(path);
-    return ['Член основной пятёрки SHARE', 'Координатор SHARE', 'Школьный координатор SHARE', 'Сетевой координатор SHARE', 'Волонтёр SHARE'];
+    return ['Член основной пятёрки SHARE', 'Координатор SHARE', 'Школьный координатор SHARE', 'Сетевой координатор SHARE', 'Сетевой ко-координатор SHARE', 'Волонтёр SHARE'];
   }
   getTagList(){
     const path = '/';
