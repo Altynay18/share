@@ -18,7 +18,7 @@ interface AnnotationUserProfile {
   email?: string
 }
 
-const API_KEY = '949e5531d9b947f887843f1c5bb2bd8f';
+const API_KEY = 'e17ad4a437e84a7aa1224bafa944fc29';
 
 export class Demo extends ArticleService {
   readonly pdfUrl: any;
