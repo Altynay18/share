@@ -60,11 +60,11 @@ export function Register(props: Props) {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <h2 className={styles.title}>Авторизация</h2>
-      <InputWrapper label={'Емайл'} error={errors.name} errText={'Err'}>
+      <InputWrapper label={'Эл.почта'} error={errors.name} errText={'Err'}>
         <input {...register('email', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'Имя'} error={errors.name}
-                    errText={'This name is required'}>
+        errText={'This name is required'}>
         <input {...register('firstname', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'Фамилия'} error={errors.name} errText={'Err'}>
@@ -89,7 +89,7 @@ export function Register(props: Props) {
         <input {...register('password', {required: true})} />
       </InputWrapper>
       <InputWrapper label={'Повторите пароль'} error={errors.passwordConfirm}
-                    errText={'err'}>
+        errText={'err'}>
         <input {...register('passwordConfirm', {
           required: true,
         })} />

@@ -43,7 +43,7 @@ const Auth = () => {
         <div className={styles.description}>School Hub for Action Research
           in Education
         </div>
-        <img src={netImg} alt="net" className={styles.img} />
+        <div className={styles.img} ><img src={netImg} alt="net" /></div>
       </div>
       <div className={styles.formSection}>
         {location.pathname.includes(ROUTES.LOGIN) ? <Login /> : <Register />}
