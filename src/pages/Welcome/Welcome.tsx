@@ -22,7 +22,7 @@ export function Welcome(props: Props) {
 
   async function getAllPost() {
     const result = await postService.getAllPosts();
-    if (result) setPostList(result.reverse());
+    if (result) setPostList(result);
   }
 
   const onCommentSubmit = async (formData, postId) => {
