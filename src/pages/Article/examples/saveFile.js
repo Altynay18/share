@@ -1,6 +1,6 @@
 document.addEventListener('adobe_dc_view_sdk.ready', function () {
   var adobeDCView = new AdobeDC.View({
-    clientId: '949e5531d9b947f887843f1c5bb2bd8f',
+    clientId: 'e17ad4a437e84a7aa1224bafa944fc29',
     divId: 'adobe-dc-view',
   });
   adobeDCView.previewFile({
